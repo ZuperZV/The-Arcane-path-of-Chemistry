@@ -1,2 +1,4 @@
-// 1.21	2024-10-11T14:58:57.1192634	Loot Tables
+// 1.21	2024-10-11T17:33:22.6583632	Loot Tables
+078509fcb2f1f8ee75abf1a6f79285aef5eaff2f data/arcane_chemistry/loot_table/blocks/fire_pot.json
+bbe5ba5e41c8f41a64bbcace11543b69ae85050b data/arcane_chemistry/loot_table/blocks/fire_pot_campfire.json
 6c5b60ebf320dd2e062967a210363749db2a34e5 data/arcane_chemistry/loot_table/blocks/hard_oven.json

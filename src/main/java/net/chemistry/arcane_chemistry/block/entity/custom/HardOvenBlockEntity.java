@@ -286,7 +286,7 @@ public class HardOvenBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.aurora.hard_oven");
+        return Component.translatable("block.arcane_chemistry.hard_oven");
     }
 
     public void dropItems() {

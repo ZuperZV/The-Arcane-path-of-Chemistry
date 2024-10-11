@@ -1,6 +1,7 @@
 package net.chemistry.arcane_chemistry.datagen;
 
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
+import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -19,6 +20,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
 
         //blockWithItem(ModBlocks.BLUESTONE);
+
+        horizontalBlock(ModBlocks.FIRE_POT_CAMPFIRE.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/fire_pot_campfire")));
     }
 
     private void blockWithItem(DeferredBlock<Block> deferredBlock) {

@@ -1,6 +1,15 @@
 {
   "creativetab.arcane_chemistry.arcane_chemistry_tab": "The Arcane path of Chemistry",
 
-  "item.arcane_chemistry.test": "Test",
-  "block.aurora.hard_oven": "Hard Oven"
+  "block.arcane_chemistry.hard_oven": "Hard Oven",
+  "block.arcane_chemistry.fire_pot": "Fire Pot",
+  "block.arcane_chemistry.fire_pot_campfire": "Fire Pot",
+
+  "item.arcane_chemistry.flint_sword": "Flint Sword",
+  "item.arcane_chemistry.flint_pickaxe": "Flint Pickaxe",
+  "item.arcane_chemistry.flint_axe": "Flint Axe",
+  "item.arcane_chemistry.flint_shovel": "Flint Shovel",
+  "item.arcane_chemistry.flint_hoe": "Flint Hoe",
+
+  "item.arcane_chemistry.iron": "Iron"
 }
