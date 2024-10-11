@@ -1,0 +1,11 @@
+{
+  "name": "The Arcane Lexicon",
+  "landing_text": "Welcome to the Arcane path of Chemistry",
+  "version": 1,
+  "creative_tab": "minecraft:tools_and_utilities",
+  "use_resource_pack": true,
+  "book_texture": "arcane_chemistry:textures/gui/the_arcane_lexicon.png",
+  "model": "arcane_chemistry:the_arcane_lexicon",
+  "show_progress": false,
+  "use_blocky_font": true
+}
