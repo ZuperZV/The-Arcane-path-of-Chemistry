@@ -1,0 +1,15 @@
+{
+  "type": "arcane_chemistry:hard_oven",
+
+  "oven_ingredient": {
+    "item": "minecraft:clay"
+  },
+
+  "ingredient": {
+    "item": "minecraft:clay_ball"
+  },
+
+  "output": {
+    "item": "minecraft:clay_ball"
+  }
+}
