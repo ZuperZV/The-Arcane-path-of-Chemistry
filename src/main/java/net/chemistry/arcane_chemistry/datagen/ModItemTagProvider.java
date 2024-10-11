@@ -1,6 +1,7 @@
 package net.chemistry.arcane_chemistry.datagen;
 
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
+import net.chemistry.arcane_chemistry.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;

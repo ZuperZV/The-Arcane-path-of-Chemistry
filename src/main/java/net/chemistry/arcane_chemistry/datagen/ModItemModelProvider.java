@@ -2,6 +2,7 @@ package net.chemistry.arcane_chemistry.datagen;
 
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.item.ModItems;
+import net.chemistry.arcane_chemistry.item.custom.ElementItem;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -19,8 +20,13 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basicItem(ModItems.TEST.get());
+        //basicItem(ModItems.IRON.get());
 
+        handheldItem(ModItems.FLINT_SWORD);
+        handheldItem(ModItems.FLINT_PICKAXE);
+        handheldItem(ModItems.FLINT_AXE);
+        handheldItem(ModItems.FLINT_SHOVEL);
+        handheldItem(ModItems.FLINT_HOE);
     }
 
     private ItemModelBuilder handheldItem(DeferredItem<Item> item) {

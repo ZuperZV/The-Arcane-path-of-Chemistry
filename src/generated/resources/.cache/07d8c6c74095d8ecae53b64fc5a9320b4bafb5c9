@@ -1,2 +1,6 @@
-// 1.21	2024-10-11T14:29:10.4321275	Item Models: arcane_chemistry
-9dd582f4f9098b417a4f3dffff15dfa21925c76a assets/arcane_chemistry/models/item/test.json
+// 1.21	2024-10-11T23:24:42.1079992	Item Models: arcane_chemistry
+f8826a3bc2231ff9c713dd7ae02acac9104e3647 assets/arcane_chemistry/models/item/flint_axe.json
+542a4a0568821e6ae40989a656bff247db9d98e5 assets/arcane_chemistry/models/item/flint_hoe.json
+894fabdffc69b7860611758efdfb10273a29116e assets/arcane_chemistry/models/item/flint_pickaxe.json
+74784a4ea8df446e952ad1067cca0957c5f24972 assets/arcane_chemistry/models/item/flint_shovel.json
+1a8097b5b484be26b2fe10385900badf4098f4f9 assets/arcane_chemistry/models/item/flint_sword.json

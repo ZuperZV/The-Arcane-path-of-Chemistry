@@ -2,14 +2,14 @@
   "type": "arcane_chemistry:hard_oven",
 
   "oven_ingredient": {
-    "item": "minecraft:clay"
+    "item": "minecraft:cobblestone"
   },
 
   "ingredient": {
-    "item": "minecraft:clay_ball"
+    "item": "minecraft:gravel"
   },
 
   "output": {
-    "item": "minecraft:clay_ball"
+    "item": "minecraft:flint"
   }
 }
