@@ -7,6 +7,10 @@
         {
           "type": "minecraft:item",
           "name": "arcane_chemistry:fire_pot"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:charcoal"
         }
       ],
       "rolls": 1.0
