@@ -9,10 +9,10 @@ import net.minecraft.world.item.TooltipFlag;
 import java.util.List;
 
 public class AtomItem extends Item {
-    private final String elementName;
+    public final String elementName;
     private final int color;
 
-    private final String Skall;
+    public final String Skall;
 
     private final String Skallnumber;
     private final int SkallnumberColor;
@@ -105,5 +105,9 @@ public class AtomItem extends Item {
 
         if (!(Skallnumber8 == "0"))
             pTooltipComponents.add(Component.literal (Skallnumber8).setStyle(Style.EMPTY.withColor(SkallnumberColor8)));
+    }
+
+    public String getElementName() {
+        return this.elementName;
     }
 }

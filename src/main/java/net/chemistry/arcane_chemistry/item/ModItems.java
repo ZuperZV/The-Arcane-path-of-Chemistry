@@ -15,6 +15,9 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS =
             DeferredRegister.createItems(Arcane_chemistry.MOD_ID);
 
+    public static final DeferredItem<Item> PEBBLE = ITEMS .register("pebble",
+            () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<AtomItem> LITHIUM = ITEMS .register("lithium",
             () -> new AtomItem(new Item.Properties(), "1", "Li", 0xffda39,
                     "3", 474747,
@@ -136,7 +139,7 @@ public class ModItems {
                     "0", 0x282834,
                     "0", 0x282834));
 
-    public static final DeferredItem<AtomItem> MANGANSES = ITEMS .register("manganese",
+    public static final DeferredItem<AtomItem> MANGANESE = ITEMS .register("manganese",
             () -> new AtomItem(new Item.Properties(), "2", "Mn", 0xffda39,
                     "25", 474747,
                     "2",0x282834,
@@ -281,12 +284,23 @@ public class ModItems {
 
     public static final DeferredItem<AtomItem> TECHNETIUM = ITEMS .register("technetium",
             () -> new AtomItem(new Item.Properties(), "2", "Tc", 0xffda39,
-                    "44", 474747,
+                    "43", 474747,
                     "2",0x282834,
                     "8", 0x282834,
                     "18", 0x282834,
                     "13", 0x282834,
                     "2", 0x282834,
+                    "0", 0x282834,
+                    "0", 0x282834));
+
+    public static final DeferredItem<AtomItem> RUTHENIUM = ITEMS .register("ruthenium",
+            () -> new AtomItem(new Item.Properties(), "1", "Ru", 0xffda39,
+                    "44", 474747,
+                    "2",0x282834,
+                    "8", 0x282834,
+                    "18", 0x282834,
+                    "15", 0x282834,
+                    "1", 0x282834,
                     "0", 0x282834,
                     "0", 0x282834));
 
@@ -499,7 +513,7 @@ public class ModItems {
                     "2", 0x282834,
                     "0", 0x282834));
 
-    public static final DeferredItem<AtomItem> ERBOUM = ITEMS .register("erbium",
+    public static final DeferredItem<AtomItem> ERBIUM = ITEMS .register("erbium",
             () -> new AtomItem(new Item.Properties(), "2", "Er", 0xffda39,
                     "68", 474747,
                     "2",0x282834,
@@ -609,7 +623,7 @@ public class ModItems {
                     "2", 0x282834,
                     "0", 0x282834));
 
-    public static final DeferredItem<AtomItem> PLASTINUM = ITEMS .register("platinum",
+    public static final DeferredItem<AtomItem> PLATINUM = ITEMS .register("platinum",
             () -> new AtomItem(new Item.Properties(), "1", "Pt", 0xffda39,
                     "78", 474747,
                     "2",0x282834,
@@ -622,7 +636,7 @@ public class ModItems {
 
     public static final DeferredItem<AtomItem> GOLD = ITEMS .register("gold",
             () -> new AtomItem(new Item.Properties(), "1", "Au", 0xffda39,
-                    "80", 474747,
+                    "79", 474747,
                     "2",0x282834,
                     "8", 0x282834,
                     "18", 0x282834,
@@ -632,6 +646,16 @@ public class ModItems {
                     "0", 0x282834));
 
     //Mercury/kviksølv
+    public static final DeferredItem<AtomItem> MERCURY = ITEMS .register("mercury",
+            () -> new AtomItem(new Item.Properties(), "2", "Au", 0xffda39,
+                    "80", 474747,
+                    "2",0x282834,
+                    "8", 0x282834,
+                    "18", 0x282834,
+                    "32", 0x282834,
+                    "18", 0x282834,
+                    "2", 0x282834,
+                    "0", 0x282834));
 
     public static final DeferredItem<AtomItem> THALLIUM = ITEMS .register("thallium",
             () -> new AtomItem(new Item.Properties(), "3", "Ti", 0xffda39,
@@ -809,7 +833,7 @@ public class ModItems {
                     "8", 0x282834,
                     "2", 0x282834));
 
-    public static final DeferredItem<AtomItem> EINSTRINIUM = ITEMS .register("einsteinium",
+    public static final DeferredItem<AtomItem> EINSTEINIUM = ITEMS .register("einsteinium",
             () -> new AtomItem(new Item.Properties(), "2", "Es", 0xffda39,
                     "99", 474747,
                     "2",0x282834,
@@ -820,7 +844,7 @@ public class ModItems {
                     "8", 0x282834,
                     "2", 0x282834));
 
-    public static final DeferredItem<AtomItem> FERMIUM = ITEMS .register("fermium",
+    public static final DeferredItem<AtomItem> FERMUM = ITEMS .register("fermium",
             () -> new AtomItem(new Item.Properties(), "2", "Fm", 0xffda39,
                     "100", 474747,
                     "2",0x282834,

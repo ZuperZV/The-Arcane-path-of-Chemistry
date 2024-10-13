@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "arcane_chemistry:block/hard_oven_front",
+    "side": "arcane_chemistry:block/hard_oven_side",
+    "top": "arcane_chemistry:block/hard_oven_top",
+    "bottom": "arcane_chemistry:block/hard_oven_bottom"
+  }
+}
