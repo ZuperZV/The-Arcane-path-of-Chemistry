@@ -1,4 +1,6 @@
-// 1.21	2024-10-12T12:01:41.5478854	Loot Tables
+// 1.21	2024-10-13T22:30:59.6892557	Loot Tables
 078509fcb2f1f8ee75abf1a6f79285aef5eaff2f data/arcane_chemistry/loot_table/blocks/fire_pot.json
 8ab86d99dfacf85184d3f99d9b2ffb74a3f06199 data/arcane_chemistry/loot_table/blocks/fire_pot_campfire.json
 6c5b60ebf320dd2e062967a210363749db2a34e5 data/arcane_chemistry/loot_table/blocks/hard_oven.json
+58e168916f46ad580cf27388116a3c01900a9aa0 data/arcane_chemistry/loot_table/blocks/nickel_block.json
+f0031ae2b1f38cd56a1497f883997189a4c2c075 data/arcane_chemistry/loot_table/blocks/nickel_compreser.json

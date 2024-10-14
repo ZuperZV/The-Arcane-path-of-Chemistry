@@ -1,8 +1,10 @@
 package net.chemistry.arcane_chemistry.block;
 
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
+import net.chemistry.arcane_chemistry.block.custom.ElemenBlock;
 import net.chemistry.arcane_chemistry.block.custom.FirePotCampfireBlock;
 import net.chemistry.arcane_chemistry.block.custom.HardOvenBlock;
+import net.chemistry.arcane_chemistry.block.custom.NickelCompreserBlock;
 import net.chemistry.arcane_chemistry.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -32,7 +34,16 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> FIRE_POT_CAMPFIRE = registerBlock("fire_pot_campfire",
             () -> new FirePotCampfireBlock(true, 1, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).mapColor(MapColor.PODZOL)
-                    .instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.METAL).noOcclusion().ignitedByLava().lightLevel(litBlockEmission(15))));
+                    .instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.METAL).noOcclusion().ignitedByLava()
+                    .lightLevel(litBlockEmission(15))));
+
+    public static final DeferredBlock<Block> NICKEL_BLOCK = registerBlock("nickel_block",
+            () -> new ElemenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
+                    .sound(SoundType.METAL), "Ni", 0xffda39));
+
+    public static final DeferredBlock<Block> NICKEL_COMPRESER = registerBlock("nickel_compreser",
+            () -> new NickelCompreserBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
+                    .sound(SoundType.METAL).noOcclusion(), "Ni", 0xffda39));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

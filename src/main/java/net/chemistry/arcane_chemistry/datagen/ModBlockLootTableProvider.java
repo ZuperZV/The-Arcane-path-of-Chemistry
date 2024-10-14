@@ -36,6 +36,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         dropSelf(ModBlocks.FIRE_POT.get());
 
+        dropSelf(ModBlocks.NICKEL_BLOCK.get());
+        dropSelf(ModBlocks.NICKEL_COMPRESER.get());
+
         this.add(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 block -> LootTable.lootTable()
                         .withPool(LootPool.lootPool()

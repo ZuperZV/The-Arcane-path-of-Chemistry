@@ -1,13 +1,20 @@
 package net.chemistry.arcane_chemistry.datagen;
 
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
+import net.chemistry.arcane_chemistry.block.ModBlocks;
+import net.chemistry.arcane_chemistry.item.ModItems;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -19,19 +26,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(RecipeOutput pWriter) {
 
-        /*SimpleCookingRecipeBuilder.blasting (Ingredient.of(ModItems.SOFT_CLAY_JAR.get()), RecipeCategory.MISC , ModItems.CLAY_JAR.get(), 0.15f , 200)
-                .unlockedBy("has_soft_clay_jar",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.SOFT_CLAY_JAR.get()).build()))
-                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "clay_jar_from_blasting"));
-         */
+        SimpleCookingRecipeBuilder.blasting (Ingredient.of(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get()), RecipeCategory.MISC , ModItems.RAW_NICKEL.get(), 0.1f , 200)
+                .unlockedBy("has_raw_impure_nickel_iron_mix",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_nickel_from_blasting"));
 
+        SimpleCookingRecipeBuilder.blasting (Ingredient.of(ModItems.RAW_NICKEL.get()), RecipeCategory.MISC , ModItems.NICKEL_INGOT.get(), 0.1f , 200)
+                .unlockedBy("has_raw_nickel",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_NICKEL.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "nickel_ingot_from_blasting"));
 
-        /*ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BLUESTONE.get())
-                .pattern("AA")
-                .pattern("AA")
-                .define('A', ModItems.BLUESTONE_DUST)
-                .unlockedBy("has_bluestone", has(ModItems.BLUESTONE_DUST)).save(pWriter);
-         */
+        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get()), RecipeCategory.MISC , ModItems.RAW_NICKEL.get(), 0.15f , 200)
+                .unlockedBy("has_raw_impure_nickel_iron_mix",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_nickel_from_smelting"));
 
+        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_NICKEL.get()), RecipeCategory.MISC , ModItems.NICKEL_INGOT.get(), 0.15f , 200)
+                .unlockedBy("has_raw_nickel",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_NICKEL.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "nickel_ingot_from_smelting"));
+
+        fourBlockStorageRecipes(pWriter, RecipeCategory.BUILDING_BLOCKS, ModItems.NICKEL_INGOT.get(), RecipeCategory.MISC,
+                ModBlocks.NICKEL_BLOCK.get());
 
         /*ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CLAY_DUST.get())
                 .requires(ModItems.HARD_CLAY_BALL.get())
@@ -61,5 +73,38 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
                     .save(pRecipeOutput, Arcane_chemistry.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
+    }
+
+    protected static void fourBlockStorageRecipes(
+            RecipeOutput p_301057_, RecipeCategory p_251203_, ItemLike p_251689_, RecipeCategory p_251376_, ItemLike p_248771_
+    ) {
+        fourBlockStorageRecipes(
+                p_301057_, p_251203_, p_251689_, p_251376_, p_248771_, getSimpleRecipeName(p_248771_), null, getSimpleRecipeName(p_251689_), null
+        );
+    }
+
+    protected static void fourBlockStorageRecipes(
+            RecipeOutput p_301222_,
+            RecipeCategory p_250083_,
+            ItemLike p_250042_,
+            RecipeCategory p_248977_,
+            ItemLike p_251911_,
+            String p_250475_,
+            @Nullable String p_248641_,
+            String p_252237_,
+            @Nullable String p_250414_
+    ) {
+        ShapelessRecipeBuilder.shapeless(p_250083_, p_250042_, 4)
+                .requires(p_251911_)
+                .group(p_250414_)
+                .unlockedBy(getHasName(p_251911_), has(p_251911_))
+                .save(p_301222_, ResourceLocation.parse(p_252237_));
+        ShapedRecipeBuilder.shaped(p_248977_, p_251911_)
+                .define('#', p_250042_)
+                .pattern("##")
+                .pattern("##")
+                .group(p_248641_)
+                .unlockedBy(getHasName(p_250042_), has(p_250042_))
+                .save(p_301222_, ResourceLocation.parse(p_250475_));
     }
 }

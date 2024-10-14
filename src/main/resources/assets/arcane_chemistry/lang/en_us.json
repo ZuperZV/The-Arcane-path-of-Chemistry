@@ -4,12 +4,19 @@
   "block.arcane_chemistry.hard_oven": "Hard Oven",
   "block.arcane_chemistry.fire_pot": "Fire Pot",
   "block.arcane_chemistry.fire_pot_campfire": "Fire Pot",
+  "block.arcane_chemistry.nickel_block": "Nickel Block",
 
   "item.arcane_chemistry.flint_sword": "Flint Sword",
   "item.arcane_chemistry.flint_pickaxe": "Flint Pickaxe",
   "item.arcane_chemistry.flint_axe": "Flint Axe",
   "item.arcane_chemistry.flint_shovel": "Flint Shovel",
   "item.arcane_chemistry.flint_hoe": "Flint Hoe",
+
+  "item.arcane_chemistry.nickel_ingot": "Nickel Ingot",
+  "item.arcane_chemistry.raw_nickel": "Raw Nickel",
+  "item.arcane_chemistry.raw_impure_nickel_iron_mix": "Raw Impure Nickel-Iron Mix",
+  "item.arcane_chemistry.raw_impure_nickel": "Raw Impure Nickel",
+  "item.arcane_chemistry.raw_impure_iron": "Raw Impure Iron",
 
   // Alkali Metals
   "item.arcane_chemistry.lithium": "Lithium",
@@ -99,5 +106,6 @@
   "item.arcane_chemistry.fermium": "Fermium",
   "item.arcane_chemistry.mendelevium": "Mendelevium",
   "item.arcane_chemistry.nobelium": "Nobelium",
-  "item.arcane_chemistry.lawrencium": "Lawrencium"
+  "item.arcane_chemistry.lawrencium": "Lawrencium",
+  "block.arcane_chemistry.nickel_compreser": "Nickel Compreser"
 }

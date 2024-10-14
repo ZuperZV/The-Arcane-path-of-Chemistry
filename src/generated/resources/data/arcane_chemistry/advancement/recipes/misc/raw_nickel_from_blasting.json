@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_impure_nickel_iron_mix": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arcane_chemistry:raw_impure_nickel_iron_mix"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arcane_chemistry:raw_nickel_from_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_impure_nickel_iron_mix"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arcane_chemistry:raw_nickel_from_blasting"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 package net.chemistry.arcane_chemistry.block.entity.custom;
 
-import net.chemistry.arcane_chemistry.block.custom.HardOvenBlock;
+import net.chemistry.arcane_chemistry.block.custom.FirePotCampfireBlock;
 import net.chemistry.arcane_chemistry.block.entity.ItemHandler.CustomItemHandler;
 import net.chemistry.arcane_chemistry.block.entity.ModBlockEntities;
 import net.chemistry.arcane_chemistry.recipes.FirePotRecipe;
@@ -41,9 +41,9 @@ public class FirePotCampfireBlockEntity extends BlockEntity {
     public static void tick(Level level, BlockPos pos, BlockState state, FirePotCampfireBlockEntity blockEntity) {
         if (blockEntity.hasRecipe() && blockEntity.hasEnoughFluid()) {
             blockEntity.craftItemAndFluid();
-            level.setBlockAndUpdate(pos, state.setValue(HardOvenBlock.LIT, true));
+            level.setBlockAndUpdate(pos, state.setValue(FirePotCampfireBlock.LIT, true));
         } else {
-            level.setBlockAndUpdate(pos, state.setValue(HardOvenBlock.LIT, false));
+            level.setBlockAndUpdate(pos, state.setValue(FirePotCampfireBlock.LIT, false));
         }
     }
 

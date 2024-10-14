@@ -19,7 +19,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
 
-        //blockWithItem(ModBlocks.BLUESTONE);
+        blockWithItem(ModBlocks.NICKEL_BLOCK);
 
         horizontalBlock(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/fire_pot_campfire")));

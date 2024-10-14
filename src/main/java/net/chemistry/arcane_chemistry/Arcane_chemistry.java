@@ -8,7 +8,12 @@ import net.chemistry.arcane_chemistry.item.custom.decorator.NumberDecorator;
 import net.chemistry.arcane_chemistry.recipes.ModRecipes;
 import net.chemistry.arcane_chemistry.screen.HardOvenScreen;
 import net.chemistry.arcane_chemistry.screen.ModMenuTypes;
+import net.chemistry.arcane_chemistry.screen.NickelCompreserMenu;
+import net.chemistry.arcane_chemistry.screen.NickelCompreserScreen;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
@@ -58,8 +63,6 @@ public class Arcane_chemistry {
         //modEventBus.addListener(this::onModSetup);
     }
 
-
-
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
@@ -78,13 +81,14 @@ public class Arcane_chemistry {
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
+
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(ModMenuTypes.HARD_OVEN_MENU.get(), HardOvenScreen::new);
+            event.register(ModMenuTypes.NICKEL_COMPRESER_MENU.get(), NickelCompreserScreen::new);
         }
 
         @SubscribeEvent
         public static void registerItemDecorators(RegisterItemDecorationsEvent event) {
-
             // Alkali Metals
             event.register(ModItems.LITHIUM.get(), new NumberDecorator());   // Lithium
             event.register(ModItems.SODIUM.get(), new NumberDecorator());    // Sodium
@@ -174,6 +178,11 @@ public class Arcane_chemistry {
             event.register(ModItems.MENDELEVIUM.get(), new NumberDecorator()); // Mendelevium
             event.register(ModItems.NOBELIUM.get(), new NumberDecorator());    // Nobelium
             event.register(ModItems.LAWRENCIUM.get(), new NumberDecorator());  // Lawrencium
+            event.register(ModItems.RUTHERFORDIUM.get(), new NumberDecorator());
+            event.register(ModItems.DUBNIUM.get(), new NumberDecorator());
+            event.register(ModItems.SEABORGIUM.get(), new NumberDecorator());
+            event.register(ModItems.BOHRIUM.get(), new NumberDecorator());
+            event.register(ModItems.HASSIUM.get(), new NumberDecorator());
         }
     }
 }

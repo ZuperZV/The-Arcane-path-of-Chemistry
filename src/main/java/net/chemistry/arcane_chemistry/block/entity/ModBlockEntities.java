@@ -4,6 +4,7 @@ import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.block.entity.custom.FirePotCampfireBlockEntity;
 import net.chemistry.arcane_chemistry.block.entity.custom.HardOvenBlockEntity;
+import net.chemistry.arcane_chemistry.block.entity.custom.NickelCompreserBlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -23,6 +24,11 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<FirePotCampfireBlockEntity>> FIRE_POT_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("fire_pot_be", () -> BlockEntityType.Builder.of(
                     FirePotCampfireBlockEntity::new, ModBlocks.FIRE_POT_CAMPFIRE.get()).build(null));
+
+    public static final Supplier<BlockEntityType<NickelCompreserBlockEntity>> NICKEL_COMPRESER_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("nickel_compreser_be", () -> BlockEntityType.Builder.of(
+                    NickelCompreserBlockEntity::new, ModBlocks.NICKEL_COMPRESER.get()).build(null));
+
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

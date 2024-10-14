@@ -15,9 +15,11 @@ import java.util.function.Supplier;
 public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(BuiltInRegistries.MENU, Arcane_chemistry.MOD_ID);
 
-
     public static final Supplier<MenuType<HardOvenMenu>> HARD_OVEN_MENU = MENUS.register("hard_oven_menu",
             () -> IMenuTypeExtension.create((windowId, inv, data) -> new HardOvenMenu(windowId, inv.player, data.readBlockPos())));
+
+    public static final Supplier<MenuType<NickelCompreserMenu>> NICKEL_COMPRESER_MENU = MENUS.register("nickel_compreser_menu",
+            () -> IMenuTypeExtension.create((windowId, inv, data) -> new NickelCompreserMenu(windowId, inv.player, data.readBlockPos())));
 
     private static <T extends AbstractContainerMenu> Supplier<MenuType<T>> registerMenuType(IContainerFactory<T> factory,
                                                                                             String name) {

@@ -30,6 +30,13 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.HARD_OVEN.get());
                         pOutput.accept(ModBlocks.FIRE_POT.get());
 
+                        pOutput.accept(ModBlocks.NICKEL_BLOCK.get());
+                        pOutput.accept(ModItems.NICKEL_INGOT.get());
+                        pOutput.accept(ModItems.RAW_NICKEL.get());
+                        pOutput.accept(ModItems.RAW_IMPURE_NICKEL.get());
+                        pOutput.accept(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get());
+                        pOutput.accept(ModItems.RAW_IMPURE_IRON.get());
+
                         // Alkali Metals
                         pOutput.accept(ModItems.LITHIUM.get());     // Lithium
                         pOutput.accept(ModItems.SODIUM.get());      // Sodium
@@ -118,7 +125,12 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.FERMUM.get());      // Fermium
                         pOutput.accept(ModItems.MENDELEVIUM.get()); // Mendelevium
                         pOutput.accept(ModItems.NOBELIUM.get());    // Nobelium
-                        pOutput.accept(ModItems.LAWRENCIUM.get());  // Lawrencium
+                        pOutput.accept(ModItems.LAWRENCIUM.get());  // LawrenciumNobelium
+                        pOutput.accept(ModItems.RUTHERFORDIUM.get());
+                        pOutput.accept(ModItems.DUBNIUM.get());
+                        pOutput.accept(ModItems.SEABORGIUM.get());
+                        pOutput.accept(ModItems.BOHRIUM.get());
+                        pOutput.accept(ModItems.HASSIUM.get());
 
                         // pOutput.accept(ModItems.HYDROGEN.get());  // Hydrogen
                         // pOutput.accept(ModItems.HELIUM.get());    // Helium

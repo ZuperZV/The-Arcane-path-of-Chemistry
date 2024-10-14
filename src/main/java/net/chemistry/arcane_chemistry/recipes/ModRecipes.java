@@ -23,12 +23,18 @@ public class ModRecipes {
     public static final Supplier<RecipeType<HardOvenRecipe>> HARD_OVEN_RECIPE_TYPE =
             RECIPE_TYPES.register("hard_oven", () -> HardOvenRecipe.Type.INSTANCE);
 
+    public static final Supplier<RecipeType<NickelCompreserRecipe>> NICKEL_COMPRESER_RECIPE_TYPE =
+            RECIPE_TYPES.register("nickel_compreser", () -> NickelCompreserRecipe.Type.INSTANCE);
+
     public static final Supplier<RecipeType<FirePotRecipe>> FIRE_POT_RECIPE_TYPE =
             RECIPE_TYPES.register("fire_pot", () -> FirePotRecipe.Type.INSTANCE);
 
 
     public static final Supplier<RecipeSerializer<HardOvenRecipe>> HARD_OVEN_SERIALIZER =
             SERIALIZERS.register("hard_oven", () -> HardOvenRecipe.Serializer.INSTANCE);
+
+    public static final Supplier<RecipeSerializer<NickelCompreserRecipe>> NICKEL_COMPRESER_SERIALIZER =
+            SERIALIZERS.register("nickel_compreser", () -> NickelCompreserRecipe.Serializer.INSTANCE);
 
     public static final Supplier<RecipeSerializer<FirePotRecipe>> FIRE_POT_SERIALIZER =
             SERIALIZERS.register("fire_pot", () -> FirePotRecipe.Serializer.INSTANCE);

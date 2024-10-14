@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "arcane_chemistry:nickel_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "arcane_chemistry:nickel_ingot"
+  }
+}

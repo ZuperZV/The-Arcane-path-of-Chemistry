@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
 public class HardOvenBlock extends Block implements EntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
+
     public HardOvenBlock(Properties properties) {
         super(Properties.of());
     }
@@ -52,7 +53,8 @@ public class HardOvenBlock extends Block implements EntityBlock {
     @org.jetbrains.annotations.Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite()).setValue(LIT, false);
+        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite())
+                .setValue(LIT, false);
     }
 
     @Override

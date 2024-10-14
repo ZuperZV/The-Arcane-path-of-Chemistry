@@ -97,7 +97,7 @@ public class HardOvenBlockEntity extends BlockEntity implements MenuProvider {
 
         if (blockEntity.fuelBurnTime > 0 && blockEntity.hasRecipe()) {
             blockEntity.progress++;
-            level.setBlockAndUpdate(pos, state.setValue(HardOvenBlock.LIT, true)); // Blokken tændes
+            level.setBlockAndUpdate(pos, state.setValue(HardOvenBlock.LIT, true));
             if (blockEntity.progress >= blockEntity.maxProgress) {
                 blockEntity.craftItem(blockEntity);
                 blockEntity.progress = 0;

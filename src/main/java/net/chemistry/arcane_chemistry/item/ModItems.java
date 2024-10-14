@@ -973,6 +973,21 @@ public class ModItems {
                     new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, -1.5F, 0.0F)), "SiO2", 0xffda39
             ));
 
+    public static final DeferredItem<Item> NICKEL_INGOT = ITEMS .register("nickel_ingot",
+            () -> new NormalItem(new Item.Properties(), "Ni", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_NICKEL = ITEMS .register("raw_nickel",
+            () -> new NormalItem(new Item.Properties(), "Ni", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_IMPURE_NICKEL_IRON_MIX = ITEMS .register("raw_impure_nickel_iron_mix",
+            () -> new NormalItem(new Item.Properties(), "NiFe", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_IMPURE_NICKEL = ITEMS .register("raw_impure_nickel",
+            () -> new NormalItem(new Item.Properties(), "Ni", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_IMPURE_IRON = ITEMS .register("raw_impure_iron",
+            () -> new NormalItem(new Item.Properties(), "Fe", 0xffda39));
+
 
 
 

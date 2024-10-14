@@ -1,2 +1,5 @@
-// 1.21	2024-10-11T21:01:46.000777	Block States: arcane_chemistry
+// 1.21	2024-10-13T05:37:03.9109816	Block States: arcane_chemistry
 7413220cc5e283d2734e34756932ce95be12fe94 assets/arcane_chemistry/blockstates/fire_pot_campfire.json
+557d4e2d8d3043a6a24700fc1aaae16b2c4ceba3 assets/arcane_chemistry/blockstates/nickel_block.json
+c6a455f1da7dda773e80798c2e470aa3073d3b1b assets/arcane_chemistry/models/block/nickel_block.json
+0b7e5528f870297cb82fda39fcad4fa34057e692 assets/arcane_chemistry/models/item/nickel_block.json

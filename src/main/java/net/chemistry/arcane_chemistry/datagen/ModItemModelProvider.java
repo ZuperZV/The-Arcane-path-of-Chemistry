@@ -28,7 +28,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.FLINT_SHOVEL);
         handheldItem(ModItems.FLINT_HOE);
 
-        handheldItem(ModItems.PEBBLE);
+        basicItem(ModItems.PEBBLE.get());
+        basicItem(ModItems.NICKEL_INGOT.get());
+        basicItem(ModItems.RAW_NICKEL.get());
+        basicItem(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get());
+        basicItem(ModItems.RAW_IMPURE_NICKEL.get());
+        basicItem(ModItems.RAW_IMPURE_IRON.get());
 
         // Alkali Metals
         atomItem(ModItems.LITHIUM);     // Lithium
@@ -119,6 +124,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         atomItem(ModItems.MENDELEVIUM);// Mendelevium
         atomItem(ModItems.NOBELIUM);    // Nobelium
         atomItem(ModItems.LAWRENCIUM);  // Lawrencium
+        atomItem(ModItems.RUTHERFORDIUM);
+        atomItem(ModItems.DUBNIUM);
+        atomItem(ModItems.SEABORGIUM);
+        atomItem(ModItems.BOHRIUM);
+        atomItem(ModItems.HASSIUM);
     }
 
     private ItemModelBuilder atomItem(DeferredItem<AtomItem> item) {

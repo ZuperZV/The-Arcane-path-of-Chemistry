@@ -4,11 +4,8 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.chemistry.arcane_chemistry.block.entity.custom.FirePotCampfireBlockEntity;
-import net.chemistry.arcane_chemistry.block.entity.custom.HardOvenBlockEntity;
-import net.chemistry.arcane_chemistry.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.sounds.SoundEvents;
@@ -154,16 +151,15 @@ public class FirePotCampfireBlock extends BaseEntityBlock {
         super.entityInside(p_51269_, p_51270_, p_51271_, p_51272_);
     }
 
-    @Nullable
+    @org.jetbrains.annotations.Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext p_51240_) {
-        LevelAccessor levelaccessor = p_51240_.getLevel();
-        BlockPos blockpos = p_51240_.getClickedPos();
-        boolean flag = levelaccessor.getFluidState(blockpos).getType() == Fluids.WATER;
+    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+        LevelAccessor levelaccessor = pContext.getLevel();
+        BlockPos blockpos = pContext.getClickedPos();
+
         return this.defaultBlockState()
                 .setValue(SIGNAL_FIRE, Boolean.valueOf(this.isSmokeSource(levelaccessor.getBlockState(blockpos.below()))))
-                .setValue(LIT, Boolean.valueOf(!flag))
-                .setValue(FACING, p_51240_.getHorizontalDirection());
+                .setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
 
     @Override
