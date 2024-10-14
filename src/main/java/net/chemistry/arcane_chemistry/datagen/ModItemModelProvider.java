@@ -90,6 +90,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         atomItem(ModItems.THALLIUM);    // Thallium
         atomItem(ModItems.LEAD);        // Lead
         atomItem(ModItems.BISMUTH);     // Bismuth
+        atomItem(ModItems.POLONIUM);     // Polonium
 
         // Lanthanides
         atomItem(ModItems.LANTHANUM);   // Lanthanum

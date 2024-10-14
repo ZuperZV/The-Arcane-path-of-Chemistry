@@ -1,4 +1,4 @@
-// 1.21	2024-10-14T13:56:18.719175	Recipes
+// 1.21	2024-10-14T20:50:28.80138	Recipes
 7cf7f993b8017b8131e5ca4ff1d323cdbe210b90 data/arcane_chemistry/advancement/recipes/misc/nickel_ingot_from_blasting.json
 2ddba4fcbdeb1e29cc2960e4b93873e673cc53da data/arcane_chemistry/advancement/recipes/misc/nickel_ingot_from_smelting.json
 57b9dbd7f6a1899d624d3cdd4e906480531be172 data/arcane_chemistry/advancement/recipes/misc/raw_nickel_from_blasting.json
@@ -10,4 +10,4 @@
 953d7f1f56950ffa5ab2c2132b0b33bdbbb147bd data/minecraft/advancement/recipes/building_blocks/nickel_ingot.json
 cb684a7245fbae915179ebd4773a9b25cf0e049e data/minecraft/advancement/recipes/misc/nickel_block.json
 c56e5486b3356ea539da76bc7d66a673b5885a25 data/minecraft/recipe/nickel_block.json
-d343b45849a807619209a2c3b28de543837c7e15 data/minecraft/recipe/nickel_ingot.json
+c300548287e8e725d6ef67451f66b0f277609d7c data/minecraft/recipe/nickel_ingot.json

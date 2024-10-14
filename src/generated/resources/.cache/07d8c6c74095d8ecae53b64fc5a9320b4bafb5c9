@@ -1,4 +1,4 @@
-// 1.21	2024-10-14T13:06:33.7004899	Item Models: arcane_chemistry
+// 1.21	2024-10-14T20:50:28.7978824	Item Models: arcane_chemistry
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/actinium.json
 05fcff1852a72996b10691eac17e29e698d727b0 assets/arcane_chemistry/models/item/aluminium.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/americium.json
@@ -58,6 +58,7 @@ a80ec3f1902d34b14c38c6b5c588f077c42682b8 assets/arcane_chemistry/models/item/pal
 738d2719e39400198836c3ce81cea5a7524d93ac assets/arcane_chemistry/models/item/pebble.json
 4424b7c8d430eecb8e78436469c8972dec8f3d9c assets/arcane_chemistry/models/item/platinum.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/plutonium.json
+0c6bd4be09417d3227ed248d87b232a449a68386 assets/arcane_chemistry/models/item/polonium.json
 4424b7c8d430eecb8e78436469c8972dec8f3d9c assets/arcane_chemistry/models/item/potassium.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/praseodymium.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/promethium.json

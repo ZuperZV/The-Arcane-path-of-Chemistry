@@ -89,95 +89,85 @@ public class Arcane_chemistry {
 
         @SubscribeEvent
         public static void registerItemDecorators(RegisterItemDecorationsEvent event) {
-            // Alkali Metals
-            event.register(ModItems.LITHIUM.get(), new NumberDecorator());   // Lithium
-            event.register(ModItems.SODIUM.get(), new NumberDecorator());    // Sodium
-            event.register(ModItems.POTASSIUM.get(), new NumberDecorator()); // Potassium
-            event.register(ModItems.RUBIDIUM.get(), new NumberDecorator());  // Rubidium
-            event.register(ModItems.CAESIUM.get(), new NumberDecorator());   // Caesium
-            event.register(ModItems.FRANCIUM.get(), new NumberDecorator());  // Francium
-
-            // Alkaline Earth Metals
-            event.register(ModItems.BERYLLIUM.get(), new NumberDecorator()); // Beryllium
-            event.register(ModItems.MAGNESIUM.get(), new NumberDecorator()); // Magnesium
-            event.register(ModItems.CALCIUM.get(), new NumberDecorator());   // Calcium
-            event.register(ModItems.STRONTIUM.get(), new NumberDecorator()); // Strontium
-            event.register(ModItems.BARIUM.get(), new NumberDecorator());    // Barium
-            event.register(ModItems.RADIUM.get(), new NumberDecorator());    // Radium
-
-            // Transition Metals
-            event.register(ModItems.SCANDIUM.get(), new NumberDecorator());  // Scandium
-            event.register(ModItems.TITANIUM.get(), new NumberDecorator());  // Titanium
-            event.register(ModItems.VANADIUM.get(), new NumberDecorator());  // Vanadium
-            event.register(ModItems.CHROMIUM.get(), new NumberDecorator());  // Chromium
-            event.register(ModItems.MANGANESE.get(), new NumberDecorator()); // Manganese
-            event.register(ModItems.IRON.get(), new NumberDecorator());      // Iron
-            event.register(ModItems.COBALT.get(), new NumberDecorator());    // Cobalt
-            event.register(ModItems.NICKEL.get(), new NumberDecorator());    // Nickel
-            event.register(ModItems.COPPER.get(), new NumberDecorator());    // Copper
-            event.register(ModItems.ZINC.get(), new NumberDecorator());      // Zinc
-            event.register(ModItems.YTTRIUM.get(), new NumberDecorator());   // Yttrium
-            event.register(ModItems.ZIRCONIUM.get(), new NumberDecorator()); // Zirconium
-            event.register(ModItems.NIOBIUM.get(), new NumberDecorator());   // Niobium
-            event.register(ModItems.MOLYBDENUM.get(), new NumberDecorator()); // Molybdenum
-            event.register(ModItems.TECHNETIUM.get(), new NumberDecorator()); // Technetium
-            event.register(ModItems.RUTHENIUM.get(), new NumberDecorator()); // Ruthenium
-            event.register(ModItems.RHODIUM.get(), new NumberDecorator());   // Rhodium
-            event.register(ModItems.PALLADIUM.get(), new NumberDecorator()); // Palladium
-            event.register(ModItems.SILVER.get(), new NumberDecorator());    // Silver
-            event.register(ModItems.CADMIUM.get(), new NumberDecorator());   // Cadmium
-            event.register(ModItems.HAFNIUM.get(), new NumberDecorator());   // Hafnium
-            event.register(ModItems.TANTALUM.get(), new NumberDecorator());  // Tantalum
-            event.register(ModItems.TUNGSTEN.get(), new NumberDecorator());  // Tungsten
-            event.register(ModItems.RHENIUM.get(), new NumberDecorator());   // Rhenium
-            event.register(ModItems.OSMIUM.get(), new NumberDecorator());    // Osmium
-            event.register(ModItems.IRIDIUM.get(), new NumberDecorator());   // Iridium
-            event.register(ModItems.PLATINUM.get(), new NumberDecorator());  // Platinum
-            event.register(ModItems.GOLD.get(), new NumberDecorator());      // Gold
-            event.register(ModItems.MERCURY.get(), new NumberDecorator());   // Mercury
-
-            // Post-Transition Metals
-            event.register(ModItems.ALUMINIUM.get(), new NumberDecorator()); // Aluminium
-            event.register(ModItems.GALLIUM.get(), new NumberDecorator());   // Gallium
-            event.register(ModItems.INDIUM.get(), new NumberDecorator());    // Indium
-            event.register(ModItems.TIN.get(), new NumberDecorator());       // Tin
-            event.register(ModItems.THALLIUM.get(), new NumberDecorator());  // Thallium
-            event.register(ModItems.LEAD.get(), new NumberDecorator());      // Lead
-            event.register(ModItems.BISMUTH.get(), new NumberDecorator());   // Bismuth
-
-            // Lanthanides
-            event.register(ModItems.LANTHANUM.get(), new NumberDecorator());  // Lanthanum
-            event.register(ModItems.CERIUM.get(), new NumberDecorator());     // Cerium
-            event.register(ModItems.PRASEODYMIUM.get(), new NumberDecorator());// Praseodymium
-            event.register(ModItems.NEODYMIUM.get(), new NumberDecorator());  // Neodymium
-            event.register(ModItems.PROMETHIUM.get(), new NumberDecorator()); // Promethium
-            event.register(ModItems.SAMARIUM.get(), new NumberDecorator());   // Samarium
-            event.register(ModItems.EUROPIUM.get(), new NumberDecorator());   // Europium
-            event.register(ModItems.GADOLINIUM.get(), new NumberDecorator()); // Gadolinium
-            event.register(ModItems.TERBIUM.get(), new NumberDecorator());    // Terbium
-            event.register(ModItems.DYSPROSIUM.get(), new NumberDecorator()); // Dysprosium
-            event.register(ModItems.HOLMIUM.get(), new NumberDecorator());    // Holmium
-            event.register(ModItems.ERBIUM.get(), new NumberDecorator());     // Erbium
-            event.register(ModItems.THULIUM.get(), new NumberDecorator());    // Thulium
-            event.register(ModItems.YTTERBIUM.get(), new NumberDecorator());  // Ytterbium
-            event.register(ModItems.LUTETIUM.get(), new NumberDecorator());   // Lutetium
-
-            // Actinides
-            event.register(ModItems.ACTINIUM.get(), new NumberDecorator());    // Actinium
-            event.register(ModItems.THORIUM.get(), new NumberDecorator());     // Thorium
-            event.register(ModItems.PROTACTINIUM.get(), new NumberDecorator());// Protactinium
-            event.register(ModItems.URANIUM.get(), new NumberDecorator());     // Uranium
-            event.register(ModItems.NEPTUNIUM.get(), new NumberDecorator());   // Neptunium
-            event.register(ModItems.PLUTONIUM.get(), new NumberDecorator());   // Plutonium
-            event.register(ModItems.AMERICIUM.get(), new NumberDecorator());   // Americium
-            event.register(ModItems.CURIUM.get(), new NumberDecorator());      // Curium
-            event.register(ModItems.BERKELIUM.get(), new NumberDecorator());   // Berkelium
-            event.register(ModItems.CALIFORNIUM.get(), new NumberDecorator()); // Californium
-            event.register(ModItems.EINSTEINIUM.get(), new NumberDecorator()); // Einsteinium
-            event.register(ModItems.FERMUM.get(), new NumberDecorator());      // Fermium
-            event.register(ModItems.MENDELEVIUM.get(), new NumberDecorator()); // Mendelevium
-            event.register(ModItems.NOBELIUM.get(), new NumberDecorator());    // Nobelium
-            event.register(ModItems.LAWRENCIUM.get(), new NumberDecorator());  // Lawrencium
+            event.register(ModItems.LITHIUM.get(), new NumberDecorator());
+            event.register(ModItems.SODIUM.get(), new NumberDecorator());
+            event.register(ModItems.POTASSIUM.get(), new NumberDecorator());
+            event.register(ModItems.RUBIDIUM.get(), new NumberDecorator());
+            event.register(ModItems.CAESIUM.get(), new NumberDecorator());
+            event.register(ModItems.FRANCIUM.get(), new NumberDecorator());
+            event.register(ModItems.BERYLLIUM.get(), new NumberDecorator());
+            event.register(ModItems.MAGNESIUM.get(), new NumberDecorator());
+            event.register(ModItems.CALCIUM.get(), new NumberDecorator());
+            event.register(ModItems.STRONTIUM.get(), new NumberDecorator());
+            event.register(ModItems.BARIUM.get(), new NumberDecorator());
+            event.register(ModItems.RADIUM.get(), new NumberDecorator());
+            event.register(ModItems.SCANDIUM.get(), new NumberDecorator());
+            event.register(ModItems.TITANIUM.get(), new NumberDecorator());
+            event.register(ModItems.VANADIUM.get(), new NumberDecorator());
+            event.register(ModItems.CHROMIUM.get(), new NumberDecorator());
+            event.register(ModItems.MANGANESE.get(), new NumberDecorator());
+            event.register(ModItems.IRON.get(), new NumberDecorator());
+            event.register(ModItems.COBALT.get(), new NumberDecorator());
+            event.register(ModItems.NICKEL.get(), new NumberDecorator());
+            event.register(ModItems.COPPER.get(), new NumberDecorator());
+            event.register(ModItems.ZINC.get(), new NumberDecorator());
+            event.register(ModItems.YTTRIUM.get(), new NumberDecorator());
+            event.register(ModItems.ZIRCONIUM.get(), new NumberDecorator());
+            event.register(ModItems.NIOBIUM.get(), new NumberDecorator());
+            event.register(ModItems.MOLYBDENUM.get(), new NumberDecorator());
+            event.register(ModItems.TECHNETIUM.get(), new NumberDecorator());
+            event.register(ModItems.RUTHENIUM.get(), new NumberDecorator());
+            event.register(ModItems.RHODIUM.get(), new NumberDecorator());
+            event.register(ModItems.PALLADIUM.get(), new NumberDecorator());
+            event.register(ModItems.SILVER.get(), new NumberDecorator());
+            event.register(ModItems.CADMIUM.get(), new NumberDecorator());
+            event.register(ModItems.HAFNIUM.get(), new NumberDecorator());
+            event.register(ModItems.TANTALUM.get(), new NumberDecorator());
+            event.register(ModItems.TUNGSTEN.get(), new NumberDecorator());
+            event.register(ModItems.RHENIUM.get(), new NumberDecorator());
+            event.register(ModItems.OSMIUM.get(), new NumberDecorator());
+            event.register(ModItems.IRIDIUM.get(), new NumberDecorator());
+            event.register(ModItems.PLATINUM.get(), new NumberDecorator());
+            event.register(ModItems.GOLD.get(), new NumberDecorator());
+            event.register(ModItems.MERCURY.get(), new NumberDecorator());
+            event.register(ModItems.ALUMINIUM.get(), new NumberDecorator());
+            event.register(ModItems.GALLIUM.get(), new NumberDecorator());
+            event.register(ModItems.INDIUM.get(), new NumberDecorator());
+            event.register(ModItems.TIN.get(), new NumberDecorator());
+            event.register(ModItems.THALLIUM.get(), new NumberDecorator());
+            event.register(ModItems.LEAD.get(), new NumberDecorator());
+            event.register(ModItems.BISMUTH.get(), new NumberDecorator());
+            event.register(ModItems.POLONIUM.get(), new NumberDecorator());
+            event.register(ModItems.LANTHANUM.get(), new NumberDecorator());
+            event.register(ModItems.CERIUM.get(), new NumberDecorator());
+            event.register(ModItems.PRASEODYMIUM.get(), new NumberDecorator());
+            event.register(ModItems.NEODYMIUM.get(), new NumberDecorator());
+            event.register(ModItems.PROMETHIUM.get(), new NumberDecorator());
+            event.register(ModItems.SAMARIUM.get(), new NumberDecorator());
+            event.register(ModItems.EUROPIUM.get(), new NumberDecorator());
+            event.register(ModItems.GADOLINIUM.get(), new NumberDecorator());
+            event.register(ModItems.TERBIUM.get(), new NumberDecorator());
+            event.register(ModItems.DYSPROSIUM.get(), new NumberDecorator());
+            event.register(ModItems.HOLMIUM.get(), new NumberDecorator());
+            event.register(ModItems.ERBIUM.get(), new NumberDecorator());
+            event.register(ModItems.THULIUM.get(), new NumberDecorator());
+            event.register(ModItems.YTTERBIUM.get(), new NumberDecorator());
+            event.register(ModItems.LUTETIUM.get(), new NumberDecorator());
+            event.register(ModItems.ACTINIUM.get(), new NumberDecorator());
+            event.register(ModItems.THORIUM.get(), new NumberDecorator());
+            event.register(ModItems.PROTACTINIUM.get(), new NumberDecorator());
+            event.register(ModItems.URANIUM.get(), new NumberDecorator());
+            event.register(ModItems.NEPTUNIUM.get(), new NumberDecorator());
+            event.register(ModItems.PLUTONIUM.get(), new NumberDecorator());
+            event.register(ModItems.AMERICIUM.get(), new NumberDecorator());
+            event.register(ModItems.CURIUM.get(), new NumberDecorator());
+            event.register(ModItems.BERKELIUM.get(), new NumberDecorator());
+            event.register(ModItems.CALIFORNIUM.get(), new NumberDecorator());
+            event.register(ModItems.EINSTEINIUM.get(), new NumberDecorator());
+            event.register(ModItems.FERMUM.get(), new NumberDecorator());
+            event.register(ModItems.MENDELEVIUM.get(), new NumberDecorator());
+            event.register(ModItems.NOBELIUM.get(), new NumberDecorator());
+            event.register(ModItems.LAWRENCIUM.get(), new NumberDecorator());
             event.register(ModItems.RUTHERFORDIUM.get(), new NumberDecorator());
             event.register(ModItems.DUBNIUM.get(), new NumberDecorator());
             event.register(ModItems.SEABORGIUM.get(), new NumberDecorator());

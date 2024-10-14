@@ -18,7 +18,9 @@
   "item.arcane_chemistry.raw_impure_nickel": "Raw Impure Nickel",
   "item.arcane_chemistry.raw_impure_iron": "Raw Impure Iron",
 
-  // Alkali Metals
+  "block.arcane_chemistry.nickel_compreser": "Nickel Compreser",
+  "block.arcane_chemistry.nickel_compreser_filter": "Nickel Compreser Filter",
+
   "item.arcane_chemistry.lithium": "Lithium",
   "item.arcane_chemistry.sodium": "Sodium",
   "item.arcane_chemistry.potassium": "Potassium",
@@ -26,7 +28,6 @@
   "item.arcane_chemistry.caesium": "Caesium",
   "item.arcane_chemistry.francium": "Francium",
 
-  // Alkaline Earth Metals
   "item.arcane_chemistry.beryllium": "Beryllium",
   "item.arcane_chemistry.magnesium": "Magnesium",
   "item.arcane_chemistry.calcium": "Calcium",
@@ -34,7 +35,6 @@
   "item.arcane_chemistry.barium": "Barium",
   "item.arcane_chemistry.radium": "Radium",
 
-  // Transition Metals
   "item.arcane_chemistry.scandium": "Scandium",
   "item.arcane_chemistry.titanium": "Titanium",
   "item.arcane_chemistry.vanadium": "Vanadium",
@@ -65,7 +65,6 @@
   "item.arcane_chemistry.gold": "Gold",
   "item.arcane_chemistry.mercury": "Mercury",
 
-  // Post-Transition Metals
   "item.arcane_chemistry.aluminium": "Aluminium",
   "item.arcane_chemistry.gallium": "Gallium",
   "item.arcane_chemistry.indium": "Indium",
@@ -73,8 +72,8 @@
   "item.arcane_chemistry.thallium": "Thallium",
   "item.arcane_chemistry.lead": "Lead",
   "item.arcane_chemistry.bismuth": "Bismuth",
+  "item.arcane_chemistry.polonium": "Polonium",
 
-  // Lanthanides
   "item.arcane_chemistry.lanthanum": "Lanthanum",
   "item.arcane_chemistry.cerium": "Cerium",
   "item.arcane_chemistry.praseodymium": "Praseodymium",
@@ -91,7 +90,6 @@
   "item.arcane_chemistry.ytterbium": "Ytterbium",
   "item.arcane_chemistry.lutetium": "Lutetium",
 
-  // Actinides
   "item.arcane_chemistry.actinium": "Actinium",
   "item.arcane_chemistry.thorium": "Thorium",
   "item.arcane_chemistry.protactinium": "Protactinium",
@@ -107,5 +105,9 @@
   "item.arcane_chemistry.mendelevium": "Mendelevium",
   "item.arcane_chemistry.nobelium": "Nobelium",
   "item.arcane_chemistry.lawrencium": "Lawrencium",
-  "block.arcane_chemistry.nickel_compreser": "Nickel Compreser"
+  "item.arcane_chemistry.rutherfordium": "Rutherfordium",
+  "item.arcane_chemistry.dubnium": "Dubnium",
+  "item.arcane_chemistry.seaborgium": "Seaborgium",
+  "item.arcane_chemistry.bohrium": "Bohrium",
+  "item.arcane_chemistry.hassium": "Hassium"
 }

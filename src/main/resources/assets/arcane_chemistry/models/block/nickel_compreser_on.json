@@ -1,7 +1,7 @@
 {
 	"parent": "minecraft:block/orientable",
 	"textures": {
-		"front": "arcane_chemistry:block/hard_oven_front_on",
+		"front": "arcane_chemistry:block/nickel_compreser_front_on",
 		"side": "arcane_chemistry:block/nickel_block",
 		"top": "arcane_chemistry:block/nickel_block",
 		"bottom": "arcane_chemistry:block/nickel_block"

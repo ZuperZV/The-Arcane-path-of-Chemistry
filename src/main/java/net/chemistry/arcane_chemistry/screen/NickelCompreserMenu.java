@@ -22,14 +22,17 @@ public class NickelCompreserMenu extends AbstractContainerMenu {
         if (player.level().getBlockEntity(pos) instanceof NickelCompreserBlockEntity blockentity) {
             NickelCompreserBlockEntity = blockentity;
             this.addDataSlots(blockentity.data);
-
-            addSlot(new SlotItemHandler(blockentity.getInputItems(), 0, 62, 20));
-            addSlot(new SlotItemHandler(blockentity.getOutputItems(), 0, 110, 37) {
+            addSlot(new SlotItemHandler(blockentity.getInputItems(), 0, 54, 48));
+            addSlot(new SlotItemHandler(blockentity.getOutputItems(), 0, 108, 48) {
                 @Override
                 public boolean mayPlace(ItemStack stack) {
                     return false;
                 }
             });
+
+
+            addSlot(new SlotItemHandler(blockentity.getInputItems(), 1, 12, 54));
+            addSlot(new SlotItemHandler(blockentity.getInputItems(), 2, 149, 54));
 
         } else {
             NickelCompreserBlockEntity = null;
@@ -63,7 +66,7 @@ public class NickelCompreserMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);

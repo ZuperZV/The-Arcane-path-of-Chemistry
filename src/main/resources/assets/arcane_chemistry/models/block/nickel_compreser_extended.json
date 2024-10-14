@@ -4,7 +4,7 @@
 		"0": "arcane_chemistry:block/input_block",
 		"1": "arcane_chemistry:block/nickel_filter",
 		"2": "arcane_chemistry:block/nickel_block",
-		"4": "arcane_chemistry:block/hard_oven_front",
+		"4": "arcane_chemistry:block/nickel_compreser_front",
 		"particle": "arcane_chemistry:block/nickel_block"
 	},
 	"elements": [

@@ -6,12 +6,18 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.ComponentContents;
+import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.player.Inventory;
+
+import java.awt.*;
+import java.util.List;
 
 public class NickelCompreserScreen extends AbstractContainerScreen<NickelCompreserMenu> {
     private static final ResourceLocation TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "textures/gui/hard_oven_gui.png");
+            ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "textures/gui/nickel_compreser_gui.png");
 
     public NickelCompreserScreen(NickelCompreserMenu container, Inventory inventory, Component title) {
         super(container, inventory, title);
@@ -20,6 +26,9 @@ public class NickelCompreserScreen extends AbstractContainerScreen<NickelCompres
     @Override
     protected void init() {
         super.init();
+        this.inventoryLabelY = 74;
+        this.titleLabelY = 12;
+        this.titleLabelX = 43;
     }
 
     @Override
@@ -40,7 +49,9 @@ public class NickelCompreserScreen extends AbstractContainerScreen<NickelCompres
         guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
 
         int progressArrowWidth = menu.getScaledProgress();
-        guiGraphics.blit(TEXTURE, x + 81, y + 38, 176, 0, progressArrowWidth, 15);
+        guiGraphics.blit(TEXTURE, x + 79, y + 49, 176, 0, progressArrowWidth, 15);
+
+
     }
 
     @Override
@@ -48,5 +59,6 @@ public class NickelCompreserScreen extends AbstractContainerScreen<NickelCompres
         renderBg(guiGraphics, partialTick, mouseX, mouseY);
         super.render(guiGraphics, mouseX, mouseY, partialTick);
         renderTooltip(guiGraphics, mouseX, mouseY);
+
     }
 }

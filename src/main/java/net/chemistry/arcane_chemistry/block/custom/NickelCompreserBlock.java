@@ -31,7 +31,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -49,7 +48,6 @@ public class NickelCompreserBlock extends Block implements EntityBlock {
         this.color = color;
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false));
     }
-
 
     @Override
     public BlockState rotate(BlockState pState, Rotation pRot) {
@@ -98,39 +96,40 @@ public class NickelCompreserBlock extends Block implements EntityBlock {
         };
     }
 
-
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (!level.isClientSide()) {
             BlockEntity entity = level.getBlockEntity(pos);
             ServerPlayer theplayer = (ServerPlayer) player;
-            if(entity instanceof NickelCompreserBlockEntity) {
-                theplayer.openMenu((NickelCompreserBlockEntity)entity, pos);
-            } else {
-                throw new IllegalStateException("Our Container provider is missing!");
+
+            if (state.getValue(EXTENDED)) {
+                if (entity instanceof NickelCompreserBlockEntity) {
+                    theplayer.openMenu((NickelCompreserBlockEntity) entity, pos);
+                } else {
+                    throw new IllegalStateException("Our Container provider is missing!");
+                }
             }
         }
 
         return InteractionResult.PASS;
     }
+
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        ItemStack heldItem = player.getItemInHand(hand);
+        if (!level.isClientSide()) {
+            BlockEntity entity = level.getBlockEntity(pos);
+            ServerPlayer theplayer = (ServerPlayer) player;
 
-        if (isInClickableArea(hitResult.getLocation())) {
-            NickelCompreserBlockEntity blockEntity = (NickelCompreserBlockEntity) level.getBlockEntity(pos);
-            if (blockEntity != null) {
-                System.out.println("Square clicked! Attempting to copy item.");
-                blockEntity.onSquareClick(player, heldItem);
+            if (state.getValue(EXTENDED)) {
+                if (entity instanceof NickelCompreserBlockEntity) {
+                    theplayer.openMenu((NickelCompreserBlockEntity) entity, pos);
+                } else {
+                    throw new IllegalStateException("Our Container provider is missing!");
+                }
             }
-            return ItemInteractionResult.SUCCESS;
         }
 
-        return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
-    }
-
-    private boolean isInClickableArea(Vec3 hit) {
-        return hit.x >= 21.5 && hit.x <= 26.5 && hit.y >= 11 && hit.y <= 16 && hit.z >= -3.25 && hit.z <= -0.25;
+        return ItemInteractionResult.sidedSuccess(level.isClientSide());
     }
 
     @Override
@@ -141,16 +140,6 @@ public class NickelCompreserBlock extends Block implements EntityBlock {
             }
         }
         super.onRemove(state, level, pos, newState, movedByPiston);
-    }
-
-    public static boolean setLitTrue(Level level, BlockPos pos, BlockState state) {
-        level.setBlockAndUpdate(pos, state.setValue(LIT, true));
-        return true;
-    }
-
-    public static boolean setLitFalse(Level level, BlockPos pos, BlockState state) {
-        level.setBlockAndUpdate(pos, state.setValue(LIT, false));
-        return true;
     }
 
     @Override
@@ -203,8 +192,6 @@ public class NickelCompreserBlock extends Block implements EntityBlock {
                         pos.offset(-1, 0, -2),
                         pos.offset(1, 0, -2),
 
-                        pos.offset(1, 1, 0),
-                        pos.offset(-1, 1, 0),
                         pos.offset(-1, 1, -1),
                         pos.offset(1, 1, -1),
                         pos.offset(0, 1, -2),
@@ -231,8 +218,6 @@ public class NickelCompreserBlock extends Block implements EntityBlock {
                         pos.offset(1, 0, 2),
                         pos.offset(-1, 0, 2),
 
-                        pos.offset(-1, 1, 0),
-                        pos.offset(1, 1, 0),
                         pos.offset(1, 1, 1),
                         pos.offset(-1, 1, 1),
                         pos.offset(0, 1, 2),
@@ -259,8 +244,6 @@ public class NickelCompreserBlock extends Block implements EntityBlock {
                         pos.offset(-2, 0, -1),
                         pos.offset(-2, 0, 1),
 
-                        pos.offset(0, 1, 1),
-                        pos.offset(0, 1, -1),
                         pos.offset(-1, 1, -1),
                         pos.offset(-1, 1, 1),
                         pos.offset(-2, 1, 0),
@@ -287,8 +270,6 @@ public class NickelCompreserBlock extends Block implements EntityBlock {
                         pos.offset(2, 0, 1),
                         pos.offset(2, 0, -1),
 
-                        pos.offset(0, 1, -1),
-                        pos.offset(0, 1, 1),
                         pos.offset(1, 1, 1),
                         pos.offset(1, 1, -1),
                         pos.offset(2, 1, 0),
@@ -309,16 +290,57 @@ public class NickelCompreserBlock extends Block implements EntityBlock {
         }
     }
 
+    private static BlockPos[] getGlasBlockPositions(BlockPos pos, Direction facing) {
+        switch (facing) {
+            case SOUTH:
+                return new BlockPos[]{
+                        pos.offset(1, 1, 0),
+                        pos.offset(-1, 1, 0),
+                        pos.offset(0, 1, 0),
+                };
+            case NORTH:
+                return new BlockPos[]{
+                        pos.offset(-1, 1, 0),
+                        pos.offset(1, 1, 0),
+                        pos.offset(0, 1, 0),
+                };
+            case EAST:
+                return new BlockPos[]{
+                        pos.offset(0, 1, 1),
+                        pos.offset(0, 1, -1),
+                        pos.offset(0, 1, 0),
+                };
+            case WEST:
+                return new BlockPos[]{
+                        pos.offset(0, 1, -1),
+                        pos.offset(0, 1, 1),
+                        pos.offset(0, 1, 0),
+                };
+            default:
+                return new BlockPos[0];
+        }
+    }
+
 
     public static boolean arePedestalPositionsNickel(Level level, BlockPos pos, BlockState state) {
         Direction facing = state.getValue(FACING);
-        BlockPos[] wirePositions = getBlockPositions(pos, facing);
 
-        for (BlockPos blockPos : wirePositions) {
+        BlockPos[] blockPositions = getBlockPositions(pos, facing);
+        BlockPos[] glasPositions = getGlasBlockPositions(pos, facing);
+
+        for (BlockPos blockPos : blockPositions) {
             if (!level.getBlockState(blockPos).is(ModBlocks.NICKEL_BLOCK)) {
                 return false;
             }
         }
+
+        for (BlockPos glassPos : glasPositions) {
+            if (!level.getBlockState(glassPos).is(Blocks.GLASS)) {
+                return false;
+            }
+        }
+
         return true;
     }
+
 }

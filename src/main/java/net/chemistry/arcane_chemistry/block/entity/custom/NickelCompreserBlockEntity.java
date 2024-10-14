@@ -40,7 +40,7 @@ import static net.chemistry.arcane_chemistry.block.custom.NickelCompreserBlock.L
 
 public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvider {
 
-    private final ItemStackHandler inputItems = createItemHandler(1);
+    private final ItemStackHandler inputItems = createItemHandler(3);
     private final ItemStackHandler outputItems = createItemHandler(1);
 
     private final Lazy<IItemHandler> itemHandler = Lazy.of(() -> new CombinedInvWrapper(inputItems, outputItems));
@@ -79,19 +79,6 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
         };
     }
 
-    public void onSquareClick(Player player, ItemStack itemStack) {
-        int outputSlotIndex = 0;
-
-        if (!itemStack.isEmpty()) {
-            outputItems.setStackInSlot(outputSlotIndex, new ItemStack(itemStack.getItem(), 1));
-            itemStack.shrink(1); // Remove one from the player's hand
-            System.out.println("Item copied to output slot.");
-            setChanged();
-        } else {
-            System.out.println("Item stack is empty.");
-        }
-    }
-
     @Override
     public void setChanged() {
         super.setChanged();
@@ -101,16 +88,20 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
     }
 
     public void tick(BlockPos pos, BlockState state, NickelCompreserBlockEntity tile) {
-        if (NickelCompreserBlock.arePedestalPositionsNickel(level, pos, state)) {
-            level.setBlockAndUpdate(pos, state.setValue(EXTENDED, true));
-        }
-        else {
-            level.setBlockAndUpdate(pos, state.setValue(EXTENDED, false));
+        boolean isExtended = state.getValue(EXTENDED);
+        boolean isLit = state.getValue(LIT);
+
+        boolean shouldBeExtended = NickelCompreserBlock.arePedestalPositionsNickel(level, pos, state);
+        if (shouldBeExtended != isExtended) {
+            level.setBlockAndUpdate(pos, state.setValue(EXTENDED, shouldBeExtended));
         }
 
-        if (hasRecipe()) {
+        if (hasRecipe() && state.getValue(EXTENDED)) {
             increaseCraftingProcess();
-            level.setBlockAndUpdate(pos, state.setValue(LIT, true));
+
+            if (!isLit) {
+                level.setBlockAndUpdate(pos, state.setValue(LIT, true));
+            }
 
             if (hasProgressFinished()) {
                 craftItem();
@@ -118,9 +109,13 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
             }
         } else {
             resetProgress();
-            level.setBlockAndUpdate(pos, state.setValue(LIT, false));
+
+            if (isLit) {
+                level.setBlockAndUpdate(pos, state.setValue(LIT, false));
+            }
         }
     }
+
 
     private boolean hasProgressFinished() {
         return this.progress >= this.maxProgress;

@@ -11,6 +11,7 @@ import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.recipes.HardOvenRecipe;
 import net.chemistry.arcane_chemistry.recipes.ModRecipes;
+import net.chemistry.arcane_chemistry.recipes.NickelCompreserRecipe;
 import net.chemistry.arcane_chemistry.screen.HardOvenScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -30,6 +31,8 @@ public class JEIPlugin implements IModPlugin {
     public static mezz.jei.api.recipe.RecipeType<HardOvenRecipe> HARD_OVEN_TYPE =
             new mezz.jei.api.recipe.RecipeType<>(HardOvenRecipeCategory.UID, HardOvenRecipe.class);
 
+    public static mezz.jei.api.recipe.RecipeType<NickelCompreserRecipe> NICEKL_COMPERESER_TYPE =
+            new mezz.jei.api.recipe.RecipeType<>(NickelCompreserRecipeCategory.UID, NickelCompreserRecipe.class);
 
 
     @Override
@@ -42,6 +45,7 @@ public class JEIPlugin implements IModPlugin {
         var jeiHelpers = registration.getJeiHelpers();
 
         registration.addRecipeCategories(new HardOvenRecipeCategory(jeiHelpers.getGuiHelper()));
+        registration.addRecipeCategories(new NickelCompreserRecipeCategory(jeiHelpers.getGuiHelper()));
     }
 
 
@@ -50,9 +54,13 @@ public class JEIPlugin implements IModPlugin {
         var world = Minecraft.getInstance().level;
         if (world != null) {
 
-            var alche = world.getRecipeManager();
+            var hard_oven = world.getRecipeManager();
             registration.addRecipes(HardOvenRecipeCategory.RECIPE_TYPE,
-                    getRecipe(alche, ModRecipes.HARD_OVEN_RECIPE_TYPE.get()));
+                    getRecipe(hard_oven, ModRecipes.HARD_OVEN_RECIPE_TYPE.get()));
+
+            var nicekl_comperser = world.getRecipeManager();
+            registration.addRecipes(NickelCompreserRecipeCategory.RECIPE_TYPE,
+                    getRecipe(nicekl_comperser, ModRecipes.NICKEL_COMPRESER_RECIPE_TYPE.get()));
         }
 
     }
@@ -68,8 +76,11 @@ public class JEIPlugin implements IModPlugin {
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration){
 
-        var hard = new ItemStack(ModBlocks.HARD_OVEN.get());
-        registration.addRecipeCatalyst(hard, HardOvenRecipeCategory.RECIPE_TYPE, RecipeTypes.FUELING);
+        var hard_oven = new ItemStack(ModBlocks.HARD_OVEN.get());
+        registration.addRecipeCatalyst(hard_oven, HardOvenRecipeCategory.RECIPE_TYPE, RecipeTypes.FUELING);
+
+        var nicekl_comperser = new ItemStack(ModBlocks.NICKEL_COMPRESER.get());
+        registration.addRecipeCatalyst(nicekl_comperser, NickelCompreserRecipeCategory.RECIPE_TYPE);
 
     }
 
