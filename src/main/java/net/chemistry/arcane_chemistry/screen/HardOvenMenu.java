@@ -23,8 +23,8 @@ public class HardOvenMenu extends AbstractContainerMenu {
             HardOvenBlockEntity = blockentity;
             this.addDataSlots(blockentity.data);
 
-            addSlot(new SlotItemHandler(blockentity.getInputItems(), 0, 62, 20));
-            addSlot(new SlotItemHandler(blockentity.getInputItems(), 1, 39, 20));
+            addSlot(new SlotItemHandler(blockentity.getInputItems(), 0, 39, 20));
+            addSlot(new SlotItemHandler(blockentity.getInputItems(), 1, 62, 20));
             addSlot(new SlotItemHandler(blockentity.getInputItems(), 2, 51, 54));
             addSlot(new SlotItemHandler(blockentity.getOutputItems(), 0, 110, 37) {
                 @Override

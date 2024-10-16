@@ -39,7 +39,12 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.NICKEL_BLOCK.get());
         dropSelf(ModBlocks.NICKEL_COMPRESER.get());
 
-        this.add(ModBlocks.FIRE_POT_CAMPFIRE.get(),
+        dropSelf(ModBlocks.VANADIUM_BLOCK.get());
+        dropSelf(ModBlocks.ATOMIC_OVEN.get());
+
+        dropSelf(ModBlocks.FLOTATIONER.get());
+
+        /*this.add(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 block -> LootTable.lootTable()
                         .withPool(LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1))
@@ -47,6 +52,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                                 .add(LootItem.lootTableItem(Items.CHARCOAL))
                         )
         );
+         */
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

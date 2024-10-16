@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "arcane_chemistry:raw_cobalt"
+  },
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:cobalt_ingot"
+  }
+}

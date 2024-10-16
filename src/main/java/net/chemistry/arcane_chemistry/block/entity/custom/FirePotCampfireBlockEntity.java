@@ -35,7 +35,7 @@ public class FirePotCampfireBlockEntity extends BlockEntity {
     private final Lazy<IItemHandler> inputItemHandler = Lazy.of(() -> new CustomItemHandler(inputItems));
 
     public FirePotCampfireBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.FIRE_POT_BLOCK_ENTITY.get(), pos, state);
+        super(ModBlockEntities.FLOTATIONER_BLOCK_ENTITY.get(), pos, state);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, FirePotCampfireBlockEntity blockEntity) {

@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import javax.annotation.Nullable;
@@ -42,16 +43,58 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_raw_nickel",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_NICKEL.get()).build()))
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "nickel_ingot_from_smelting"));
 
+
+        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_COBALT.get()), RecipeCategory.MISC , ModItems.COBALT_INGOT.get(), 0.15f , 200)
+                .unlockedBy("has_raw_cobalt",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_COBALT.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_cobalt_from_smelting"));
+
+        SimpleCookingRecipeBuilder.blasting (Ingredient.of(ModItems.RAW_COBALT.get()), RecipeCategory.MISC , ModItems.COBALT_INGOT.get(), 0.1f , 200)
+                .unlockedBy("has_raw_cobalt",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_COBALT.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_cobalt_from_blasting"));
+
+
+        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_CARBIDE.get()), RecipeCategory.MISC , ModItems.CARBIDE_INGOT.get(), 0.15f , 200)
+                .unlockedBy("has_raw_carbide",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_CARBIDE.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_carbide_from_smelting"));
+
+        SimpleCookingRecipeBuilder.blasting (Ingredient.of(ModItems.RAW_CARBIDE.get()), RecipeCategory.MISC , ModItems.CARBIDE_INGOT.get(), 0.1f , 200)
+                .unlockedBy("has_raw_carbide",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_CARBIDE.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_carbide_from_blasting"));
+
         fourBlockStorageRecipes(pWriter, RecipeCategory.BUILDING_BLOCKS, ModItems.NICKEL_INGOT.get(), RecipeCategory.MISC,
                 ModBlocks.NICKEL_BLOCK.get());
 
-        /*ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CLAY_DUST.get())
-                .requires(ModItems.HARD_CLAY_BALL.get())
-                .requires(Items.WATER_BUCKET)
-                .unlockedBy("has_hard_clay_ball", inventoryTrigger(ItemPredicate.Builder.item().
-                        of(ModItems.HARD_CLAY_BALL.get()).build()))
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NICKEL_COMPRESER.get())
+                .pattern("DBD")
+                .pattern("CAC")
+                .pattern("DDD")
+                .define('A', ModBlocks.NICKEL_BLOCK.get())
+                .define('B', Blocks.GREEN_STAINED_GLASS_PANE)
+                .define('C', Items.REDSTONE)
+                .define('D', Items.IRON_INGOT)
+                .unlockedBy("has_nickel_block", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModBlocks.NICKEL_BLOCK.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "nickel_compreser_from_crafting"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REAGENT.get())
+                .pattern("A A")
+                .pattern("A A")
+                .pattern(" A ")
+                .define('A', Blocks.GLASS)
+                .unlockedBy("has_glas", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(Blocks.GLASS).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "reagent_from_crafting"));
+
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.RED_IRON_REAGENT.get())
+                .requires(ModItems.IRON_REAGENT.get())
+                .requires(Items.REDSTONE)
+                .unlockedBy("has_iron_reagent", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.IRON_REAGENT.get()).build()))
                 .save(pWriter);
-         */
+
+
+
     }
 
 

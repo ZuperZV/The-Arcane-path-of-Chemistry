@@ -342,5 +342,4 @@ public class NickelCompreserBlock extends Block implements EntityBlock {
 
         return true;
     }
-
 }

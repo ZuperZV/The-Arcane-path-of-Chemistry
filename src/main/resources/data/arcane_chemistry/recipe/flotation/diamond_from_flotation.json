@@ -1,0 +1,19 @@
+{
+  "type": "arcane_chemistry:flotation",
+
+  "ingredient": {
+    "item": "minecraft:charcoal"
+  },
+
+  "oven_ingredient": {
+    "item": "minecraft:charcoal"
+  },
+
+  "fluid": {
+    "fluid": "minecraft:water"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:carbon_chunk"
+  }
+}

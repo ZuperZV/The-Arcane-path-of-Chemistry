@@ -3,6 +3,8 @@ package net.chemistry.arcane_chemistry.datagen;
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.item.ModItems;
 import net.chemistry.arcane_chemistry.item.custom.AtomItem;
+import net.chemistry.arcane_chemistry.item.custom.AtomItemFormelReagent;
+import net.chemistry.arcane_chemistry.item.custom.AtomItemReagent;
 import net.chemistry.arcane_chemistry.item.custom.ElementItem;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -34,102 +36,112 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get());
         basicItem(ModItems.RAW_IMPURE_NICKEL.get());
         basicItem(ModItems.RAW_IMPURE_IRON.get());
+        basicItem(ModItems.CRUSHED_RAW_IRON.get());
 
-        // Alkali Metals
-        atomItem(ModItems.LITHIUM);     // Lithium
-        atomItem(ModItems.SODIUM);      // Sodium
-        atomItem(ModItems.POTASSIUM);   // Potassium
-        atomItem(ModItems.RUBIDIUM);    // Rubidium
-        atomItem(ModItems.CAESIUM);     // Caesium
-        atomItem(ModItems.FRANCIUM);    // Francium
+        basicItem(ModItems.SCHEELITE_CRYSTAL.get());
+        basicItem(ModItems.CRUSHED_SCHEELITE_CRYSTAL.get());
+        basicItem(ModItems.RAW_COBALT.get());
+        basicItem(ModItems.COBALT_INGOT.get());
+        basicItem(ModItems.CARBON_CHUNK.get());
+        basicItem(ModItems.RAW_CARBIDE.get());
+        basicItem(ModItems.CARBIDE_INGOT.get());
+        basicItem(ModItems.TUNGSTEN_INGOT.get());
+        basicItem(ModItems.TUNGSTEN_CARBIDE_INGOT.get());
+        basicItem(ModItems.VANADIUM_INGOT.get());
+        basicItem(ModItems.VANADIUM_CATALYST.get());
 
-        // Alkaline Earth Metals
-        atomItem(ModItems.BERYLLIUM);   // Beryllium
-        atomItem(ModItems.MAGNESIUM);   // Magnesium
-        atomItem(ModItems.CALCIUM);     // Calcium
-        atomItem(ModItems.STRONTIUM);   // Strontium
-        atomItem(ModItems.BARIUM);      // Barium
-        atomItem(ModItems.RADIUM);      // Radium
+        basicItem(ModItems.REAGENT.get());
 
-        // Transition Metals
-        atomItem(ModItems.SCANDIUM);    // Scandium
-        atomItem(ModItems.TITANIUM);    // Titanium
-        atomItem(ModItems.VANADIUM);    // Vanadium
-        atomItem(ModItems.CHROMIUM);    // Chromium
-        atomItem(ModItems.MANGANESE);   // Manganese
-        atomItem(ModItems.IRON);        // Iron
-        atomItem(ModItems.COBALT);      // Cobalt
-        atomItem(ModItems.NICKEL);      // Nickel
-        atomItem(ModItems.COPPER);      // Copper
-        atomItem(ModItems.ZINC);        // Zinc
-        atomItem(ModItems.YTTRIUM);     // Yttrium
-        atomItem(ModItems.ZIRCONIUM);   // Zirconium
-        atomItem(ModItems.NIOBIUM);     // Niobium
-        atomItem(ModItems.MOLYBDENUM);  // Molybdenum
-        atomItem(ModItems.TECHNETIUM);  // Technetium
-        atomItem(ModItems.RUTHENIUM);   // Ruthenium
-        atomItem(ModItems.RHODIUM);     // Rhodium
-        atomItem(ModItems.PALLADIUM);   // Palladium
-        atomItem(ModItems.SILVER);      // Silver
-        atomItem(ModItems.CADMIUM);     // Cadmium
-        atomItem(ModItems.HAFNIUM);     // Hafnium
-        atomItem(ModItems.TANTALUM);    // Tantalum
-        atomItem(ModItems.TUNGSTEN);    // Tungsten
-        atomItem(ModItems.RHENIUM);     // Rhenium
-        atomItem(ModItems.OSMIUM);      // Osmium
-        atomItem(ModItems.IRIDIUM);     // Iridium
-        atomItem(ModItems.PLATINUM);    // Platinum
-        atomItem(ModItems.GOLD);        // Gold
-        atomItem(ModItems.MERCURY);     // Mercury
+        reagentFormelItem(ModItems.WATER_REAGENT);
 
-        // Post-Transition Metals
-        atomItem(ModItems.ALUMINIUM);   // Aluminium
-        atomItem(ModItems.GALLIUM);     // Gallium
-        atomItem(ModItems.INDIUM);      // Indium
-        atomItem(ModItems.TIN);         // Tin
-        atomItem(ModItems.THALLIUM);    // Thallium
-        atomItem(ModItems.LEAD);        // Lead
-        atomItem(ModItems.BISMUTH);     // Bismuth
-        atomItem(ModItems.POLONIUM);     // Polonium
+        reagentItem(ModItems.IRON_REAGENT);
+        reagentItem(ModItems.RED_IRON_REAGENT);
 
-        // Lanthanides
-        atomItem(ModItems.LANTHANUM);   // Lanthanum
-        atomItem(ModItems.CERIUM);      // Cerium
-        atomItem(ModItems.PRASEODYMIUM);// Praseodymium
-        atomItem(ModItems.NEODYMIUM);   // Neodymium
-        atomItem(ModItems.PROMETHIUM);  // Promethium
-        atomItem(ModItems.SAMARIUM);    // Samarium
-        atomItem(ModItems.EUROPIUM);    // Europium
-        atomItem(ModItems.GADOLINIUM);  // Gadolinium
-        atomItem(ModItems.TERBIUM);     // Terbium
-        atomItem(ModItems.DYSPROSIUM);  // Dysprosium
-        atomItem(ModItems.HOLMIUM);     // Holmium
-        atomItem(ModItems.ERBIUM);      // Erbium
-        atomItem(ModItems.THULIUM);     // Thulium
-        atomItem(ModItems.YTTERBIUM);   // Ytterbium
-        atomItem(ModItems.LUTETIUM);    // Lutetium
-
-        // Actinides
-        atomItem(ModItems.ACTINIUM);    // Actinium
-        atomItem(ModItems.THORIUM);     // Thorium
-        atomItem(ModItems.PROTACTINIUM);// Protactinium
-        atomItem(ModItems.URANIUM);     // Uranium
-        atomItem(ModItems.NEPTUNIUM);   // Neptunium
-        atomItem(ModItems.PLUTONIUM);   // Plutonium
-        atomItem(ModItems.AMERICIUM);   // Americium
-        atomItem(ModItems.CURIUM);      // Curium
-        atomItem(ModItems.BERKELIUM);   // Berkelium
-        atomItem(ModItems.CALIFORNIUM);// Californium
-        atomItem(ModItems.EINSTEINIUM);// Einsteinium
-        atomItem(ModItems.FERMUM);      // Fermium
-        atomItem(ModItems.MENDELEVIUM);// Mendelevium
-        atomItem(ModItems.NOBELIUM);    // Nobelium
-        atomItem(ModItems.LAWRENCIUM);  // Lawrencium
+        atomItem(ModItems.LITHIUM);
+        atomItem(ModItems.SODIUM);
+        atomItem(ModItems.POTASSIUM);
+        atomItem(ModItems.RUBIDIUM);
+        atomItem(ModItems.CAESIUM);
+        atomItem(ModItems.FRANCIUM);
+        atomItem(ModItems.BERYLLIUM);
+        atomItem(ModItems.MAGNESIUM);
+        atomItem(ModItems.CALCIUM);
+        atomItem(ModItems.STRONTIUM);
+        atomItem(ModItems.BARIUM);
+        atomItem(ModItems.RADIUM);
+        atomItem(ModItems.SCANDIUM);
+        atomItem(ModItems.TITANIUM);
+        atomItem(ModItems.VANADIUM);
+        atomItem(ModItems.CHROMIUM);
+        atomItem(ModItems.MANGANESE);
+        atomItem(ModItems.IRON);
+        atomItem(ModItems.COBALT);
+        atomItem(ModItems.NICKEL);
+        atomItem(ModItems.COPPER);
+        atomItem(ModItems.ZINC);
+        atomItem(ModItems.YTTRIUM);
+        atomItem(ModItems.ZIRCONIUM);
+        atomItem(ModItems.NIOBIUM);
+        atomItem(ModItems.MOLYBDENUM);
+        atomItem(ModItems.TECHNETIUM);
+        atomItem(ModItems.RUTHENIUM);
+        atomItem(ModItems.RHODIUM);
+        atomItem(ModItems.PALLADIUM);
+        atomItem(ModItems.SILVER);
+        atomItem(ModItems.CADMIUM);
+        atomItem(ModItems.HAFNIUM);
+        atomItem(ModItems.TANTALUM);
+        atomItem(ModItems.TUNGSTEN);
+        atomItem(ModItems.RHENIUM);
+        atomItem(ModItems.OSMIUM);
+        atomItem(ModItems.IRIDIUM);
+        atomItem(ModItems.PLATINUM);
+        atomItem(ModItems.GOLD);
+        atomItem(ModItems.MERCURY);
+        atomItem(ModItems.ALUMINIUM);
+        atomItem(ModItems.GALLIUM);
+        atomItem(ModItems.INDIUM);
+        atomItem(ModItems.TIN);
+        atomItem(ModItems.THALLIUM);
+        atomItem(ModItems.LEAD);
+        atomItem(ModItems.BISMUTH);
+        atomItem(ModItems.POLONIUM);
+        atomItem(ModItems.LANTHANUM);
+        atomItem(ModItems.CERIUM);
+        atomItem(ModItems.PRASEODYMIUM);
+        atomItem(ModItems.NEODYMIUM);
+        atomItem(ModItems.PROMETHIUM);
+        atomItem(ModItems.SAMARIUM);
+        atomItem(ModItems.EUROPIUM);
+        atomItem(ModItems.GADOLINIUM);
+        atomItem(ModItems.TERBIUM);
+        atomItem(ModItems.DYSPROSIUM);
+        atomItem(ModItems.HOLMIUM);
+        atomItem(ModItems.ERBIUM);
+        atomItem(ModItems.THULIUM);
+        atomItem(ModItems.YTTERBIUM);
+        atomItem(ModItems.LUTETIUM);
+        atomItem(ModItems.ACTINIUM);
+        atomItem(ModItems.THORIUM);
+        atomItem(ModItems.PROTACTINIUM);
+        atomItem(ModItems.URANIUM);
+        atomItem(ModItems.NEPTUNIUM);
+        atomItem(ModItems.PLUTONIUM);
+        atomItem(ModItems.AMERICIUM);
+        atomItem(ModItems.CURIUM);
+        atomItem(ModItems.BERKELIUM);
+        atomItem(ModItems.CALIFORNIUM);
+        atomItem(ModItems.EINSTEINIUM);
+        atomItem(ModItems.FERMUM);
+        atomItem(ModItems.MENDELEVIUM);
+        atomItem(ModItems.NOBELIUM);
+        atomItem(ModItems.LAWRENCIUM);
         atomItem(ModItems.RUTHERFORDIUM);
         atomItem(ModItems.DUBNIUM);
         atomItem(ModItems.SEABORGIUM);
         atomItem(ModItems.BOHRIUM);
         atomItem(ModItems.HASSIUM);
+
     }
 
     private ItemModelBuilder atomItem(DeferredItem<AtomItem> item) {
@@ -157,6 +169,19 @@ public class ModItemModelProvider extends ItemModelProvider {
                         ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/" + textureLayer));
     }
 
+    private ItemModelBuilder reagentItem(DeferredItem<AtomItemReagent> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated"))
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/reagent"))
+                .texture("layer1", ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder reagentFormelItem(DeferredItem<AtomItemFormelReagent> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated"))
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/reagent"))
+                .texture("layer1", ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/" + item.getId().getPath()));
+    }
 
     private ItemModelBuilder handheldItem(DeferredItem<Item> item) {
         return withExistingParent(item.getId().getPath(),

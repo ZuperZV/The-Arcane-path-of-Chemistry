@@ -47,8 +47,8 @@ public class HardOvenRecipeCategory implements IRecipeCategory<HardOvenRecipe> {
         this.background = helper.createBlankDrawable(100, 60);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.HARD_OVEN.get()));
 
-        IDrawableStatic progressDrawable = helper.drawableBuilder(ARROW, 0, 0, 23, 15).setTextureSize(23, 15).addPadding(23, 0, 46, 0).build();
-        this.arrowbacki = helper.drawableBuilder(ARROWBACK, 0, 0, 23, 15).setTextureSize(23, 15).addPadding(23, 0, 47, 0).build();
+        IDrawableStatic progressDrawable = helper.drawableBuilder(ARROW, 0, 0, 23, 15).setTextureSize(23, 15).addPadding(23, 0, 47, 0).build();
+        this.arrowbacki = helper.drawableBuilder(ARROWBACK, 0, 0, 23, 15).setTextureSize(23, 15).addPadding(23, 0, 46, 0).build();
 
         IDrawableStatic litProgressDrawable = helper.drawableBuilder(LIT_PROGRESS, 0, 0, 14, 14).setTextureSize(14, 14).addPadding(24, 0, 17, 0).build();
         this.lit = helper.drawableBuilder(LIT, 0, 0, 13, 13).setTextureSize(13, 13).addPadding(24, 0, 17, 0).build();

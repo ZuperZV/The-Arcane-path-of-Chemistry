@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "arcane_chemistry:block/centrifuge",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "arcane_chemistry:block/centrifuge"
+    },
+    "facing=south": {
+      "model": "arcane_chemistry:block/centrifuge",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "arcane_chemistry:block/centrifuge",
+      "y": 270
+    }
+  }
+}

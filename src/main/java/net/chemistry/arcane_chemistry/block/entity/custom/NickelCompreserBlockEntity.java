@@ -5,6 +5,7 @@ import net.chemistry.arcane_chemistry.block.entity.ItemHandler.CustomItemHandler
 import net.chemistry.arcane_chemistry.block.entity.ModBlockEntities;
 import net.chemistry.arcane_chemistry.recipes.NickelCompreserRecipe;
 import net.chemistry.arcane_chemistry.recipes.ModRecipes;
+import net.chemistry.arcane_chemistry.recipes.ReagentNickelCompreserRecipe;
 import net.chemistry.arcane_chemistry.screen.NickelCompreserMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -87,7 +88,7 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
         }
     }
 
-    public void tick(BlockPos pos, BlockState state, NickelCompreserBlockEntity tile) {
+    public void tick(BlockPos pos, BlockState state, NickelCompreserBlockEntity blockEntity) {
         boolean isExtended = state.getValue(EXTENDED);
         boolean isLit = state.getValue(LIT);
 
@@ -97,25 +98,39 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
         }
 
         if (hasRecipe() && state.getValue(EXTENDED)) {
-            increaseCraftingProcess();
+            if (hasRecipe() && state.getValue(EXTENDED)) {
+                increaseCraftingProcess();
 
-            if (!isLit) {
-                level.setBlockAndUpdate(pos, state.setValue(LIT, true));
-            }
+                if (!isLit) {
+                    level.setBlockAndUpdate(pos, state.setValue(LIT, true));
+                }
 
-            if (hasProgressFinished()) {
-                craftItem();
-                resetProgress();
+                if (hasProgressFinished()) {
+                    craftItem();
+                    resetProgress();
+                }
             }
-        } else {
-            resetProgress();
+        } else if (hasReagentRecipe() && state.getValue(EXTENDED)) {
+            if (hasReagentRecipe() && state.getValue(EXTENDED)) {
+                increaseCraftingProcess();
+
+                if (!isLit) {
+                    level.setBlockAndUpdate(pos, state.setValue(LIT, true));
+                }
+
+                if (hasProgressFinished()) {
+                    craftReagentItem();
+                    resetProgress();
+                }
+            }
+        } else if (!hasRecipe() && !hasReagentRecipe()){
+            blockEntity.progress = Math.max(blockEntity.progress - 2, 0);
 
             if (isLit) {
                 level.setBlockAndUpdate(pos, state.setValue(LIT, false));
             }
         }
     }
-
 
     private boolean hasProgressFinished() {
         return this.progress >= this.maxProgress;
@@ -148,6 +163,22 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
 
         Optional<RecipeHolder<NickelCompreserRecipe>> recipe = level.getRecipeManager()
                 .getRecipeFor(ModRecipes.NICKEL_COMPRESER_RECIPE_TYPE.get(), getRecipeInput(inventory), level);
+
+        return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
+                canInsertItemIntoOutputSlot(inventory, recipe.get().value().output.copy().getItem().getDefaultInstance());
+    }
+
+    private boolean hasReagentRecipe() {
+        Level level = this.level;
+        if (level == null) return false;
+
+        SimpleContainer inventory = new SimpleContainer(inputItems.getSlots());
+        for (int i = 0; i < inputItems.getSlots(); i++) {
+            inventory.setItem(i, inputItems.getStackInSlot(i));
+        }
+
+        Optional<RecipeHolder<ReagentNickelCompreserRecipe>> recipe = level.getRecipeManager()
+                .getRecipeFor(ModRecipes.REAGENT_NICKEL_COMPRESER_RECIPE_TYPE.get(), getRecipeInput(inventory), level);
 
         return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
                 canInsertItemIntoOutputSlot(inventory, recipe.get().value().output.copy().getItem().getDefaultInstance());
@@ -209,6 +240,44 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
             }
 
             inputItems.extractItem(0, 1, false);
+
+            outputStack.shrink(amountToAdd);
+        }
+    }
+
+    private void craftReagentItem() {
+        Level level = this.level;
+        if (level == null) return;
+
+        SimpleContainer inventory = new SimpleContainer(inputItems.getSlots());
+        for (int i = 0; i < inputItems.getSlots(); i++) {
+            inventory.setItem(i, inputItems.getStackInSlot(i));
+        }
+
+        RecipeType<ReagentNickelCompreserRecipe> recipeType = ModRecipes.REAGENT_NICKEL_COMPRESER_RECIPE_TYPE.get();
+
+        Optional<RecipeHolder<ReagentNickelCompreserRecipe>> recipeOptional = level.getRecipeManager()
+                .getRecipeFor(recipeType, getRecipeInput(inventory), level);
+
+        if (recipeOptional.isPresent()) {
+            ReagentNickelCompreserRecipe recipe = recipeOptional.get().value();
+
+            ItemStack outputStack = recipe.getResultItem(level.registryAccess());
+
+            ItemStack existingOutput = outputItems.getStackInSlot(0);
+
+            int maxStackSize = outputStack.getMaxStackSize();
+            int availableSpace = maxStackSize - existingOutput.getCount();
+            int amountToAdd = Math.min(availableSpace, outputStack.getCount());
+
+            if (existingOutput.isEmpty()) {
+                outputItems.setStackInSlot(0, new ItemStack(outputStack.getItem(), amountToAdd));
+            } else if (existingOutput.getItem() == outputStack.getItem()) {
+                existingOutput.grow(amountToAdd);
+            }
+
+            inputItems.extractItem(0, 1, false);
+            inputItems.extractItem(1, 1, false);
 
             outputStack.shrink(amountToAdd);
         }

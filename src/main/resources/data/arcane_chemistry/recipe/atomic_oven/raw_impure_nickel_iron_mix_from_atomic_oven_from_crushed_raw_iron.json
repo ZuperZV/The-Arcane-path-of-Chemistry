@@ -1,0 +1,15 @@
+{
+  "type": "arcane_chemistry:atomic_oven",
+
+  "oven_ingredient": {
+    "item": "arcane_chemistry:crushed_raw_iron"
+  },
+
+  "ingredient": {
+    "item": "arcane_chemistry:raw_impure_nickel"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:raw_impure_nickel_iron_mix"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "arcane_chemistry:atomic_oven",
+
+  "oven_ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+
+  "ingredient": {
+    "item": "minecraft:gravel"
+  },
+
+  "output": {
+    "item": "minecraft:flint"
+  }
+}

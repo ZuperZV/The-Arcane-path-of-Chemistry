@@ -2,18 +2,13 @@ package net.chemistry.arcane_chemistry;
 
 import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.block.entity.ModBlockEntities;
+import net.chemistry.arcane_chemistry.block.entity.renderer.CentrifugeBlockEntityRenderer;
 import net.chemistry.arcane_chemistry.item.ModCreativeModeTabs;
 import net.chemistry.arcane_chemistry.item.ModItems;
 import net.chemistry.arcane_chemistry.item.custom.decorator.NumberDecorator;
 import net.chemistry.arcane_chemistry.recipes.ModRecipes;
-import net.chemistry.arcane_chemistry.screen.HardOvenScreen;
-import net.chemistry.arcane_chemistry.screen.ModMenuTypes;
-import net.chemistry.arcane_chemistry.screen.NickelCompreserMenu;
-import net.chemistry.arcane_chemistry.screen.NickelCompreserScreen;
+import net.chemistry.arcane_chemistry.screen.*;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
@@ -80,15 +75,26 @@ public class Arcane_chemistry {
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
-        @SubscribeEvent
 
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.CENTRIFUGE_BLOCK_ENTITY.get(), CentrifugeBlockEntityRenderer::new);
+        }
+
+        @SubscribeEvent
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(ModMenuTypes.HARD_OVEN_MENU.get(), HardOvenScreen::new);
             event.register(ModMenuTypes.NICKEL_COMPRESER_MENU.get(), NickelCompreserScreen::new);
+            event.register(ModMenuTypes.FLOTATIONER_MENU.get(), FlotationerScreen::new);
+            event.register(ModMenuTypes.ATOMIC_OVEN_MENU.get(), AtomicOvenScreen::new);
         }
 
         @SubscribeEvent
         public static void registerItemDecorators(RegisterItemDecorationsEvent event) {
+
+            event.register(ModItems.IRON_REAGENT.get(), new NumberDecorator());
+            event.register(ModItems.RED_IRON_REAGENT.get(), new NumberDecorator());
+
             event.register(ModItems.LITHIUM.get(), new NumberDecorator());
             event.register(ModItems.SODIUM.get(), new NumberDecorator());
             event.register(ModItems.POTASSIUM.get(), new NumberDecorator());

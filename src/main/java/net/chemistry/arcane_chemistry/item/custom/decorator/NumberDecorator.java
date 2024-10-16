@@ -1,6 +1,8 @@
 package net.chemistry.arcane_chemistry.item.custom.decorator;
 
 import net.chemistry.arcane_chemistry.item.custom.AtomItem;
+import net.chemistry.arcane_chemistry.item.custom.AtomItemEmptyReagent;
+import net.chemistry.arcane_chemistry.item.custom.AtomItemReagent;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.RenderType;
@@ -32,7 +34,26 @@ public class NumberDecorator implements IItemDecorator {
 
                 return true;
             }
+        } else if (stack.getItem() instanceof AtomItemReagent atomItem) {
+            String elementName = atomItem.getElementName();
+
+            if (elementName != null && !elementName.isEmpty()) {
+                int textColor = 0xFFFFFF;
+
+                PoseStack poseStack = guiGraphics.pose();
+
+                poseStack.pushPose();
+
+                poseStack.translate(xOffset, yOffset, 200);
+
+                guiGraphics.drawString(font, elementName, 1, 1, textColor, false);
+
+                poseStack.popPose();
+
+                return true;
+            }
         }
+
         return false;
     }
 }

@@ -21,6 +21,12 @@ public class ModMenuTypes {
     public static final Supplier<MenuType<NickelCompreserMenu>> NICKEL_COMPRESER_MENU = MENUS.register("nickel_compreser_menu",
             () -> IMenuTypeExtension.create((windowId, inv, data) -> new NickelCompreserMenu(windowId, inv.player, data.readBlockPos())));
 
+    public static final Supplier<MenuType<FlotationerMenu>> FLOTATIONER_MENU = MENUS.register("flotationer_menu",
+            () -> IMenuTypeExtension.create((windowId, inv, data) -> new FlotationerMenu(windowId, inv.player, data.readBlockPos())));
+
+    public static final Supplier<MenuType<AtomicOvenMenu>> ATOMIC_OVEN_MENU = MENUS.register("atomic_oven_menu",
+            () -> IMenuTypeExtension.create((windowId, inv, data) -> new AtomicOvenMenu(windowId, inv.player, data.readBlockPos())));
+
     private static <T extends AbstractContainerMenu> Supplier<MenuType<T>> registerMenuType(IContainerFactory<T> factory,
                                                                                             String name) {
         return MENUS.register(name, () -> IMenuTypeExtension.create(factory));

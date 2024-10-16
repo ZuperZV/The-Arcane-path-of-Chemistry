@@ -1,0 +1,11 @@
+{
+  "type": "arcane_chemistry:nickel_compreser",
+
+  "ingredient": {
+    "item": "arcane_chemistry:scheelite_crystal"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:crushed_scheelite_crystal"
+  }
+}

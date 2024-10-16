@@ -18,6 +18,9 @@ public class ModItems {
     public static final DeferredItem<Item> PEBBLE = ITEMS .register("pebble",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<AtomItemEmptyReagent> REAGENT = ITEMS .register("reagent",
+            () -> new AtomItemEmptyReagent(new Item.Properties(), "SiO2", 0xffda39));
+
     public static final DeferredItem<AtomItem> LITHIUM = ITEMS .register("lithium",
             () -> new AtomItem(new Item.Properties(), "1", "Li", 0xffda39,
                     "3", 474747,
@@ -988,7 +991,68 @@ public class ModItems {
     public static final DeferredItem<Item> RAW_IMPURE_IRON = ITEMS .register("raw_impure_iron",
             () -> new NormalItem(new Item.Properties(), "Fe", 0xffda39));
 
+    public static final DeferredItem<Item> CRUSHED_RAW_IRON = ITEMS .register("crushed_raw_iron",
+            () -> new NormalItem(new Item.Properties(), "Fe", 0xffda39));
 
+    public static final DeferredItem<Item> TUNGSTEN_INGOT = ITEMS .register("tungsten_ingot",
+            () -> new NormalItem(new Item.Properties(), "W", 0xffda39));
+
+    public static final DeferredItem<Item> TUNGSTEN_CARBIDE_INGOT = ITEMS .register("tungsten_carbide_ingot",
+            () -> new NormalItem(new Item.Properties(), "WC", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_CARBIDE = ITEMS .register("raw_carbide",
+            () -> new NormalItem(new Item.Properties(), "C", 0xffda39));
+
+    public static final DeferredItem<Item> CARBIDE_INGOT = ITEMS .register("carbide_ingot",
+            () -> new NormalItem(new Item.Properties(), "C", 0xffda39));
+
+    public static final DeferredItem<Item> CARBON_CHUNK = ITEMS .register("carbon_chunk",
+            () -> new NormalItem(new Item.Properties(), "C", 0xffda39));
+
+    public static final DeferredItem<Item> COBALT_INGOT = ITEMS .register("cobalt_ingot",
+            () -> new NormalItem(new Item.Properties(), "Co", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_COBALT = ITEMS .register("raw_cobalt",
+            () -> new NormalItem(new Item.Properties(), "Co", 0xffda39));
+
+    public static final DeferredItem<Item> SCHEELITE_CRYSTAL = ITEMS .register("scheelite_crystal",
+            () -> new NormalItem(new Item.Properties(), "CaWO₄", 0xffda39));
+
+    public static final DeferredItem<Item> CRUSHED_SCHEELITE_CRYSTAL = ITEMS .register("crushed_scheelite_crystal",
+            () -> new NormalItem(new Item.Properties(), "CaWO₄", 0xffda39));
+
+    public static final DeferredItem<Item> VANADIUM_INGOT = ITEMS .register("vanadium_ingot",
+            () -> new NormalItem(new Item.Properties(), "V", 0xffda39));
+
+    public static final DeferredItem<Item> VANADIUM_CATALYST = ITEMS .register("vanadium_catalyst",
+            () -> new NormalItem(new Item.Properties(), "V", 0xffda39));
+
+    public static final DeferredItem<AtomItemReagent> IRON_REAGENT = ITEMS .register("iron_reagent",
+            () -> new AtomItemReagent(new Item.Properties(), "2", "Fe", 0xffda39,
+                    "26", 474747,
+                    "2",0x282834,
+                    "8", 0x282834,
+                    "14", 0x282834,
+                    "2", 0x282834,
+                    "0", 0x282834,
+                    "0", 0x282834,
+                    "0", 0x282834,
+                    0xc6c6c6));
+
+    public static final DeferredItem<AtomItemReagent> RED_IRON_REAGENT = ITEMS .register("red_iron_reagent",
+            () -> new AtomItemReagent(new Item.Properties(), "2", "Fe", 0xffda39,
+                    "26", 474747,
+                    "2",0x282834,
+                    "8", 0x282834,
+                    "14", 0x282834,
+                    "2", 0x282834,
+                    "0", 0x282834,
+                    "0", 0x282834,
+                    "0", 0x282834,
+                    0xc6c6c6));
+
+    public static final DeferredItem<AtomItemFormelReagent> WATER_REAGENT = ITEMS .register("water_reagent",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "H₂O", 0xffda39));
 
 
     public static void register(IEventBus eventBus) {

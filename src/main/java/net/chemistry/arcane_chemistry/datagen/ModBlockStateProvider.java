@@ -20,9 +20,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
 
         blockWithItem(ModBlocks.NICKEL_BLOCK);
+        blockWithItem(ModBlocks.VANADIUM_BLOCK);
 
-        horizontalBlock(ModBlocks.FIRE_POT_CAMPFIRE.get(),
+        /*horizontalBlock(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/fire_pot_campfire")));
+         */
     }
 
     private void blockWithItem(DeferredBlock<Block> deferredBlock) {

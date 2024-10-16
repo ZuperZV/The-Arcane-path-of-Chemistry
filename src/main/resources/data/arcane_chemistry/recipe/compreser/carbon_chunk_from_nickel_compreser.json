@@ -1,0 +1,11 @@
+{
+  "type": "arcane_chemistry:nickel_compreser",
+
+  "ingredient": {
+    "item": "minecraft:charcoal"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:carbon_chunk"
+  }
+}

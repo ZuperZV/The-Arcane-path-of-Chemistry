@@ -1,0 +1,15 @@
+{
+  "type": "arcane_chemistry:atomic_oven",
+
+  "oven_ingredient": {
+    "item": "minecraft:raw_iron"
+  },
+
+  "ingredient": {
+    "item": "minecraft:flint"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:crushed_raw_iron"
+  }
+}

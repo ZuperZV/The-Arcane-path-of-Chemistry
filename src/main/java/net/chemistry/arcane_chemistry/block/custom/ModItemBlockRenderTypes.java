@@ -14,7 +14,8 @@ public class ModItemBlockRenderTypes {
     @SubscribeEvent
     public static void registerItemModelProperties(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.FIRE_POT_CAMPFIRE.get(), RenderType.cutout());
+            //ItemBlockRenderTypes.setRenderLayer(ModBlocks.FIRE_POT_CAMPFIRE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.CENTRIFUGE.get(), RenderType.cutout());
         });
     }
 }

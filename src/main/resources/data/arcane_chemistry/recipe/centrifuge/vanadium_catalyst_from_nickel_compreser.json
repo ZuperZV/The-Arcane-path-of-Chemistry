@@ -1,0 +1,11 @@
+{
+  "type": "arcane_chemistry:centrifuge",
+
+  "ingredient": {
+    "item": "arcane_chemistry:red_iron_reagent"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:vanadium_catalyst"
+  }
+}

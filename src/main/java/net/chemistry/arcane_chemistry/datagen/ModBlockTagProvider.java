@@ -22,13 +22,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.HARD_OVEN.get())
                 .add(ModBlocks.FIRE_POT.get())
-                .add(ModBlocks.FIRE_POT_CAMPFIRE.get())
+                //.add(ModBlocks.FIRE_POT_CAMPFIRE.get())
                 .add(ModBlocks.HARD_OVEN.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.HARD_OVEN.get())
                 .add(ModBlocks.FIRE_POT.get())
-                .add(ModBlocks.FIRE_POT_CAMPFIRE.get())
+                //.add(ModBlocks.FIRE_POT_CAMPFIRE.get())
                 .add(ModBlocks.HARD_OVEN.get());
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)

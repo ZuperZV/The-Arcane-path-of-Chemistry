@@ -1,0 +1,15 @@
+{
+  "type": "arcane_chemistry:atomic_oven",
+
+  "oven_ingredient": {
+    "item": "minecraft:iron_ingot"
+  },
+
+  "ingredient": {
+    "item": "arcane_chemistry:reagent"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:iron_reagent"
+  }
+}

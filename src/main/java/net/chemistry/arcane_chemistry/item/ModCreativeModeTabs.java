@@ -37,6 +37,27 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.RAW_IMPURE_NICKEL.get());
                         pOutput.accept(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get());
                         pOutput.accept(ModItems.RAW_IMPURE_IRON.get());
+                        pOutput.accept(ModItems.CRUSHED_RAW_IRON.get());
+
+                        pOutput.accept(ModItems.SCHEELITE_CRYSTAL.get());
+                        pOutput.accept(ModItems.CRUSHED_SCHEELITE_CRYSTAL.get());
+                        pOutput.accept(ModItems.RAW_COBALT.get());
+                        pOutput.accept(ModItems.COBALT_INGOT.get());
+                        pOutput.accept(ModItems.CARBON_CHUNK.get());
+                        pOutput.accept(ModItems.CARBIDE_INGOT.get());
+                        pOutput.accept(ModItems.RAW_CARBIDE.get());
+                        pOutput.accept(ModItems.TUNGSTEN_INGOT.get());
+                        pOutput.accept(ModItems.TUNGSTEN_CARBIDE_INGOT.get());
+                        pOutput.accept(ModBlocks.VANADIUM_BLOCK.get());
+                        pOutput.accept(ModItems.VANADIUM_INGOT.get());
+                        pOutput.accept(ModItems.VANADIUM_CATALYST.get());
+
+
+                        pOutput.accept(ModItems.WATER_REAGENT.get());
+
+                        pOutput.accept(ModItems.REAGENT.get());
+                        pOutput.accept(ModItems.IRON_REAGENT.get());
+                        pOutput.accept(ModItems.RED_IRON_REAGENT.get());
 
                         pOutput.accept(ModItems.LITHIUM.get());
                         pOutput.accept(ModItems.SODIUM.get());

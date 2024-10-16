@@ -14,9 +14,28 @@
 
   "item.arcane_chemistry.nickel_ingot": "Nickel Ingot",
   "item.arcane_chemistry.raw_nickel": "Raw Nickel",
-  "item.arcane_chemistry.raw_impure_nickel_iron_mix": "Raw Impure Nickel-Iron Mix",
-  "item.arcane_chemistry.raw_impure_nickel": "Raw Impure Nickel",
-  "item.arcane_chemistry.raw_impure_iron": "Raw Impure Iron",
+  "item.arcane_chemistry.raw_impure_nickel_iron_mix": "Crushed Raw Impure Nickel-Iron Mix",
+  "item.arcane_chemistry.raw_impure_nickel": "Crushed Raw Impure Nickel",
+  "item.arcane_chemistry.raw_impure_iron": "Crushed Raw Impure Iron",
+
+  "item.arcane_chemistry.crushed_scheelite_crystal": "Crushed Scheelite Crystal",
+  "item.arcane_chemistry.scheelite_crystal": "Scheelite Crystal",
+  "item.arcane_chemistry.raw_cobalt": "Raw Cobalt",
+  "item.arcane_chemistry.carbide_ingot": "Carbide Ingot",
+  "item.arcane_chemistry.raw_carbide": "Raw Carbide",
+  "item.arcane_chemistry.carbon_chunk": "Carbon Chunk",
+  "item.arcane_chemistry.cobalt_ingot": "Cobalt Ingot",
+  "item.arcane_chemistry.tungsten_carbide_ingot": "Tungsten Carbide Ingot",
+  "item.arcane_chemistry.tungsten_ingot": "Tungsten Ingot",
+
+  "item.arcane_chemistry.crushed_raw_iron": "Crushed Raw Iron",
+
+  "item.arcane_chemistry.vanadium_ingot": "Vanadium Ingot",
+  "block.arcane_chemistry.vanadium_block": "Vanadium Block",
+
+  "block.arcane_chemistry.flotationer": "Flotationer",
+  "block.arcane_chemistry.atomic_oven": "Atomic Oven",
+
 
   "block.arcane_chemistry.nickel_compreser": "Nickel Compreser",
   "block.arcane_chemistry.nickel_compreser_filter": "Nickel Compreser Filter",
@@ -109,5 +128,11 @@
   "item.arcane_chemistry.dubnium": "Dubnium",
   "item.arcane_chemistry.seaborgium": "Seaborgium",
   "item.arcane_chemistry.bohrium": "Bohrium",
-  "item.arcane_chemistry.hassium": "Hassium"
+  "item.arcane_chemistry.hassium": "Hassium",
+
+  "item.arcane_chemistry.iron_reagent": "Iron Reagent",
+
+  "item.arcane_chemistry.reagent": "Reagent",
+  "item.arcane_chemistry.water_reagent": "Water Reagent",
+  "block.arcane_chemistry.reagent_nickel_compreser": "Reagent Nickel Compreser"
 }
