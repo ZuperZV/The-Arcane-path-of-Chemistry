@@ -4,7 +4,7 @@
 	"textures": {
 		"2": "arcane_chemistry:block/centrifuge_side",
 		"3": "arcane_chemistry:block/centrifuge_glass_side",
-		"4": "arcane_chemistry:block/da_block",
+		"4": "arcane_chemistry:block/chromium_block",
 		"5": "arcane_chemistry:block/centrifuge_glass_top",
 		"particle": "arcane_chemistry:block/centrifuge_glass_top"
 	},

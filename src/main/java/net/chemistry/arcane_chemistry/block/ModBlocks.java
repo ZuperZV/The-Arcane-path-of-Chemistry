@@ -28,6 +28,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CENTRIFUGE = registerBlock("centrifuge",
             () -> new CentrifugeBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).noOcclusion()));
 
+    public static final DeferredBlock<Block> ELECTOLYZER = registerBlock("electrolyzer",
+            () -> new ElectrolyzerBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).noOcclusion()));
+
     public static final DeferredBlock<Block> ATOMIC_OVEN = registerBlock("atomic_oven",
             () -> new AtomicOvenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).noOcclusion()));
 
@@ -47,6 +50,10 @@ public class ModBlocks {
             () -> new ElemenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
                     .sound(SoundType.METAL), "V", 0xffda39));
 
+    public static final DeferredBlock<Block> CHROMIUM_BLOCK = registerBlock("chromium_block",
+            () -> new ElemenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
+                    .sound(SoundType.METAL), "Cr", 0xffda39));
+
     public static final DeferredBlock<Block> NICKEL_COMPRESER = registerBlock("nickel_compreser",
             () -> new NickelCompreserBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
                     .sound(SoundType.METAL).noOcclusion(), "Ni", 0xffda39));
@@ -54,6 +61,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> FLOTATIONER = registerBlock("flotationer",
             () -> new FlotationerBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
                     .sound(SoundType.METAL).noOcclusion(), "Ni", 0xffda39));
+
+    public static final DeferredBlock<Block> LIMESTONE = registerBlock("limestone",
+            () -> new ElemenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
+                    .sound(SoundType.METAL).noOcclusion(), "CaCO₃", 0xffda39));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

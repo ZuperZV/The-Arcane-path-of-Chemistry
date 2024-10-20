@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "category": "misc",
-  "cookingtime": 200,
+  "cookingtime": 300,
   "experience": 0.15,
   "ingredient": {
     "item": "arcane_chemistry:raw_impure_nickel_iron_mix"

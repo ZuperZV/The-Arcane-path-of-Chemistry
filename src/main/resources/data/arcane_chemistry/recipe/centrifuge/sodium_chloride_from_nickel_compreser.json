@@ -1,0 +1,11 @@
+{
+  "type": "arcane_chemistry:centrifuge",
+
+  "ingredient": {
+    "item": "arcane_chemistry:salt_reagent"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:sodium_chloride"
+  }
+}

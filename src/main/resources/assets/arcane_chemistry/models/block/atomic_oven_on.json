@@ -4,7 +4,7 @@
 		"0": "arcane_chemistry:block/atomic_oven_front_on",
 		"2": "arcane_chemistry:block/atomic_oven_side",
 		"3": "arcane_chemistry:block/vanadium_block",
-		"4": "arcane_chemistry:block/da_block",
+		"4": "arcane_chemistry:block/chromium_block",
 		"particle": "arcane_chemistry:block/atomic_oven_front"
 	},
 	"elements": [

@@ -38,6 +38,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("centrifuge_be", () -> BlockEntityType.Builder.of(
                     CentrifugeBlockEntity::new, ModBlocks.CENTRIFUGE.get()).build(null));
 
+    public static final Supplier<BlockEntityType<ElectrolyzerBlockEntity>> ELECTOLYZER_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("electrolyzer_be", () -> BlockEntityType.Builder.of(
+                    ElectrolyzerBlockEntity::new, ModBlocks.ELECTOLYZER.get()).build(null));
+
     public static final Supplier<BlockEntityType<FlotationerBlockEntity>> FLOTATIONER_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("flotationer_be", () -> BlockEntityType.Builder.of(
                     FlotationerBlockEntity::new, ModBlocks.FLOTATIONER.get()).build(null));

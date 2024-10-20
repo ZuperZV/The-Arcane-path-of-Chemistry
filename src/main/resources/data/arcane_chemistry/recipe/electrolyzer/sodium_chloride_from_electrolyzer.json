@@ -1,0 +1,18 @@
+{
+  "type": "arcane_chemistry:electrolyzer",
+
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+
+  "ingredient1": {
+    "item": "arcane_chemistry:salt_reagent"
+  },
+
+  "output": {
+  },
+
+  "output2": {
+    "item": "arcane_chemistry:sodium_chloride"
+  }
+}

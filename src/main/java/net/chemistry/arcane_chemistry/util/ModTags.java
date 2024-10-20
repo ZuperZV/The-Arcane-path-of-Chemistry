@@ -13,12 +13,16 @@ public class ModTags {
         public static final TagKey<Block> INCORRECT_FOR_FLINT_TOOL = createTag("incorrect_for_flint_tool");
         public static final TagKey<Block> NEEDS_FLINT_TOOL = createTag("needs_flint_tool");
 
+
+
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, name));
         }
     }
 
     public static class Items {
+
+        public static final TagKey<Item> CRUSHED_RAW_IRON = createTag("crushed_raw_iron");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, name));

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "arcane_chemistry:vanadium_catalyst"
+    },
+    {
+      "tag": "arcane_chemistry:crushed_raw_iron"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:vanadium_ingot"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "arcane_chemistry:chromium_ingot"
+    },
+    "B": {
+      "item": "arcane_chemistry:chromium_block"
+    },
+    "C": {
+      "item": "minecraft:glass"
+    },
+    "D": {
+      "item": "minecraft:flint"
+    }
+  },
+  "pattern": [
+    "A A",
+    "ACA",
+    "BDB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:centrifuge"
+  }
+}

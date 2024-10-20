@@ -1,11 +1,11 @@
 {
-  "type": "arcane_chemistry:reagent_nickel_compreser",
+  "type": "arcane_chemistry:nickel_compreser",
 
   "ingredient": {
     "item": "minecraft:iron_ingot"
   },
 
-  "reagent": {
+  "ingredient1": {
     "item": "arcane_chemistry:reagent"
   },
 

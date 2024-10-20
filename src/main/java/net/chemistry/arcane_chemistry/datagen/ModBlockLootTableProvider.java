@@ -40,9 +40,14 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.NICKEL_COMPRESER.get());
 
         dropSelf(ModBlocks.VANADIUM_BLOCK.get());
-        dropSelf(ModBlocks.ATOMIC_OVEN.get());
+        dropSelf(ModBlocks.CHROMIUM_BLOCK.get());
 
+        dropSelf(ModBlocks.ATOMIC_OVEN.get());
         dropSelf(ModBlocks.FLOTATIONER.get());
+        dropSelf(ModBlocks.CENTRIFUGE.get());
+        dropSelf(ModBlocks.ELECTOLYZER.get());
+
+        dropSelf(ModBlocks.LIMESTONE.get());
 
         /*this.add(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 block -> LootTable.lootTable()

@@ -5,7 +5,6 @@ import net.chemistry.arcane_chemistry.block.entity.ItemHandler.CustomItemHandler
 import net.chemistry.arcane_chemistry.block.entity.ModBlockEntities;
 import net.chemistry.arcane_chemistry.recipes.NickelCompreserRecipe;
 import net.chemistry.arcane_chemistry.recipes.ModRecipes;
-import net.chemistry.arcane_chemistry.recipes.ReagentNickelCompreserRecipe;
 import net.chemistry.arcane_chemistry.screen.NickelCompreserMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -110,20 +109,7 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
                     resetProgress();
                 }
             }
-        } else if (hasReagentRecipe() && state.getValue(EXTENDED)) {
-            if (hasReagentRecipe() && state.getValue(EXTENDED)) {
-                increaseCraftingProcess();
-
-                if (!isLit) {
-                    level.setBlockAndUpdate(pos, state.setValue(LIT, true));
-                }
-
-                if (hasProgressFinished()) {
-                    craftReagentItem();
-                    resetProgress();
-                }
-            }
-        } else if (!hasRecipe() && !hasReagentRecipe()){
+        } else if (!hasRecipe()){
             blockEntity.progress = Math.max(blockEntity.progress - 2, 0);
 
             if (isLit) {
@@ -168,22 +154,6 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
                 canInsertItemIntoOutputSlot(inventory, recipe.get().value().output.copy().getItem().getDefaultInstance());
     }
 
-    private boolean hasReagentRecipe() {
-        Level level = this.level;
-        if (level == null) return false;
-
-        SimpleContainer inventory = new SimpleContainer(inputItems.getSlots());
-        for (int i = 0; i < inputItems.getSlots(); i++) {
-            inventory.setItem(i, inputItems.getStackInSlot(i));
-        }
-
-        Optional<RecipeHolder<ReagentNickelCompreserRecipe>> recipe = level.getRecipeManager()
-                .getRecipeFor(ModRecipes.REAGENT_NICKEL_COMPRESER_RECIPE_TYPE.get(), getRecipeInput(inventory), level);
-
-        return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, recipe.get().value().output.copy().getItem().getDefaultInstance());
-    }
-
     private RecipeInput getRecipeInput(SimpleContainer inventory) {
         return new RecipeInput() {
             @Override
@@ -209,6 +179,7 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
     }
 
     private void craftItem() {
+
         Level level = this.level;
         if (level == null) return;
 
@@ -224,9 +195,7 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
 
         if (recipeOptional.isPresent()) {
             NickelCompreserRecipe recipe = recipeOptional.get().value();
-
             ItemStack outputStack = recipe.getResultItem(level.registryAccess());
-
             ItemStack existingOutput = outputItems.getStackInSlot(0);
 
             int maxStackSize = outputStack.getMaxStackSize();
@@ -239,50 +208,18 @@ public class NickelCompreserBlockEntity extends BlockEntity implements MenuProvi
                 existingOutput.grow(amountToAdd);
             }
 
-            inputItems.extractItem(0, 1, false);
-
-            outputStack.shrink(amountToAdd);
-        }
-    }
-
-    private void craftReagentItem() {
-        Level level = this.level;
-        if (level == null) return;
-
-        SimpleContainer inventory = new SimpleContainer(inputItems.getSlots());
-        for (int i = 0; i < inputItems.getSlots(); i++) {
-            inventory.setItem(i, inputItems.getStackInSlot(i));
-        }
-
-        RecipeType<ReagentNickelCompreserRecipe> recipeType = ModRecipes.REAGENT_NICKEL_COMPRESER_RECIPE_TYPE.get();
-
-        Optional<RecipeHolder<ReagentNickelCompreserRecipe>> recipeOptional = level.getRecipeManager()
-                .getRecipeFor(recipeType, getRecipeInput(inventory), level);
-
-        if (recipeOptional.isPresent()) {
-            ReagentNickelCompreserRecipe recipe = recipeOptional.get().value();
-
-            ItemStack outputStack = recipe.getResultItem(level.registryAccess());
-
-            ItemStack existingOutput = outputItems.getStackInSlot(0);
-
-            int maxStackSize = outputStack.getMaxStackSize();
-            int availableSpace = maxStackSize - existingOutput.getCount();
-            int amountToAdd = Math.min(availableSpace, outputStack.getCount());
-
-            if (existingOutput.isEmpty()) {
-                outputItems.setStackInSlot(0, new ItemStack(outputStack.getItem(), amountToAdd));
-            } else if (existingOutput.getItem() == outputStack.getItem()) {
-                existingOutput.grow(amountToAdd);
+            if (recipe.ingredient0.test(inventory.getItem(0))) {
+                inputItems.extractItem(0, 1, false);
             }
-
-            inputItems.extractItem(0, 1, false);
-            inputItems.extractItem(1, 1, false);
-
+            if (recipe.ingredient1.isPresent() && recipe.ingredient1.get().test(inventory.getItem(1))) {
+                inputItems.extractItem(1, 1, false);
+            }
+            if (recipe.ingredient2.isPresent() && recipe.ingredient2.get().test(inventory.getItem(2))) {
+                inputItems.extractItem(2, 1, false);
+            }
             outputStack.shrink(amountToAdd);
         }
     }
-
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {

@@ -15,6 +15,7 @@ import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.recipes.NickelCompreserRecipe;
 import net.chemistry.arcane_chemistry.recipes.NickelCompreserRecipe;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -32,6 +33,8 @@ public class NickelCompreserRecipeCategory implements IRecipeCategory<NickelComp
 
     private final IDrawableStatic slot_1;
     private final IDrawableStatic slot_2;
+    private final IDrawableStatic slot_3;
+    private final IDrawableStatic slot_4;
 
     private final IDrawableStatic arrowbacki;
     private final IDrawableAnimated progress;
@@ -39,14 +42,17 @@ public class NickelCompreserRecipeCategory implements IRecipeCategory<NickelComp
     public NickelCompreserRecipeCategory(IGuiHelper helper) {
         ResourceLocation ARROW = ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "textures/gui/arrow.png");
 
-        this.background = helper.createBlankDrawable(100, 60);
+        this.background = helper.createBlankDrawable(100, 24);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.NICKEL_COMPRESER.get()));
 
-        IDrawableStatic progressDrawable = helper.drawableBuilder(ARROW, 0, 0, 23, 15).setTextureSize(23, 15).addPadding(22, 0, 39, 0).build();
-        this.arrowbacki = helper.drawableBuilder(ARROWBACK, 0, 0, 23, 15).setTextureSize(23, 15).addPadding(22, 0, 38, 0).build();
+        IDrawableStatic progressDrawable = helper.drawableBuilder(ARROW, 0, 0, 23, 15).setTextureSize(23, 15).addPadding(4, 0, 58, 0).build();
+        this.arrowbacki = helper.drawableBuilder(ARROWBACK, 0, 0, 23, 15).setTextureSize(23, 15).addPadding(4, 0, 57, 0).build();
 
-        this.slot_1 = helper.drawableBuilder(SLOT, 0, 18, 18, 18).setTextureSize(18, 18).addPadding(21,0,14,0).build();
-        this.slot_2 = helper.drawableBuilder(SLOT, 0, 18, 18, 18).setTextureSize(18, 18).addPadding(21,0,68,0).build();
+        this.slot_1 = helper.drawableBuilder(SLOT, 0, 18, 18, 18).setTextureSize(18, 18).addPadding(1,0,20,0).build();
+        this.slot_2 = helper.drawableBuilder(SLOT, 0, 18, 18, 18).setTextureSize(18, 18).addPadding(5,0,1,0).build();
+        this.slot_3 = helper.drawableBuilder(SLOT, 0, 18, 18, 18).setTextureSize(18, 18).addPadding(5,0,39,0).build();
+
+        this.slot_4 = helper.drawableBuilder(SLOT, 0, 18, 18, 18).setTextureSize(18, 18).addPadding(3,0,81,0).build();
 
         this.progress = helper.createAnimatedDrawable(progressDrawable, 200, IDrawableAnimated.StartDirection.LEFT,
                 false);
@@ -73,6 +79,9 @@ public class NickelCompreserRecipeCategory implements IRecipeCategory<NickelComp
 
         this.slot_1.draw(guiGraphics);
         this.slot_2.draw(guiGraphics);
+        this.slot_3.draw(guiGraphics);
+
+        this.slot_4.draw(guiGraphics);
 
         this.arrowbacki.draw(guiGraphics);
         this.progress.draw(guiGraphics);
@@ -85,11 +94,19 @@ public class NickelCompreserRecipeCategory implements IRecipeCategory<NickelComp
 
     @Override
     public void setRecipe(@NotNull IRecipeLayoutBuilder builder, NickelCompreserRecipe recipe, @NotNull IFocusGroup focuses) {
-
-        builder.addSlot(RecipeIngredientRole.INPUT, 15, 22)
+        builder.addSlot(RecipeIngredientRole.INPUT, 21, 2)
                 .addIngredients(recipe.getIngredients().get(0));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 69, 22)
-                .addItemStack(recipe.output);
+        if (recipe.getIngredients().size() > 1) {
+            builder.addSlot(RecipeIngredientRole.INPUT, 2, 6)
+                    .addIngredients(recipe.getIngredients().get(1));}
+        if (recipe.getIngredients().size() > 2) {
+            builder.addSlot(RecipeIngredientRole.INPUT, 40, 6)
+                    .addIngredients(recipe.getIngredients().get(2));
+        }
+
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 82, 4)
+                .addItemStack(recipe.getResultItem(Minecraft.getInstance().level.registryAccess()));
+
     }
 }

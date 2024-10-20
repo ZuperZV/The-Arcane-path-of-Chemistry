@@ -3,6 +3,7 @@ package net.chemistry.arcane_chemistry;
 import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.block.entity.ModBlockEntities;
 import net.chemistry.arcane_chemistry.block.entity.renderer.CentrifugeBlockEntityRenderer;
+import net.chemistry.arcane_chemistry.block.entity.renderer.ElectrolyzerBlockEntityRenderer;
 import net.chemistry.arcane_chemistry.item.ModCreativeModeTabs;
 import net.chemistry.arcane_chemistry.item.ModItems;
 import net.chemistry.arcane_chemistry.item.custom.decorator.NumberDecorator;
@@ -54,14 +55,10 @@ public class Arcane_chemistry {
 
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-
-        //modEventBus.addListener(this::onModSetup);
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
         LOGGER.info("HELLO from server starting");
 
         if (Config.logDirtBlock)
@@ -79,6 +76,7 @@ public class Arcane_chemistry {
         @SubscribeEvent
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.CENTRIFUGE_BLOCK_ENTITY.get(), CentrifugeBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.ELECTOLYZER_BLOCK_ENTITY.get(), ElectrolyzerBlockEntityRenderer::new);
         }
 
         @SubscribeEvent

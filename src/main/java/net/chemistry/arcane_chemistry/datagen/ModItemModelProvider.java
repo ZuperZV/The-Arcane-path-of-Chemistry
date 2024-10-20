@@ -49,10 +49,23 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.TUNGSTEN_CARBIDE_INGOT.get());
         basicItem(ModItems.VANADIUM_INGOT.get());
         basicItem(ModItems.VANADIUM_CATALYST.get());
+        basicItem(ModItems.CHROMIUM_INGOT.get());
+
+        basicItem(ModItems.SALT.get());
 
         basicItem(ModItems.REAGENT.get());
+        basicItem(ModItems.SODIUM_CHROMATE.get());
+
+        basicItem(ModItems.SULFUR.get());
+        basicItem(ModItems.SULFURIC_ACID_MIX.get());
+        basicItem(ModItems.SULFURIC_ACID.get());
+        basicItem(ModItems.SODIUM_DICHROMATE.get());
 
         reagentFormelItem(ModItems.WATER_REAGENT);
+
+        reagentFormelItem(ModItems.CHLORINE_GAS);
+        reagentFormelItem(ModItems.SODIUM_CHLORIDE);
+        reagentFormelItem(ModItems.SALT_REAGENT);
 
         reagentItem(ModItems.IRON_REAGENT);
         reagentItem(ModItems.RED_IRON_REAGENT);

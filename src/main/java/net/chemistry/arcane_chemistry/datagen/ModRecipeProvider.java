@@ -3,6 +3,7 @@ package net.chemistry.arcane_chemistry.datagen;
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.item.ModItems;
+import net.chemistry.arcane_chemistry.util.ModTags;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -35,16 +36,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_raw_nickel",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_NICKEL.get()).build()))
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "nickel_ingot_from_blasting"));
 
-        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get()), RecipeCategory.MISC , ModItems.RAW_NICKEL.get(), 0.15f , 200)
+        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get()), RecipeCategory.MISC , ModItems.RAW_NICKEL.get(), 0.15f , 300)
                 .unlockedBy("has_raw_impure_nickel_iron_mix",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_IMPURE_NICKEL_IRON_MIX.get()).build()))
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_nickel_from_smelting"));
 
-        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_NICKEL.get()), RecipeCategory.MISC , ModItems.NICKEL_INGOT.get(), 0.15f , 200)
+        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_NICKEL.get()), RecipeCategory.MISC , ModItems.NICKEL_INGOT.get(), 0.15f , 300)
                 .unlockedBy("has_raw_nickel",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_NICKEL.get()).build()))
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "nickel_ingot_from_smelting"));
 
 
-        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_COBALT.get()), RecipeCategory.MISC , ModItems.COBALT_INGOT.get(), 0.15f , 200)
+        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_COBALT.get()), RecipeCategory.MISC , ModItems.COBALT_INGOT.get(), 0.15f , 300)
                 .unlockedBy("has_raw_cobalt",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_COBALT.get()).build()))
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_cobalt_from_smelting"));
 
@@ -53,7 +54,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_cobalt_from_blasting"));
 
 
-        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_CARBIDE.get()), RecipeCategory.MISC , ModItems.CARBIDE_INGOT.get(), 0.15f , 200)
+        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_CARBIDE.get()), RecipeCategory.MISC , ModItems.CARBIDE_INGOT.get(), 0.15f , 300)
                 .unlockedBy("has_raw_carbide",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_CARBIDE.get()).build()))
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_carbide_from_smelting"));
 
@@ -61,8 +62,33 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_raw_carbide",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_CARBIDE.get()).build()))
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "raw_carbide_from_blasting"));
 
+        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.CHROMIUM_CHUNK_MIX.get()), RecipeCategory.MISC , ModItems.SODIUM_CHROMATE.get(), 0.15f , 300)
+                .unlockedBy("has_chromium_chunk_mix",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.CHROMIUM_CHUNK_MIX.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "sodium_chromate_from_smelting"));
+
+        SimpleCookingRecipeBuilder.blasting (Ingredient.of(ModItems.CHROMIUM_CHUNK_MIX.get()), RecipeCategory.MISC , ModItems.SODIUM_CHROMATE.get(), 0.1f , 200)
+                .unlockedBy("has_chromium_chunk_mix",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.CHROMIUM_CHUNK_MIX.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "sodium_chromate_from_blasting"));
+
+
         fourBlockStorageRecipes(pWriter, RecipeCategory.BUILDING_BLOCKS, ModItems.NICKEL_INGOT.get(), RecipeCategory.MISC,
                 ModBlocks.NICKEL_BLOCK.get());
+
+        fourBlockStorageRecipes(pWriter, RecipeCategory.BUILDING_BLOCKS, ModItems.VANADIUM_INGOT.get(), RecipeCategory.MISC,
+                ModBlocks.VANADIUM_BLOCK);
+
+        fourBlockStorageRecipes(pWriter, RecipeCategory.BUILDING_BLOCKS, ModItems.CHROMIUM_INGOT.get(), RecipeCategory.MISC,
+                ModBlocks.CHROMIUM_BLOCK.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.HARD_OVEN.get())
+                .pattern("A A")
+                .pattern("A A")
+                .pattern("ABA")
+                .define('A', Blocks.STONE)
+                .define('B', Blocks.FURNACE)
+                .unlockedBy("has_furnace", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(Blocks.FURNACE).build()))
+                .save(pWriter);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NICKEL_COMPRESER.get())
                 .pattern("DBD")
@@ -75,6 +101,43 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_nickel_block", inventoryTrigger(ItemPredicate.Builder.item().
                         of(ModBlocks.NICKEL_BLOCK.get()).build()))
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "nickel_compreser_from_crafting"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ELECTOLYZER.get())
+                .pattern("A A")
+                .pattern("ACA")
+                .pattern("BDB")
+                .define('A', ModItems.NICKEL_INGOT)
+                .define('B', ModBlocks.NICKEL_BLOCK)
+                .define('C', Blocks.GLASS)
+                .define('D', Items.FLINT)
+                .unlockedBy("has_nickel_ingot", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.NICKEL_INGOT).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CENTRIFUGE.get())
+                .pattern("A A")
+                .pattern("ACA")
+                .pattern("BDB")
+                .define('A', ModItems.CHROMIUM_INGOT)
+                .define('B', ModBlocks.CHROMIUM_BLOCK)
+                .define('C', Blocks.GLASS)
+                .define('D', Items.FLINT)
+                .unlockedBy("has_chromium_ingot", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.CHROMIUM_INGOT).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ATOMIC_OVEN.get())
+                .pattern("A A")
+                .pattern("ACA")
+                .pattern("BDB")
+                .define('A', ModItems.VANADIUM_INGOT)
+                .define('B', ModBlocks.VANADIUM_BLOCK)
+                .define('C', ModBlocks.CHROMIUM_BLOCK)
+                .define('D', ModItems.SODIUM_CHROMATE)
+                .unlockedBy("has_vanadium_ingot", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.VANADIUM_INGOT).build()))
+                .save(pWriter);
+
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REAGENT.get())
                 .pattern("A A")
@@ -93,7 +156,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         of(ModItems.IRON_REAGENT.get()).build()))
                 .save(pWriter);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.VANADIUM_INGOT.get())
+                .requires(ModItems.VANADIUM_CATALYST.get())
+                .requires(ModTags.Items.CRUSHED_RAW_IRON)
+                .unlockedBy("has_vanadium_catalyst", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.VANADIUM_INGOT.get()).build()))
+                .save(pWriter);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CHROMIUM_CHUNK_MIX.get())
+                .requires(ModItems.SODIUM)
+                .requires(ModItems.CARBON_CHUNK.get())
+                .requires(ModBlocks.LIMESTONE.get())
+                .unlockedBy("has_lime", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.CHROMIUM_CHUNK_MIX.get()).build()))
+                .save(pWriter);
 
     }
 

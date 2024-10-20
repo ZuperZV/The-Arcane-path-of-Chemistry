@@ -29,9 +29,6 @@ public class ModRecipes {
     public static final Supplier<RecipeType<NickelCompreserRecipe>> NICKEL_COMPRESER_RECIPE_TYPE =
             RECIPE_TYPES.register("nickel_compreser", () -> NickelCompreserRecipe.Type.INSTANCE);
 
-    public static final Supplier<RecipeType<ReagentNickelCompreserRecipe>> REAGENT_NICKEL_COMPRESER_RECIPE_TYPE =
-            RECIPE_TYPES.register("reagent_nickel_compreser", () -> ReagentNickelCompreserRecipe.Type.INSTANCE);
-
     public static final Supplier<RecipeType<FirePotRecipe>> FIRE_POT_RECIPE_TYPE =
             RECIPE_TYPES.register("fire_pot", () -> FirePotRecipe.Type.INSTANCE);
 
@@ -40,6 +37,9 @@ public class ModRecipes {
 
     public static final Supplier<RecipeType<CentrifugeRecipe>> CENTRIFUGE_RECIPE_TYPE =
             RECIPE_TYPES.register("centrifuge", () -> CentrifugeRecipe.Type.INSTANCE);
+
+    public static final Supplier<RecipeType<ElectrolyzerRecipe>> ELECTOLYZER_RECIPE_TYPE =
+            RECIPE_TYPES.register("electrolyzer", () -> ElectrolyzerRecipe.Type.INSTANCE);
 
 
 
@@ -52,9 +52,6 @@ public class ModRecipes {
     public static final Supplier<RecipeSerializer<NickelCompreserRecipe>> NICKEL_COMPRESER_SERIALIZER =
             SERIALIZERS.register("nickel_compreser", () -> NickelCompreserRecipe.Serializer.INSTANCE);
 
-    public static final Supplier<RecipeSerializer<ReagentNickelCompreserRecipe>> REAGENT_NICKEL_COMPRESER_SERIALIZER =
-            SERIALIZERS.register("reagent_nickel_compreser", () -> ReagentNickelCompreserRecipe.Serializer.INSTANCE);
-
     public static final Supplier<RecipeSerializer<FirePotRecipe>> FIRE_POT_SERIALIZER =
             SERIALIZERS.register("fire_pot", () -> FirePotRecipe.Serializer.INSTANCE);
 
@@ -63,4 +60,7 @@ public class ModRecipes {
 
     public static final Supplier<RecipeSerializer<CentrifugeRecipe>> CENTRIFUGE_SERIALIZER =
             SERIALIZERS.register("centrifuge", () -> CentrifugeRecipe.Serializer.INSTANCE);
+
+    public static final Supplier<RecipeSerializer<ElectrolyzerRecipe>> ELECTOLYZER_SERIALIZER =
+            SERIALIZERS.register("electrolyzer", () -> ElectrolyzerRecipe.Serializer.INSTANCE);
 }

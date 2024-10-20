@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -30,6 +31,10 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.HARD_OVEN.get());
                         pOutput.accept(ModBlocks.FIRE_POT.get());
 
+                        pOutput.accept(ModBlocks.CENTRIFUGE.get());
+                        pOutput.accept(ModBlocks.ATOMIC_OVEN.get());
+
+                        pOutput.accept(Blocks.GLASS);
                         pOutput.accept(ModBlocks.NICKEL_COMPRESER.get());
                         pOutput.accept(ModBlocks.NICKEL_BLOCK.get());
                         pOutput.accept(ModItems.NICKEL_INGOT.get());
@@ -52,6 +57,22 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.VANADIUM_INGOT.get());
                         pOutput.accept(ModItems.VANADIUM_CATALYST.get());
 
+                        pOutput.accept(ModItems.CHROMIUM_INGOT.get());
+                        pOutput.accept(ModBlocks.CHROMIUM_BLOCK.get());
+
+                        pOutput.accept(ModItems.SALT.get());
+                        pOutput.accept(ModItems.SALT_REAGENT.get());
+                        pOutput.accept(ModItems.SODIUM_CHLORIDE.get());
+                        pOutput.accept(ModItems.CHLORINE_GAS.get());
+
+                        pOutput.accept(ModBlocks.LIMESTONE.get());
+                        pOutput.accept(ModItems.CHROMIUM_CHUNK_MIX.get());
+                        pOutput.accept(ModItems.SODIUM_CHROMATE.get());
+
+                        pOutput.accept(ModItems.SULFUR.get());
+                        pOutput.accept(ModItems.SULFURIC_ACID_MIX.get());
+                        pOutput.accept(ModItems.SULFURIC_ACID.get());
+                        pOutput.accept(ModItems.SODIUM_DICHROMATE.get());
 
                         pOutput.accept(ModItems.WATER_REAGENT.get());
 

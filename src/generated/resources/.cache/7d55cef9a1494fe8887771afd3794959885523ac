@@ -1,7 +1,13 @@
-// 1.21	2024-10-16T16:22:43.0082378	Block States: arcane_chemistry
+// 1.21	2024-10-17T22:40:35.0869038	Block States: arcane_chemistry
+50e3fdb3148c6198addc55088944a07f37829c7b assets/arcane_chemistry/blockstates/chromium_block.json
+88b17540ebad872a4fcab89d3e0912c184fce0ca assets/arcane_chemistry/blockstates/limestone.json
 557d4e2d8d3043a6a24700fc1aaae16b2c4ceba3 assets/arcane_chemistry/blockstates/nickel_block.json
 4d6cddfe34d985538bc999945be8f9a21d66d8ed assets/arcane_chemistry/blockstates/vanadium_block.json
+bc98e39bf36e2bd7ffd290529f8524927e4e6a77 assets/arcane_chemistry/models/block/chromium_block.json
+7cc72feb6e709b70a5eb32cc370458d2bd0d8c7d assets/arcane_chemistry/models/block/limestone.json
 c6a455f1da7dda773e80798c2e470aa3073d3b1b assets/arcane_chemistry/models/block/nickel_block.json
 4e2d98bcda2a58bee8863ba8c712fd864bd44672 assets/arcane_chemistry/models/block/vanadium_block.json
+76cd750f4451b60a292aa8b7442896e0b1cd13cf assets/arcane_chemistry/models/item/chromium_block.json
+30fc94757a3d75d338f5e33cbc8ed398ec27aa71 assets/arcane_chemistry/models/item/limestone.json
 0b7e5528f870297cb82fda39fcad4fa34057e692 assets/arcane_chemistry/models/item/nickel_block.json
 2ecedc178b9db2d42a88a4f71e7665e73f70a56a assets/arcane_chemistry/models/item/vanadium_block.json

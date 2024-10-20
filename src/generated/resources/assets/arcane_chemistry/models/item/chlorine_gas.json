@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "arcane_chemistry:item/reagent",
+    "layer1": "arcane_chemistry:item/chlorine_gas"
+  }
+}

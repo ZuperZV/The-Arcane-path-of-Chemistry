@@ -37,8 +37,11 @@ public class JEIPlugin implements IModPlugin {
     public static mezz.jei.api.recipe.RecipeType<NickelCompreserRecipe> NICEKL_COMPERESER_TYPE =
             new mezz.jei.api.recipe.RecipeType<>(NickelCompreserRecipeCategory.UID, NickelCompreserRecipe.class);
 
-    public static mezz.jei.api.recipe.RecipeType<ReagentNickelCompreserRecipe> REAGENT_NICEKL_COMPERESER_TYPE =
-            new mezz.jei.api.recipe.RecipeType<>(ReagentNickelCompreserRecipeCategory.UID, ReagentNickelCompreserRecipe.class);
+    public static mezz.jei.api.recipe.RecipeType<CentrifugeRecipe> CENTRIFRUGE_TYPE =
+            new mezz.jei.api.recipe.RecipeType<>(CentrifugeRecipeCategory.UID, CentrifugeRecipe.class);
+
+    public static mezz.jei.api.recipe.RecipeType<ElectrolyzerRecipe> ELECTROLYZER_TYPE =
+            new mezz.jei.api.recipe.RecipeType<>(ElectrolyzerRecipeCategory.UID, ElectrolyzerRecipe.class);
 
 
 
@@ -53,8 +56,9 @@ public class JEIPlugin implements IModPlugin {
 
         registration.addRecipeCategories(new HardOvenRecipeCategory(jeiHelpers.getGuiHelper()));
         registration.addRecipeCategories(new NickelCompreserRecipeCategory(jeiHelpers.getGuiHelper()));
-        registration.addRecipeCategories(new ReagentNickelCompreserRecipeCategory(jeiHelpers.getGuiHelper()));
         registration.addRecipeCategories(new AtomicOvenRecipeCategory(jeiHelpers.getGuiHelper()));
+        registration.addRecipeCategories(new CentrifugeRecipeCategory(jeiHelpers.getGuiHelper()));
+        registration.addRecipeCategories(new ElectrolyzerRecipeCategory(jeiHelpers.getGuiHelper()));
     }
 
 
@@ -71,13 +75,17 @@ public class JEIPlugin implements IModPlugin {
             registration.addRecipes(NickelCompreserRecipeCategory.RECIPE_TYPE,
                     getRecipe(nicekl_comperser, ModRecipes.NICKEL_COMPRESER_RECIPE_TYPE.get()));
 
-            var reagent_nicekl_comperser = world.getRecipeManager();
-            registration.addRecipes(ReagentNickelCompreserRecipeCategory.RECIPE_TYPE,
-                    getRecipe(reagent_nicekl_comperser, ModRecipes.REAGENT_NICKEL_COMPRESER_RECIPE_TYPE.get()));
-
             var atomic_oven = world.getRecipeManager();
             registration.addRecipes(AtomicOvenRecipeCategory.RECIPE_TYPE,
                     getRecipe(atomic_oven, ModRecipes.ATOMIC_OVEN_RECIPE_TYPE.get()));
+
+            var centrifuge = world.getRecipeManager();
+            registration.addRecipes(CentrifugeRecipeCategory.RECIPE_TYPE,
+                    getRecipe(centrifuge, ModRecipes.CENTRIFUGE_RECIPE_TYPE.get()));
+
+            var Electrolyzer = world.getRecipeManager();
+            registration.addRecipes(ElectrolyzerRecipeCategory.RECIPE_TYPE,
+                    getRecipe(Electrolyzer, ModRecipes.ELECTOLYZER_RECIPE_TYPE.get()));
         }
 
     }
@@ -99,11 +107,14 @@ public class JEIPlugin implements IModPlugin {
         var nicekl_comperser = new ItemStack(ModBlocks.NICKEL_COMPRESER.get());
         registration.addRecipeCatalyst(nicekl_comperser, NickelCompreserRecipeCategory.RECIPE_TYPE);
 
-        var reagent_nicekl_comperser = new ItemStack(ModBlocks.NICKEL_COMPRESER.get());
-        registration.addRecipeCatalyst(reagent_nicekl_comperser, ReagentNickelCompreserRecipeCategory.RECIPE_TYPE);
-
         var atomic_oven = new ItemStack(ModBlocks.ATOMIC_OVEN.get());
         registration.addRecipeCatalyst(atomic_oven, AtomicOvenRecipeCategory.RECIPE_TYPE, RecipeTypes.FUELING);
+
+        var centrifuge = new ItemStack(ModBlocks.CENTRIFUGE.get());
+        registration.addRecipeCatalyst(centrifuge, CentrifugeRecipeCategory.RECIPE_TYPE);
+
+        var Electrolyzer = new ItemStack(ModBlocks.ELECTOLYZER.get());
+        registration.addRecipeCatalyst(Electrolyzer, ElectrolyzerRecipeCategory.RECIPE_TYPE);
 
     }
 

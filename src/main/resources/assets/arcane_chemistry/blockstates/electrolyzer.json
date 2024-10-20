@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "facing=east,extended=false": {
+      "model": "arcane_chemistry:block/electrolyzer",
+      "y": 90
+    },
+    "facing=north,extended=false": {
+      "model": "arcane_chemistry:block/electrolyzer"
+    },
+    "facing=south,extended=false": {
+      "model": "arcane_chemistry:block/electrolyzer",
+      "y": 180
+    },
+    "facing=west,extended=false": {
+      "model": "arcane_chemistry:block/electrolyzer",
+      "y": 270
+    },
+
+    "facing=east,extended=true": {
+      "model": "arcane_chemistry:block/electrolyzer_fluid",
+      "y": 90
+    },
+    "facing=north,extended=true": {
+      "model": "arcane_chemistry:block/electrolyzer_fluid"
+    },
+    "facing=south,extended=true": {
+      "model": "arcane_chemistry:block/electrolyzer_fluid",
+      "y": 180
+    },
+    "facing=west,extended=true": {
+      "model": "arcane_chemistry:block/electrolyzer_fluid",
+      "y": 270
+    }
+  }
+}

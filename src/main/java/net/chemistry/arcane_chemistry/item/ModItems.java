@@ -1054,6 +1054,40 @@ public class ModItems {
     public static final DeferredItem<AtomItemFormelReagent> WATER_REAGENT = ITEMS .register("water_reagent",
             () -> new AtomItemFormelReagent(new Item.Properties(), "H₂O", 0xffda39));
 
+    public static final DeferredItem<Item> CHROMIUM_INGOT = ITEMS .register("chromium_ingot",
+            () -> new NormalItem(new Item.Properties(), "Cr", 0xffda39));
+
+    public static final DeferredItem<Item> CHROMIUM_CHUNK_MIX = ITEMS .register("chromium_chunk_mix",
+            () -> new NormalItem(new Item.Properties(), "Cr", 0xffda39));
+
+    public static final DeferredItem<Item> SALT = ITEMS .register("salt",
+            () -> new NormalItem(new Item.Properties(), "NaCl", 0xffda39));
+
+    public static final DeferredItem<AtomItemFormelReagent> SALT_REAGENT = ITEMS .register("salt_reagent",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "NaCl", 0xffda39));
+
+    public static final DeferredItem<AtomItemFormelReagent> SODIUM_CHLORIDE = ITEMS .register("sodium_chloride",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "NaCl", 0xffda39));
+
+    public static final DeferredItem<AtomItemFormelReagent> CHLORINE_GAS = ITEMS .register("chlorine_gas",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "NaCl", 0xffda39));
+
+    public static final DeferredItem<Item> SODIUM_CHROMATE = ITEMS .register("sodium_chromate",
+            () -> new NormalItem(new Item.Properties(), "Na₂CrO₄", 0xffda39));
+
+    public static final DeferredItem<Item> SULFUR = ITEMS .register("sulfur",
+            () -> new NormalItem(new Item.Properties(), "S", 0xffda39));
+
+    public static final DeferredItem<Item> SULFURIC_ACID_MIX = ITEMS .register("sulfuric_acid_mix",
+            () -> new NormalItem(new Item.Properties(), "SO₂ + H₂O", 0xffda39));
+
+    public static final DeferredItem<Item> SULFURIC_ACID = ITEMS .register("sulfuric_acid",
+            () -> new NormalItem(new Item.Properties(), "H₂SO₄", 0xffda39));
+
+    public static final DeferredItem<Item> SODIUM_DICHROMATE = ITEMS .register("sodium_dichromate",
+            () -> new NormalItem(new Item.Properties(), "Na2Cr2O7", 0xffda39));
+
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

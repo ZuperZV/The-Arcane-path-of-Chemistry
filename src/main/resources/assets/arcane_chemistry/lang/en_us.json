@@ -27,18 +27,30 @@
   "item.arcane_chemistry.cobalt_ingot": "Cobalt Ingot",
   "item.arcane_chemistry.tungsten_carbide_ingot": "Tungsten Carbide Ingot",
   "item.arcane_chemistry.tungsten_ingot": "Tungsten Ingot",
-
   "item.arcane_chemistry.crushed_raw_iron": "Crushed Raw Iron",
+  "item.arcane_chemistry.red_iron_reagent": "Red Iron Reagent",
 
+  "item.arcane_chemistry.vanadium_catalyst": "Vanadium Catalyst",
   "item.arcane_chemistry.vanadium_ingot": "Vanadium Ingot",
   "block.arcane_chemistry.vanadium_block": "Vanadium Block",
 
   "block.arcane_chemistry.flotationer": "Flotationer",
   "block.arcane_chemistry.atomic_oven": "Atomic Oven",
+  "block.arcane_chemistry.centrifuge": "Centrifuge",
 
+  "block.arcane_chemistry.chromium_block": "Chromium Block",
+  "item.arcane_chemistry.chromium_ingot": "Chromium Ingot",
+
+  "block.arcane_chemistry.limestone": "Limestone",
 
   "block.arcane_chemistry.nickel_compreser": "Nickel Compreser",
-  "block.arcane_chemistry.nickel_compreser_filter": "Nickel Compreser Filter",
+
+  "item.arcane_chemistry.iron_reagent": "Iron Reagent",
+
+  "item.arcane_chemistry.reagent": "Reagent",
+  "item.arcane_chemistry.water_reagent": "Water Reagent",
+  "block.arcane_chemistry.reagent_nickel_compreser": "Reagent Nickel Compreser",
+  "block.arcane_chemistry.electrolyzer": "Electrolyzer",
 
   "item.arcane_chemistry.lithium": "Lithium",
   "item.arcane_chemistry.sodium": "Sodium",
@@ -128,11 +140,5 @@
   "item.arcane_chemistry.dubnium": "Dubnium",
   "item.arcane_chemistry.seaborgium": "Seaborgium",
   "item.arcane_chemistry.bohrium": "Bohrium",
-  "item.arcane_chemistry.hassium": "Hassium",
-
-  "item.arcane_chemistry.iron_reagent": "Iron Reagent",
-
-  "item.arcane_chemistry.reagent": "Reagent",
-  "item.arcane_chemistry.water_reagent": "Water Reagent",
-  "block.arcane_chemistry.reagent_nickel_compreser": "Reagent Nickel Compreser"
+  "item.arcane_chemistry.hassium": "Hassium"
 }

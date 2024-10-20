@@ -1,6 +1,7 @@
 package net.chemistry.arcane_chemistry.datagen;
 
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
+import net.chemistry.arcane_chemistry.item.ModItems;
 import net.chemistry.arcane_chemistry.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -22,5 +23,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
+
+        this.tag(ModTags.Items.CRUSHED_RAW_IRON)
+                .add(ModItems.RAW_IMPURE_IRON.get())
+                .add(ModItems.CRUSHED_RAW_IRON.get());
+
     }
 }

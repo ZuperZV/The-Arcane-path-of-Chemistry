@@ -21,6 +21,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.NICKEL_BLOCK);
         blockWithItem(ModBlocks.VANADIUM_BLOCK);
+        blockWithItem(ModBlocks.CHROMIUM_BLOCK);
+
+        blockWithItem(ModBlocks.LIMESTONE);
 
         /*horizontalBlock(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/fire_pot_campfire")));
