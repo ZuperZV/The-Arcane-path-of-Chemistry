@@ -57,7 +57,8 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
 
     public final ContainerData data;
     private FluidStack neededFluidStack = FluidStack.EMPTY;
-    private final FluidTank tank = new FluidTank(4000, fluidStack -> fluidStack.is(Fluids.WATER)) {
+
+    private final FluidTank tank = new FluidTank(4000) {
         @Override
         protected void onContentsChanged() {
             setChanged();
@@ -99,15 +100,19 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
         }
     }
 
-    public void tick(BlockPos pos, BlockState state, FlotationerBlockEntity tile) {
+    public void tick(BlockPos pos, BlockState state, FlotationerBlockEntity blockEntity) {
         boolean isLit = state.getValue(LIT);
 
         if (!inputItems.getStackInSlot(3).isEmpty() && inputItems.getStackInSlot(3).getItem() == Items.WATER_BUCKET) {
             if (tank.getFluidAmount() < tank.getCapacity()) {
-                tank.fill(new FluidStack(Fluids.WATER, 1000), IFluidHandler.FluidAction.EXECUTE);
+                int filled = tank.fill(new FluidStack(Fluids.WATER, 1000), IFluidHandler.FluidAction.EXECUTE);
                 inputItems.setStackInSlot(3, new ItemStack(Items.BUCKET));
+                System.out.println("Amount of water filled: " + filled);
+                System.out.println("Fluid in tank after fill: " + tank.getFluid());
             }
         }
+
+
 
         if (hasRecipe()) {
             increaseCraftingProcess();
@@ -157,6 +162,7 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
         Level level = this.level;
         if (level == null) return false;
 
+
         SimpleContainer inventory = new SimpleContainer(inputItems.getSlots());
         for (int i = 0; i < inputItems.getSlots(); i++) {
             inventory.setItem(i, inputItems.getStackInSlot(i));
@@ -169,15 +175,18 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
         Optional<RecipeHolder<FlotationerRecipe>> recipe = level.getRecipeManager()
                 .getRecipeFor(ModRecipes.FLOTATION_RECIPE_TYPE.get(), getRecipeInput(inventory, fluidInTank), level);
 
+
+        System.out.println("Fluid in tank: " + fluidInTank);
+        System.out.println("Items in inventory: " + inventory.getItem(0) + ", " + inventory.getItem(1));
+
         return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
                 canInsertItemIntoOutputSlot(inventory, recipe.get().value().output.copy().getItem().getDefaultInstance());
     }
 
-
-
     FluidStack fluidInTank = tank.getFluid();
 
     private FluidRecipeInput getRecipeInput(SimpleContainer inventory, FluidStack fluidStack) {
+        System.out.println("Fluid being passed to recipe: " + fluidStack);
         return new FluidRecipeInput(fluidStack) {
             @Override
             public ItemStack getItem(int index) {
@@ -190,6 +199,7 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
             }
         };
     }
+
 
     private boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
         ItemStack outputStack = outputItems.getStackInSlot(0);
@@ -210,13 +220,13 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
             inventory.setItem(i, inputItems.getStackInSlot(i));
         }
 
-        Optional<RecipeHolder<FlotationerRecipe>> alcheRecipeOptional = level.getRecipeManager()
+        Optional<RecipeHolder<FlotationerRecipe>> alcheRecipeOptionalrecipe = level.getRecipeManager()
                 .getRecipeFor(ModRecipes.FLOTATION_RECIPE_TYPE.get(), getRecipeInput(inventory, fluidInTank), level);
 
 
         FlotationerRecipe recipe;
-        if (alcheRecipeOptional.isPresent()) {
-             recipe = alcheRecipeOptional.get().value();
+        if (alcheRecipeOptionalrecipe.isPresent()) {
+            recipe = alcheRecipeOptionalrecipe.get().value();
             ItemStack result = recipe.getResultItem(level.registryAccess());
 
             ItemStack outputStack = outputItems.getStackInSlot(0);
@@ -230,7 +240,10 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
             inputItems.extractItem(1, 1, false);
             inputItems.extractItem(2, 1, false);
             inputItems.extractItem(3, 1, false);
+
+            tank.drain(1000, IFluidHandler.FluidAction.EXECUTE);
         }
+
     }
 
 
@@ -296,7 +309,7 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     @Override
-    public @Nullable Packet<ClientGamePacketListener> getUpdatePacket() {
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
 

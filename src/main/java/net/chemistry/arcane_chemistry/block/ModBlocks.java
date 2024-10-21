@@ -35,16 +35,20 @@ public class ModBlocks {
             () -> new AtomicOvenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).noOcclusion()));
 
     public static final DeferredBlock<Block> FIRE_POT = registerBlock("fire_pot",
-            () -> new CauldronBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(2.0F).noOcclusion()));
+            () -> new FirePotBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
+                    .sound(SoundType.METAL), "Fe", 0xffda39));
 
-    /*public static final DeferredBlock<Block> FIRE_POT_CAMPFIRE = registerBlock("fire_pot_campfire",
-            () -> new FirePotCampfireBlock(true, 1, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).mapColor(MapColor.PODZOL)
-                    .instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.METAL).noOcclusion().ignitedByLava()
-                    .lightLevel(litBlockEmission(15))));
-     */
+    public static final DeferredBlock<Block> FIRE_POT_CAMPFIRE = registerBlock("fire_pot_campfire",
+            () -> new FirePotCampfireBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
+                    .sound(SoundType.METAL).noOcclusion(), "Fe", 0xffda39));
+
     public static final DeferredBlock<Block> NICKEL_BLOCK = registerBlock("nickel_block",
             () -> new ElemenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
                     .sound(SoundType.METAL), "Ni", 0xffda39));
+
+    public static final DeferredBlock<Block> TUNGSTEN_BLOCK = registerBlock("tungsten_block",
+            () -> new ElemenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
+                    .sound(SoundType.METAL), "W", 0xffda39));
 
     public static final DeferredBlock<Block> VANADIUM_BLOCK = registerBlock("vanadium_block",
             () -> new ElemenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
@@ -56,6 +60,10 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> NICKEL_COMPRESER = registerBlock("nickel_compreser",
             () -> new NickelCompreserBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
+                    .sound(SoundType.METAL).noOcclusion(), "Ni", 0xffda39));
+
+    public static final DeferredBlock<Block> TUNGSTEN_COMPRESER = registerBlock("tungsten_compreser",
+            () -> new TungstenCompreserBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
                     .sound(SoundType.METAL).noOcclusion(), "Ni", 0xffda39));
 
     public static final DeferredBlock<Block> FLOTATIONER = registerBlock("flotationer",

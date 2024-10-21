@@ -10,7 +10,8 @@
   },
 
   "fluid": {
-    "fluid": "minecraft:water"
+    "fluid": "minecraft:water",
+    "amount": 1000
   },
 
   "output": {

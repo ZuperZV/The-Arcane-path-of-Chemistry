@@ -1,0 +1,37 @@
+{
+  "variants": {
+    "lit=false,enabled=false,water_color=default": {
+      "model": "arcane_chemistry:block/fire_pot_campfire"
+    },
+    "lit=true,enabled=false,water_color=default": {
+      "model": "arcane_chemistry:block/fire_pot_campfire_lit"
+    },
+    "lit=false,enabled=true,water_color=default": {
+      "model": "arcane_chemistry:block/fire_pot_campfire_water"
+    },
+    "lit=true,enabled=true,water_color=default": {
+      "model": "arcane_chemistry:block/fire_pot_campfire_lit_water"
+    },
+
+    "lit=false,enabled=true,water_color=red": {
+      "model": "arcane_chemistry:block/fire_pot_campfire_water_red"
+    },
+    "lit=true,enabled=true,water_color=red": {
+      "model": "arcane_chemistry:block/fire_pot_campfire_lit_water_red"
+    },
+
+    "lit=false,enabled=true,water_color=blue": {
+      "model": "arcane_chemistry:block/fire_pot_campfire_water_blue"
+    },
+    "lit=true,enabled=true,water_color=blue": {
+      "model": "arcane_chemistry:block/fire_pot_campfire_lit_water_blue"
+    },
+
+    "lit=false,enabled=true,water_color=green": {
+      "model": "arcane_chemistry:block/fire_pot_campfire_water_green"
+    },
+    "lit=true,enabled=true,water_color=green": {
+      "model": "arcane_chemistry:block/fire_pot_campfire_lit_water_green"
+    }
+  }
+}

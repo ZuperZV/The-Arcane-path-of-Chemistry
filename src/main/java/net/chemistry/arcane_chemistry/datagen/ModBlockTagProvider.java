@@ -24,7 +24,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.NICKEL_BLOCK.get())
                 .add(ModBlocks.VANADIUM_BLOCK.get())
                 .add(ModBlocks.FIRE_POT.get())
-                //.add(ModBlocks.FIRE_POT_CAMPFIRE.get())
+                .add(ModBlocks.FIRE_POT_CAMPFIRE.get())
                 .add(ModBlocks.HARD_OVEN.get())
                 .add(ModBlocks.LIMESTONE.get())
                 .add(ModBlocks.CENTRIFUGE.get())
@@ -32,12 +32,15 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ATOMIC_OVEN.get())
                 .add(ModBlocks.NICKEL_COMPRESER.get());
 
+        this.tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(ModBlocks.FLOTATIONER.get());
+
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.CHROMIUM_BLOCK.get())
                 .add(ModBlocks.NICKEL_BLOCK.get())
                 .add(ModBlocks.VANADIUM_BLOCK.get())
                 .add(ModBlocks.FIRE_POT.get())
-                //.add(ModBlocks.FIRE_POT_CAMPFIRE.get())
+                .add(ModBlocks.FIRE_POT_CAMPFIRE.get())
                 .add(ModBlocks.HARD_OVEN.get())
                 .add(ModBlocks.LIMESTONE.get())
                 .add(ModBlocks.CENTRIFUGE.get())

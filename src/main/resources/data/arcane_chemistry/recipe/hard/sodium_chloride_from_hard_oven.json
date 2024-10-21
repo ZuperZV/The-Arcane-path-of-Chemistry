@@ -2,7 +2,7 @@
   "type": "arcane_chemistry:hard_oven",
 
   "oven_ingredient": {
-    "item": "minecraft:salt_reagent"
+    "item": "arcane_chemistry:salt_reagent"
   },
 
   "ingredient": {

@@ -1,0 +1,27 @@
+{
+  "type": "arcane_chemistry:fire_pot",
+
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+
+  "ingredient1": {
+    "item": "arcane_chemistry:carbide_ingot"
+  },
+
+  "ingredient2": {
+    "item": "arcane_chemistry:sodium_dichromate"
+  },
+
+  "ingredient3": {
+    "item": "arcane_chemistry:chlorine_gas"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:tungsten_carbide_ingot"
+  },
+
+  "output2": {
+    "item": "arcane_chemistry:sodium"
+  }
+}

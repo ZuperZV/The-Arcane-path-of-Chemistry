@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
@@ -85,6 +86,7 @@ public class Arcane_chemistry {
             event.register(ModMenuTypes.NICKEL_COMPRESER_MENU.get(), NickelCompreserScreen::new);
             event.register(ModMenuTypes.FLOTATIONER_MENU.get(), FlotationerScreen::new);
             event.register(ModMenuTypes.ATOMIC_OVEN_MENU.get(), AtomicOvenScreen::new);
+            event.register(ModMenuTypes.TUNGSTEN_COMPRESER_MENU.get(), TungstenCompreserScreen::new);
         }
 
         @SubscribeEvent

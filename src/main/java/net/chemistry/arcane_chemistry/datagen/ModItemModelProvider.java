@@ -52,13 +52,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.CHROMIUM_INGOT.get());
 
         basicItem(ModItems.SALT.get());
+        basicItem(ModItems.CHROMIUM_CHUNK_MIX.get());
 
         basicItem(ModItems.REAGENT.get());
         basicItem(ModItems.SODIUM_CHROMATE.get());
 
         basicItem(ModItems.SULFUR.get());
-        basicItem(ModItems.SULFURIC_ACID_MIX.get());
-        basicItem(ModItems.SULFURIC_ACID.get());
+        reagentFormelItem(ModItems.SULFURIC_ACID_MIX);
+        reagentFormelItem(ModItems.SULFURIC_ACID);
         basicItem(ModItems.SODIUM_DICHROMATE.get());
 
         reagentFormelItem(ModItems.WATER_REAGENT);

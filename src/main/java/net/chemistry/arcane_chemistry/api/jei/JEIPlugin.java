@@ -43,6 +43,9 @@ public class JEIPlugin implements IModPlugin {
     public static mezz.jei.api.recipe.RecipeType<ElectrolyzerRecipe> ELECTROLYZER_TYPE =
             new mezz.jei.api.recipe.RecipeType<>(ElectrolyzerRecipeCategory.UID, ElectrolyzerRecipe.class);
 
+    public static mezz.jei.api.recipe.RecipeType<FirePotRecipe> FIRE_POT_TYPE =
+            new mezz.jei.api.recipe.RecipeType<>(FirePotRecipeCategory.UID, FirePotRecipe.class);
+
 
 
     @Override
@@ -59,6 +62,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new AtomicOvenRecipeCategory(jeiHelpers.getGuiHelper()));
         registration.addRecipeCategories(new CentrifugeRecipeCategory(jeiHelpers.getGuiHelper()));
         registration.addRecipeCategories(new ElectrolyzerRecipeCategory(jeiHelpers.getGuiHelper()));
+        registration.addRecipeCategories(new FirePotRecipeCategory(jeiHelpers.getGuiHelper()));
     }
 
 
@@ -86,6 +90,10 @@ public class JEIPlugin implements IModPlugin {
             var Electrolyzer = world.getRecipeManager();
             registration.addRecipes(ElectrolyzerRecipeCategory.RECIPE_TYPE,
                     getRecipe(Electrolyzer, ModRecipes.ELECTOLYZER_RECIPE_TYPE.get()));
+
+            var fire_pot = world.getRecipeManager();
+            registration.addRecipes(FirePotRecipeCategory.RECIPE_TYPE,
+                    getRecipe(fire_pot, ModRecipes.FIRE_POT_RECIPE_TYPE.get()));
         }
 
     }
@@ -115,6 +123,9 @@ public class JEIPlugin implements IModPlugin {
 
         var Electrolyzer = new ItemStack(ModBlocks.ELECTOLYZER.get());
         registration.addRecipeCatalyst(Electrolyzer, ElectrolyzerRecipeCategory.RECIPE_TYPE);
+
+        var fire_pot = new ItemStack(ModBlocks.FIRE_POT.get());
+        registration.addRecipeCatalyst(fire_pot, FirePotRecipeCategory.RECIPE_TYPE);
 
     }
 

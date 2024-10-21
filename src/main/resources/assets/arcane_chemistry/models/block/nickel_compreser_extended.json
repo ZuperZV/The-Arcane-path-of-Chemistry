@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
 	"textures": {
 		"0": "arcane_chemistry:block/input_block",
 		"1": "arcane_chemistry:block/nickel_filter",

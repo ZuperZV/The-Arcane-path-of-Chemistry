@@ -3,10 +3,7 @@ package net.chemistry.arcane_chemistry.item;
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.item.custom.*;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -1078,16 +1075,14 @@ public class ModItems {
     public static final DeferredItem<Item> SULFUR = ITEMS .register("sulfur",
             () -> new NormalItem(new Item.Properties(), "S", 0xffda39));
 
-    public static final DeferredItem<Item> SULFURIC_ACID_MIX = ITEMS .register("sulfuric_acid_mix",
-            () -> new NormalItem(new Item.Properties(), "SO₂ + H₂O", 0xffda39));
+    public static final DeferredItem<AtomItemFormelReagent> SULFURIC_ACID_MIX = ITEMS .register("sulfuric_acid_mix",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "SO₂ + H₂O", 0xffda39));
 
-    public static final DeferredItem<Item> SULFURIC_ACID = ITEMS .register("sulfuric_acid",
-            () -> new NormalItem(new Item.Properties(), "H₂SO₄", 0xffda39));
+    public static final DeferredItem<AtomItemFormelReagent> SULFURIC_ACID = ITEMS .register("sulfuric_acid",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "H₂SO₄", 0xffda39));
 
     public static final DeferredItem<Item> SODIUM_DICHROMATE = ITEMS .register("sodium_dichromate",
             () -> new NormalItem(new Item.Properties(), "Na2Cr2O7", 0xffda39));
-
-
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -45,15 +45,12 @@ public class FlotationerRecipe implements Recipe<FluidRecipeInput> {
     @Override
     public boolean matches(FluidRecipeInput input, Level level) {
         boolean itemsMatch = crushedIngredient.test(input.getItem(0)) && ingredientoven.test(input.getItem(1));
-
         FluidStack containerFluid = input.getFluidStack();
+        System.out.println("Fluid i beholder: " + containerFluid + " | Krævet fluid: " + inputFluid);
 
-        boolean fluidMatches = FluidStack.isSameFluid(containerFluid, inputFluid);
-
+        boolean fluidMatches = FluidStack.isSameFluid(containerFluid, inputFluid) && containerFluid.getAmount() >= inputFluid.getAmount();
         return itemsMatch && fluidMatches;
     }
-
-
 
     @Override
     public boolean isSpecial() {

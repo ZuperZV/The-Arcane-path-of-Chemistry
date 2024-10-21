@@ -12,6 +12,11 @@
   "item.arcane_chemistry.flint_shovel": "Flint Shovel",
   "item.arcane_chemistry.flint_hoe": "Flint Hoe",
 
+  "item.arcane_chemistry.salt": "Salt",
+  "item.arcane_chemistry.salt_reagent": "Salt Reagent",
+  "item.arcane_chemistry.sodium_chloride": "Sodium Chloride",
+  "item.arcane_chemistry.sulfur": "Sulfur",
+
   "item.arcane_chemistry.nickel_ingot": "Nickel Ingot",
   "item.arcane_chemistry.raw_nickel": "Raw Nickel",
   "item.arcane_chemistry.raw_impure_nickel_iron_mix": "Crushed Raw Impure Nickel-Iron Mix",
@@ -140,5 +145,22 @@
   "item.arcane_chemistry.dubnium": "Dubnium",
   "item.arcane_chemistry.seaborgium": "Seaborgium",
   "item.arcane_chemistry.bohrium": "Bohrium",
-  "item.arcane_chemistry.hassium": "Hassium"
+  "item.arcane_chemistry.hassium": "Hassium",
+
+  "item.arcane_chemistry.chromium_chunk_mix": "Chromium Chunk Mix",
+  "item.arcane_chemistry.sodium_chromate": "Sodium Chromate",
+  "item.arcane_chemistry.sodium_dichromate": "Sodium Dichromate",
+  "item.arcane_chemistry.sulfuric_acid": "Sulfuric Acid",
+  "item.arcane_chemistry.sulfuric_acid_mix": "Sulfuric Acid Mix",
+  "item.arcane_chemistry.chlorine_gas": "Chlorine Gas",
+  "compound.sodium_chromate": "Sodium Chromate",
+  "compound.sodium_dichromate": "Sodium Dichromate",
+  "compound.sodium_bicarbonate": "Sodium Bicarbonate",
+  "compound.sodium_sulfate": "Sodium Sulfate",
+  "compound.sodium_phosphate": "Sodium Phosphate",
+  "compound.sodium_nitrate": "Sodium Nitrate",
+  "compound.sodium_acetate": "Sodium Acetate",
+  "compound.sodium_hydroxide": "Sodium Hydroxide",
+  "compound.sodium_chloride": "Sodium Chloride",
+  "compound.sodium_carbonate": "Sodium Carbonate"
 }

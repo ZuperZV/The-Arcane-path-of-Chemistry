@@ -1,9 +1,10 @@
-// 1.21	2024-10-19T16:56:34.3275338	Loot Tables
+// 1.21	2024-10-21T15:01:12.741644	Loot Tables
 f0fefc8bc85d7d57359c3f2d19565dd289640df1 data/arcane_chemistry/loot_table/blocks/atomic_oven.json
 0843a2344295207063e89bce6ee58a3524c4c89b data/arcane_chemistry/loot_table/blocks/centrifuge.json
 b16742b6776ac1f382046e693c56949928330912 data/arcane_chemistry/loot_table/blocks/chromium_block.json
 c2e8952e6f144bb7c5aca74fd34b4bdc83a70ae3 data/arcane_chemistry/loot_table/blocks/electrolyzer.json
 078509fcb2f1f8ee75abf1a6f79285aef5eaff2f data/arcane_chemistry/loot_table/blocks/fire_pot.json
+bbe5ba5e41c8f41a64bbcace11543b69ae85050b data/arcane_chemistry/loot_table/blocks/fire_pot_campfire.json
 3714b4961f9d27555d9d0eef77ed664bdbf74889 data/arcane_chemistry/loot_table/blocks/flotationer.json
 6c5b60ebf320dd2e062967a210363749db2a34e5 data/arcane_chemistry/loot_table/blocks/hard_oven.json
 543ffb751431294f7362bbef3c0b77a989249981 data/arcane_chemistry/loot_table/blocks/limestone.json

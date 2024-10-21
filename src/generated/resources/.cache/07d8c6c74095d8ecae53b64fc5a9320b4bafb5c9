@@ -1,4 +1,4 @@
-// 1.21	2024-10-19T17:41:54.3186767	Item Models: arcane_chemistry
+// 1.21	2024-10-20T17:29:56.1642494	Item Models: arcane_chemistry
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/actinium.json
 05fcff1852a72996b10691eac17e29e698d727b0 assets/arcane_chemistry/models/item/aluminium.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/americium.json
@@ -16,6 +16,7 @@ c802c16f9999b7159b7dfc99cbbf7c8b2dc3eef8 assets/arcane_chemistry/models/item/car
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/cerium.json
 37048fd555cb5da4020f49c316757710db9398ea assets/arcane_chemistry/models/item/chlorine_gas.json
 4424b7c8d430eecb8e78436469c8972dec8f3d9c assets/arcane_chemistry/models/item/chromium.json
+c24b5ebb93c9b01569e58154bc2e9d59ea31bb4d assets/arcane_chemistry/models/item/chromium_chunk_mix.json
 dac28d3ece5eb704aea16b73b402fcc1e97a7929 assets/arcane_chemistry/models/item/chromium_ingot.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/cobalt.json
 c1662ac8585fbd78d3f20c03f5a95ed9dd4e3849 assets/arcane_chemistry/models/item/cobalt_ingot.json
@@ -94,7 +95,12 @@ aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/sea
 4424b7c8d430eecb8e78436469c8972dec8f3d9c assets/arcane_chemistry/models/item/silver.json
 4424b7c8d430eecb8e78436469c8972dec8f3d9c assets/arcane_chemistry/models/item/sodium.json
 d2eee8e76f1c9550ed85b92507269353dd967921 assets/arcane_chemistry/models/item/sodium_chloride.json
+d7fc62fadaa46d97e672655565db911a53b8027d assets/arcane_chemistry/models/item/sodium_chromate.json
+06670c25c6e37879ecc85d66c731db95afaa6237 assets/arcane_chemistry/models/item/sodium_dichromate.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/strontium.json
+2fa20e67f2150404c3b226d1aeae9165197f5d31 assets/arcane_chemistry/models/item/sulfur.json
+83b84121765049edd60f934bba1b77fdeb7f115a assets/arcane_chemistry/models/item/sulfuric_acid.json
+3a85128528c5d260f79db678d8045387b6c7c621 assets/arcane_chemistry/models/item/sulfuric_acid_mix.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/tantalum.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/technetium.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/terbium.json

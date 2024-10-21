@@ -49,15 +49,13 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         dropSelf(ModBlocks.LIMESTONE.get());
 
-        /*this.add(ModBlocks.FIRE_POT_CAMPFIRE.get(),
+        this.add(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 block -> LootTable.lootTable()
                         .withPool(LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1))
                                 .add(LootItem.lootTableItem(ModBlocks.FIRE_POT.get()))
-                                .add(LootItem.lootTableItem(Items.CHARCOAL))
                         )
         );
-         */
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

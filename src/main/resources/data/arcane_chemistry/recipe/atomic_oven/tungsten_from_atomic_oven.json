@@ -1,0 +1,15 @@
+{
+  "type": "arcane_chemistry:atomic_oven",
+
+  "ingredient": {
+    "item": "arcane_chemistry:tungsten_carbide_ingot"
+  },
+
+  "oven_ingredient": {
+    "item": "arcane_chemistry:raw_impure_nickel"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:tungsten"
+  }
+}

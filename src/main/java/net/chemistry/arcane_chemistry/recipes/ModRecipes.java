@@ -41,6 +41,9 @@ public class ModRecipes {
     public static final Supplier<RecipeType<ElectrolyzerRecipe>> ELECTOLYZER_RECIPE_TYPE =
             RECIPE_TYPES.register("electrolyzer", () -> ElectrolyzerRecipe.Type.INSTANCE);
 
+    public static final Supplier<RecipeType<TungstenCompreserRecipe>> TUNGSTEN_RECIPE_TYPE =
+            RECIPE_TYPES.register("tungsten_compreser", () -> TungstenCompreserRecipe.Type.INSTANCE);
+
 
 
     public static final Supplier<RecipeSerializer<HardOvenRecipe>> HARD_OVEN_SERIALIZER =
@@ -63,4 +66,7 @@ public class ModRecipes {
 
     public static final Supplier<RecipeSerializer<ElectrolyzerRecipe>> ELECTOLYZER_SERIALIZER =
             SERIALIZERS.register("electrolyzer", () -> ElectrolyzerRecipe.Serializer.INSTANCE);
+
+    public static final Supplier<RecipeSerializer<TungstenCompreserRecipe>> TUNGSTEN_SERIALIZER =
+            SERIALIZERS.register("tungsten_compreser", () -> TungstenCompreserRecipe.Serializer.INSTANCE);
 }
