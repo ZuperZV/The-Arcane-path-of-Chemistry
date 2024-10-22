@@ -3,6 +3,7 @@ package net.chemistry.arcane_chemistry.screen;
 import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.block.entity.custom.FlotationerBlockEntity;
 import net.chemistry.arcane_chemistry.block.entity.custom.FlotationerBlockEntity;
+import net.chemistry.arcane_chemistry.screen.slot.FluidContainerSlot;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -30,7 +31,7 @@ public class FlotationerMenu extends AbstractContainerMenu {
             addDataSlot(new DataSlot() {
                 @Override
                 public int get() {
-                    return FlotationerMenu.this.blockentity.getTank().getFluidAmount();
+                    return FlotationerMenu.this.blockentity.getFluidTank().getFluidAmount();
                 }
 
                 @Override
@@ -48,7 +49,7 @@ public class FlotationerMenu extends AbstractContainerMenu {
                     return false;
                 }
             });
-            addSlot(new SlotItemHandler(blockentity.getInputItems(), 3, 149, 54));
+            addSlot(new FluidContainerSlot(blockentity.getInputItems(), 3, 149, 54));
 
         } else {
             FlotationerBlockEntity = null;
@@ -67,11 +68,11 @@ public class FlotationerMenu extends AbstractContainerMenu {
     }
 
     public int getFluidAmount() {
-        return blockentity.getTank().getFluidAmount();
+        return blockentity.getFluidTank().getFluidAmount();
     }
 
     public int getMaxFluidAmount() {
-        return blockentity.getTank().getCapacity();
+        return blockentity.getFluidTank().getCapacity();
     }
 
 
