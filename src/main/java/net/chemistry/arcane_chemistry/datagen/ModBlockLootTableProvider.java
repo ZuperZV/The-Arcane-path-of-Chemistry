@@ -37,7 +37,14 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.FIRE_POT.get());
 
         dropSelf(ModBlocks.NICKEL_BLOCK.get());
+        dropSelf(ModBlocks.TUNGSTEN_BLOCK.get());
+
         dropSelf(ModBlocks.NICKEL_COMPRESER.get());
+        dropSelf(ModBlocks.TUNGSTEN_COMPRESER.get());
+
+        dropSelf(ModBlocks.HEATER.get());
+        dropSelf(ModBlocks.CHAMBER.get());
+        dropSelf(ModBlocks.DISTILLATION_CONNECTER.get());
 
         dropSelf(ModBlocks.VANADIUM_BLOCK.get());
         dropSelf(ModBlocks.CHROMIUM_BLOCK.get());
@@ -48,6 +55,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ELECTOLYZER.get());
 
         dropSelf(ModBlocks.LIMESTONE.get());
+
+        dropSelf(ModBlocks.ATOMIC_NUCLEUS_CONSTRUCTOR.get());
+        dropSelf(ModBlocks.LATEX_BOWL.get());
 
         this.add(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 block -> LootTable.lootTable()

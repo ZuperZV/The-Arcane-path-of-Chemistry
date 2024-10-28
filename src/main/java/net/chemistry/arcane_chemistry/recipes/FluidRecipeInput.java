@@ -3,12 +3,15 @@ package net.chemistry.arcane_chemistry.recipes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidType;
 
 public class FluidRecipeInput implements RecipeInput {
-    private final FluidStack fluidStack;
+    private final FluidStack fluidType;
+    private int amount;
 
-    public FluidRecipeInput(FluidStack fluidStack) {
-        this.fluidStack = fluidStack;
+    public FluidRecipeInput(FluidStack fluidType) {
+        this.fluidType = fluidType;
+        this.amount = amount;
     }
 
     @Override
@@ -16,8 +19,12 @@ public class FluidRecipeInput implements RecipeInput {
         return null;
     }
 
-    public FluidStack getFluidStack() {
-        return fluidStack;
+    public FluidStack getFluidType() {
+        return fluidType;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 
     @Override

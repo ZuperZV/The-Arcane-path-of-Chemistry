@@ -1,0 +1,11 @@
+{
+  "type": "arcane_chemistry:nickel_compreser",
+
+  "ingredient": {
+    "item": "minecraft:amethyst_shard"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:crushed_amethyst_shard"
+  }
+}

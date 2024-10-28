@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:logs"
+    },
+    "B": {
+      "item": "arcane_chemistry:vanadium_ingot"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "A A",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:latex_bowl"
+  }
+}

@@ -2,6 +2,7 @@ package net.chemistry.arcane_chemistry.item;
 
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.block.ModBlocks;
+import net.chemistry.arcane_chemistry.fluid.ModFluids;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -46,6 +47,7 @@ public class ModCreativeModeTabs {
 
                         pOutput.accept(ModItems.SCHEELITE_CRYSTAL.get());
                         pOutput.accept(ModItems.CRUSHED_SCHEELITE_CRYSTAL.get());
+                        pOutput.accept(ModItems.CRUSHED_AMETHYST_SHARD.get());
                         pOutput.accept(ModItems.RAW_COBALT.get());
                         pOutput.accept(ModItems.COBALT_INGOT.get());
                         pOutput.accept(ModItems.CARBON_CHUNK.get());
@@ -79,6 +81,12 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.REAGENT.get());
                         pOutput.accept(ModItems.IRON_REAGENT.get());
                         pOutput.accept(ModItems.RED_IRON_REAGENT.get());
+
+                        pOutput.accept(ModFluids.CRUDE_OIL_BUCKET.get());
+
+                        pOutput.accept(ModItems.LATEX_BALL.get());
+                        pOutput.accept(ModItems.FLAT_LATEX.get());
+                        pOutput.accept(ModItems.SMOKED_LATEX.get());
 
                         pOutput.accept(ModItems.LITHIUM.get());
                         pOutput.accept(ModItems.SODIUM.get());

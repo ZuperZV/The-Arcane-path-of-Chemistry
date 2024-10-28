@@ -1,6 +1,7 @@
 package net.chemistry.arcane_chemistry.datagen;
 
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
+import net.chemistry.arcane_chemistry.fluid.ModFluids;
 import net.chemistry.arcane_chemistry.item.ModItems;
 import net.chemistry.arcane_chemistry.item.custom.AtomItem;
 import net.chemistry.arcane_chemistry.item.custom.AtomItemFormelReagent;
@@ -40,6 +41,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         basicItem(ModItems.SCHEELITE_CRYSTAL.get());
         basicItem(ModItems.CRUSHED_SCHEELITE_CRYSTAL.get());
+        basicItem(ModItems.CRUSHED_AMETHYST_SHARD.get());
         basicItem(ModItems.RAW_COBALT.get());
         basicItem(ModItems.COBALT_INGOT.get());
         basicItem(ModItems.CARBON_CHUNK.get());
@@ -51,6 +53,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.VANADIUM_CATALYST.get());
         basicItem(ModItems.CHROMIUM_INGOT.get());
 
+        basicItem(ModFluids.CRUDE_OIL_BUCKET.get());
+
         basicItem(ModItems.SALT.get());
         basicItem(ModItems.CHROMIUM_CHUNK_MIX.get());
 
@@ -61,6 +65,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         reagentFormelItem(ModItems.SULFURIC_ACID_MIX);
         reagentFormelItem(ModItems.SULFURIC_ACID);
         basicItem(ModItems.SODIUM_DICHROMATE.get());
+
+        basicItem(ModItems.LATEX_BALL.get());
+        basicItem(ModItems.FLAT_LATEX.get());
+        basicItem(ModItems.SMOKED_LATEX.get());
 
         reagentFormelItem(ModItems.WATER_REAGENT);
 

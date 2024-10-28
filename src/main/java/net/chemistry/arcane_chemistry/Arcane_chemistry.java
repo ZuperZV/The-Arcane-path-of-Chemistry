@@ -4,6 +4,9 @@ import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.block.entity.ModBlockEntities;
 import net.chemistry.arcane_chemistry.block.entity.renderer.CentrifugeBlockEntityRenderer;
 import net.chemistry.arcane_chemistry.block.entity.renderer.ElectrolyzerBlockEntityRenderer;
+import net.chemistry.arcane_chemistry.fluid.ModFluidTypes;
+import net.chemistry.arcane_chemistry.fluid.ModFluids;
+import net.chemistry.arcane_chemistry.fluid.fluidTypes.BaseFluidType;
 import net.chemistry.arcane_chemistry.item.ModCreativeModeTabs;
 import net.chemistry.arcane_chemistry.item.ModItems;
 import net.chemistry.arcane_chemistry.item.custom.decorator.NumberDecorator;
@@ -13,10 +16,11 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -53,6 +57,8 @@ public class Arcane_chemistry {
         ModRecipes.SERIALIZERS.register(modEventBus);
         ModRecipes.RECIPE_TYPES.register(modEventBus);
 
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -87,6 +93,22 @@ public class Arcane_chemistry {
             event.register(ModMenuTypes.FLOTATIONER_MENU.get(), FlotationerScreen::new);
             event.register(ModMenuTypes.ATOMIC_OVEN_MENU.get(), AtomicOvenScreen::new);
             event.register(ModMenuTypes.TUNGSTEN_COMPRESER_MENU.get(), TungstenCompreserScreen::new);
+            event.register(ModMenuTypes.HEATER_MENU.get(), HeaterScreen::new);
+            event.register(ModMenuTypes.CHAMBER_MENU.get(), ChamberScreen::new);
+            event.register(ModMenuTypes.ATOMIC_NUCLEUS_CONSTRUCTOR_MENU.get(), AtomicNucleusConstructorScreen::new);
+        }
+
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            event.enqueueWork(() -> {
+                //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_CRUDE_OIL.get(), RenderType.translucent());
+                //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_CRUDE_OIL.get(), RenderType.translucent());
+            });
+        }
+        @SubscribeEvent
+        public static void onClientExtensions(RegisterClientExtensionsEvent event) {
+            event.registerFluidType(((BaseFluidType) ModFluidTypes.CRUDE_OIL_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
+                    ModFluidTypes.CRUDE_OIL_FLUID_TYPE.get());
         }
 
         @SubscribeEvent

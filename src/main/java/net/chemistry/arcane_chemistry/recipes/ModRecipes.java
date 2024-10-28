@@ -44,6 +44,15 @@ public class ModRecipes {
     public static final Supplier<RecipeType<TungstenCompreserRecipe>> TUNGSTEN_RECIPE_TYPE =
             RECIPE_TYPES.register("tungsten_compreser", () -> TungstenCompreserRecipe.Type.INSTANCE);
 
+    public static final Supplier<RecipeType<ChamberRecipe>> CHAMBER_RECIPE_TYPE =
+            RECIPE_TYPES.register("chamber", () -> ChamberRecipe.Type.INSTANCE);
+
+    public static final Supplier<RecipeType<AtomicNucleusConstructorRecipe>> ATOMIC_NUCLEUS_CONSTRUCTOR_RECIPE_TYPE =
+            RECIPE_TYPES.register("atomic_nucleus_constructor", () -> AtomicNucleusConstructorRecipe.Type.INSTANCE);
+
+    public static final Supplier<RecipeType<LatexBowlRecipe>> LATEX_BOWL_RECIPE_TYPE =
+            RECIPE_TYPES.register("latex_bowl", () -> LatexBowlRecipe.Type.INSTANCE);
+
 
 
     public static final Supplier<RecipeSerializer<HardOvenRecipe>> HARD_OVEN_SERIALIZER =
@@ -69,4 +78,13 @@ public class ModRecipes {
 
     public static final Supplier<RecipeSerializer<TungstenCompreserRecipe>> TUNGSTEN_SERIALIZER =
             SERIALIZERS.register("tungsten_compreser", () -> TungstenCompreserRecipe.Serializer.INSTANCE);
+
+    public static final Supplier<RecipeSerializer<ChamberRecipe>> CHAMBER_SERIALIZER =
+            SERIALIZERS.register("chamber", () -> ChamberRecipe.Serializer.INSTANCE);
+
+    public static final Supplier<RecipeSerializer<AtomicNucleusConstructorRecipe>> ATOMIC_NUCLEUS_CONSTRUCTOR_SERIALIZER =
+            SERIALIZERS.register("atomic_nucleus_constructor", () -> AtomicNucleusConstructorRecipe.Serializer.INSTANCE);
+
+    public static final Supplier<RecipeSerializer<LatexBowlRecipe>> LATEX_BOWL_SERIALIZER =
+            SERIALIZERS.register("latex_bowl", () -> LatexBowlRecipe.Serializer.INSTANCE);
 }

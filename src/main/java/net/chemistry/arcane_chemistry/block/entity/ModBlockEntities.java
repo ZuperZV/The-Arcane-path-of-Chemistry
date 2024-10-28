@@ -3,7 +3,6 @@ package net.chemistry.arcane_chemistry.block.entity;
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.block.entity.custom.*;
-import net.chemistry.arcane_chemistry.recipes.CentrifugeRecipe;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -47,6 +46,26 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<FlotationerBlockEntity>> FLOTATIONER_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("flotationer_be", () -> BlockEntityType.Builder.of(
                     FlotationerBlockEntity::new, ModBlocks.FLOTATIONER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<HeaterBlockEntity>> HEATER_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("heater_be", () -> BlockEntityType.Builder.of(
+                    HeaterBlockEntity::new, ModBlocks.HEATER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<DistillationConnecterBlockEntity>> DISTILLATION_CONNECTER_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("distillation_connecter_be", () -> BlockEntityType.Builder.of(
+                    DistillationConnecterBlockEntity::new, ModBlocks.DISTILLATION_CONNECTER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<ChamberBlockEntity>> CHAMBER_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("chamber_be", () -> BlockEntityType.Builder.of(
+                    ChamberBlockEntity::new, ModBlocks.CHAMBER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<AtomicNucleusConstructorBlockEntity>> ATOMIC_NUCLEUS_CONSTRUCTOR_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("atomic_nucleus_constructor_be", () -> BlockEntityType.Builder.of(
+                    AtomicNucleusConstructorBlockEntity::new, ModBlocks.ATOMIC_NUCLEUS_CONSTRUCTOR.get()).build(null));
+
+    public static final Supplier<BlockEntityType<LatexBowlBlockEntity>> LATEX_BOWL_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("latex_bowl_be", () -> BlockEntityType.Builder.of(
+                    LatexBowlBlockEntity::new, ModBlocks.LATEX_BOWL.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

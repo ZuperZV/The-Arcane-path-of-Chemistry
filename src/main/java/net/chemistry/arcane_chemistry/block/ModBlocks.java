@@ -25,8 +25,14 @@ public class ModBlocks {
     public static final DeferredBlock<Block> HARD_OVEN = registerBlock("hard_oven",
             () -> new HardOvenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)));
 
+    public static final DeferredBlock<Block> ATOMIC_NUCLEUS_CONSTRUCTOR = registerBlock("atomic_nucleus_constructor",
+            () -> new AtomicNucleusConstructorBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)));
+
     public static final DeferredBlock<Block> CENTRIFUGE = registerBlock("centrifuge",
             () -> new CentrifugeBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).noOcclusion()));
+
+    public static final DeferredBlock<Block> LATEX_BOWL = registerBlock("latex_bowl",
+            () -> new LatexBowlBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).noOcclusion()));
 
     public static final DeferredBlock<Block> ELECTOLYZER = registerBlock("electrolyzer",
             () -> new ElectrolyzerBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).noOcclusion()));
@@ -73,6 +79,16 @@ public class ModBlocks {
     public static final DeferredBlock<Block> LIMESTONE = registerBlock("limestone",
             () -> new ElemenBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
                     .sound(SoundType.METAL).noOcclusion(), "CaCO₃", 0xffda39));
+
+    public static final DeferredBlock<Block> HEATER = registerBlock("heater",
+            () -> new HeaterBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)));
+
+    public static final DeferredBlock<Block> DISTILLATION_CONNECTER = registerBlock("distillation_connecter",
+            () -> new DistillationConnecterBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)));
+
+    public static final DeferredBlock<Block> CHAMBER = registerBlock("chamber",
+            () -> new ChamberBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F)
+                    .sound(SoundType.METAL).noOcclusion(), "Ni", 0xffda39));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

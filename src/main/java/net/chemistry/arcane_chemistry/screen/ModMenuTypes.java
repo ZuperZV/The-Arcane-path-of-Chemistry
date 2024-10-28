@@ -31,6 +31,15 @@ public class ModMenuTypes {
     public static final Supplier<MenuType<AtomicOvenMenu>> ATOMIC_OVEN_MENU = MENUS.register("atomic_oven_menu",
             () -> IMenuTypeExtension.create((windowId, inv, data) -> new AtomicOvenMenu(windowId, inv.player, data.readBlockPos())));
 
+    public static final Supplier<MenuType<HeaterMenu>> HEATER_MENU = MENUS.register("heater_menu",
+            () -> IMenuTypeExtension.create((windowId, inv, data) -> new HeaterMenu(windowId, inv.player, data.readBlockPos())));
+
+    public static final Supplier<MenuType<ChamberMenu>> CHAMBER_MENU = MENUS.register("chamber_menu",
+            () -> IMenuTypeExtension.create((windowId, inv, data) -> new ChamberMenu(windowId, inv.player, data.readBlockPos())));
+
+    public static final Supplier<MenuType<AtomicNucleusConstructorMenu>> ATOMIC_NUCLEUS_CONSTRUCTOR_MENU = MENUS.register("atomic_nucleus_constructor_menu",
+            () -> IMenuTypeExtension.create((windowId, inv, data) -> new AtomicNucleusConstructorMenu(windowId, inv.player, data.readBlockPos())));
+
     private static <T extends AbstractContainerMenu> Supplier<MenuType<T>> registerMenuType(IContainerFactory<T> factory,
                                                                                             String name) {
         return MENUS.register(name, () -> IMenuTypeExtension.create(factory));

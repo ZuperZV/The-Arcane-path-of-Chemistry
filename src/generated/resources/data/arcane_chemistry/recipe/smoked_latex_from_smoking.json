@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "arcane_chemistry:flat_latex"
+  },
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:smoked_latex"
+  }
+}

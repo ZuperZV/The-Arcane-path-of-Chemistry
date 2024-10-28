@@ -1,6 +1,9 @@
 {
   "creativetab.arcane_chemistry.arcane_chemistry_tab": "The Arcane path of Chemistry",
 
+  "arcane_chemistry.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "arcane_chemistry.tooltip.liquid.amount": "%s mB",
+
   "block.arcane_chemistry.hard_oven": "Hard Oven",
   "block.arcane_chemistry.fire_pot": "Fire Pot",
   "block.arcane_chemistry.fire_pot_campfire": "Fire Pot",
@@ -16,6 +19,11 @@
   "item.arcane_chemistry.salt_reagent": "Salt Reagent",
   "item.arcane_chemistry.sodium_chloride": "Sodium Chloride",
   "item.arcane_chemistry.sulfur": "Sulfur",
+
+  "block.arcane_chemistry.latex_bowl": "Latex Bowl",
+  "item.arcane_chemistry.latex_ball": "Latex Ball",
+  "item.arcane_chemistry.flat_latex": "Flat Latex",
+  "item.arcane_chemistry.smoked_latex": "Smoked Latex",
 
   "item.arcane_chemistry.nickel_ingot": "Nickel Ingot",
   "item.arcane_chemistry.raw_nickel": "Raw Nickel",
@@ -51,6 +59,11 @@
   "block.arcane_chemistry.nickel_compreser": "Nickel Compreser",
 
   "item.arcane_chemistry.iron_reagent": "Iron Reagent",
+
+  "item.arcane_chemistry.crude_oil_bucket": "Crude Oil Bucket",
+  "block.arcane_chemistry.crude_oil_block": "Crude Oil Block",
+
+  "fluid_type.arcane_chemistry.crude_oil_fluid": "Crude Oil",
 
   "item.arcane_chemistry.reagent": "Reagent",
   "item.arcane_chemistry.water_reagent": "Water Reagent",
@@ -162,5 +175,8 @@
   "compound.sodium_acetate": "Sodium Acetate",
   "compound.sodium_hydroxide": "Sodium Hydroxide",
   "compound.sodium_chloride": "Sodium Chloride",
-  "compound.sodium_carbonate": "Sodium Carbonate"
+  "compound.sodium_carbonate": "Sodium Carbonate",
+  "block.arcane_chemistry.heater": "Heater",
+  "block.arcane_chemistry.chamber": "Chamber",
+  "block.arcane_chemistry.atomic_nucleus_constructor": "Atomic Nucleus Constructor"
 }

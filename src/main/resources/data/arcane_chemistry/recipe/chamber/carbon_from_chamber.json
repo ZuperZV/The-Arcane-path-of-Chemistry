@@ -1,0 +1,17 @@
+{
+  "type": "arcane_chemistry:chamber",
+
+  "fluid": {
+    "fluid": "arcane_chemistry:source_crude_oil",
+    "amount": 1000
+  },
+
+  "gas_fluid_output": {
+    "fluid": "minecraft:lava",
+    "amount": 1000
+  },
+
+  "output": {
+    "item": "arcane_chemistry:carbon_chunk"
+  }
+}

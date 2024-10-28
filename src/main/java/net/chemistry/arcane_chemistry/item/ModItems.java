@@ -1018,6 +1018,9 @@ public class ModItems {
     public static final DeferredItem<Item> CRUSHED_SCHEELITE_CRYSTAL = ITEMS .register("crushed_scheelite_crystal",
             () -> new NormalItem(new Item.Properties(), "CaWO₄", 0xffda39));
 
+    public static final DeferredItem<Item> CRUSHED_AMETHYST_SHARD = ITEMS .register("crushed_amethyst_shard",
+            () -> new NormalItem(new Item.Properties(), "WO₄", 0xffda39));
+
     public static final DeferredItem<Item> VANADIUM_INGOT = ITEMS .register("vanadium_ingot",
             () -> new NormalItem(new Item.Properties(), "V", 0xffda39));
 
@@ -1082,7 +1085,18 @@ public class ModItems {
             () -> new AtomItemFormelReagent(new Item.Properties(), "H₂SO₄", 0xffda39));
 
     public static final DeferredItem<Item> SODIUM_DICHROMATE = ITEMS .register("sodium_dichromate",
-            () -> new NormalItem(new Item.Properties(), "Na2Cr2O7", 0xffda39));
+            () -> new NormalItem(new Item.Properties(), "Na₂Cr₂O₇", 0xffda39));
+
+    public static final DeferredItem<Item> LATEX_BALL = ITEMS .register("latex_ball",
+            () -> new NormalItem(new Item.Properties(), "C₅H₈n", 0xffda39));
+
+    public static final DeferredItem<Item> FLAT_LATEX = ITEMS .register("flat_latex",
+            () -> new NormalItem(new Item.Properties(), "C₅H₈n", 0xffda39));
+
+    public static final DeferredItem<Item> SMOKED_LATEX = ITEMS .register("smoked_latex",
+            () -> new NormalItem(new Item.Properties(), "C₅H₈n", 0xffda39));
+
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

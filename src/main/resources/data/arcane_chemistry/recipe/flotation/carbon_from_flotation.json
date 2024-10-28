@@ -1,11 +1,11 @@
 {
   "type": "arcane_chemistry:flotation",
 
-  "ingredient": {
-    "item": "minecraft:charcoal"
+  "crushed_ingredient": {
+    "item": "minecraft:diamond"
   },
 
-  "oven_ingredient": {
+  "reagent_ingredient": {
     "item": "minecraft:charcoal"
   },
 
@@ -16,5 +16,9 @@
 
   "output": {
     "item": "arcane_chemistry:carbon_chunk"
+  },
+
+  "output2": {
+    "item": "arcane_chemistry:actinium"
   }
 }

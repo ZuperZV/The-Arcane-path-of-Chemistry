@@ -31,7 +31,7 @@ public class FlotationerMenu extends AbstractContainerMenu {
             addDataSlot(new DataSlot() {
                 @Override
                 public int get() {
-                    return FlotationerMenu.this.blockentity.getFluidTank().getFluidAmount();
+                    return FlotationerMenu.this.blockentity.getFluidTankAmount();
                 }
 
                 @Override
@@ -42,14 +42,19 @@ public class FlotationerMenu extends AbstractContainerMenu {
 
             addSlot(new SlotItemHandler(blockentity.getInputItems(), 0, 45, 29));
             addSlot(new SlotItemHandler(blockentity.getInputItems(), 1, 45, 53));
-            addSlot(new SlotItemHandler(blockentity.getInputItems(), 2, 90, 41));
+            addSlot(new FluidContainerSlot(blockentity.getInputItems(), 2, 149, 54));
             addSlot(new SlotItemHandler(blockentity.getOutputItems(), 0, 114, 41) {
                 @Override
                 public boolean mayPlace(ItemStack stack) {
                     return false;
                 }
             });
-            addSlot(new FluidContainerSlot(blockentity.getInputItems(), 3, 149, 54));
+            addSlot(new SlotItemHandler(blockentity.getOutputItems(), 1, 90, 41) {
+                @Override
+                public boolean mayPlace(ItemStack stack) {
+                    return false;
+                }
+            });
 
         } else {
             FlotationerBlockEntity = null;
@@ -68,13 +73,12 @@ public class FlotationerMenu extends AbstractContainerMenu {
     }
 
     public int getFluidAmount() {
-        return blockentity.getFluidTank().getFluidAmount();
+        return blockentity.getFluidTankAmount();
     }
 
     public int getMaxFluidAmount() {
-        return blockentity.getFluidTank().getCapacity();
+        return blockentity.getFluidTankCapacity();
     }
-
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
     // must assign a slot number to each of the slots used by the GUI.

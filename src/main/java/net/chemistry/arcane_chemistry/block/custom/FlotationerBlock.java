@@ -16,9 +16,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -26,8 +26,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 
@@ -36,7 +40,25 @@ import java.util.List;
 public class FlotationerBlock extends Block implements EntityBlock {
     private final String elementName;
     private final int color;
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
+    static VoxelShape SHAPE = Shapes.or(
+            box(0, 0, 0, 16, 7, 16),
+
+            box(0.5, 7, 2.5, 2.5, 9, 13.5),
+            box(2.5, 7, 0.5, 13.5, 9, 2.5),
+            box(2.5, 7, 13.5, 13.5, 9, 15.5),
+            box(-1, 2, 6.5, 17, 5, 9.5),
+            box(5.5, -0.5, 5.5, 10.5, 0.5, 10.5),
+            box(-1, 3, 11.5, 17, 5, 13.5),
+            box(-1, 3, 2.5, 17, 5, 4.5),
+            box(13.5, 7, 2.5, 15.5, 9, 13.5),
+            box(13.5, 7, 0.5, 15.5, 18, 2.5),
+            box(13.5, 7, 13.5, 15.5, 18, 15.5),
+            box(0.5, 7, 0.5, 2.5, 18, 2.5),
+            box(0.5, 7, 13.5, 2.5, 18, 15.5),
+            box(1, 6, 1, 15, 16, 15)
+    );
 
     public FlotationerBlock(Properties properties, String elementName, int color) {
         super(properties);
@@ -45,16 +67,37 @@ public class FlotationerBlock extends Block implements EntityBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false));
     }
 
+    @Override
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return SHAPE;
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState pState) {
+        return RenderShape.MODEL;
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRot) {
+        return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
+    }
+
     @org.jetbrains.annotations.Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState()
-                .setValue(LIT, false);
+                .setValue(LIT, false)
+                .setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(LIT);
+        pBuilder.add(LIT, FACING);
     }
 
     @Override

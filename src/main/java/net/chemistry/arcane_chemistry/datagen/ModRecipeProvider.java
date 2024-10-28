@@ -9,11 +9,13 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import javax.annotation.Nullable;
@@ -70,6 +72,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_chromium_chunk_mix",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.CHROMIUM_CHUNK_MIX.get()).build()))
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "sodium_chromate_from_blasting"));
 
+        SimpleCookingRecipeBuilder.smoking (Ingredient.of(ModItems.FLAT_LATEX.get()), RecipeCategory.MISC , ModItems.SMOKED_LATEX.get(), 0.5f , 200)
+                .unlockedBy("has_flat_latex",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.FLAT_LATEX.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "smoked_latex_from_smoking"));
+
 
         fourBlockStorageRecipes(pWriter, RecipeCategory.BUILDING_BLOCKS, ModItems.NICKEL_INGOT.get(), RecipeCategory.MISC,
                 ModBlocks.NICKEL_BLOCK.get());
@@ -88,6 +94,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B', Blocks.FURNACE)
                 .unlockedBy("has_furnace", inventoryTrigger(ItemPredicate.Builder.item().
                         of(Blocks.FURNACE).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LATEX_BOWL.get())
+                .pattern("ABA")
+                .pattern("A A")
+                .pattern("AAA")
+                .define('A', ItemTags.LOGS)
+                .define('B', ModItems.VANADIUM_INGOT)
+                .unlockedBy("has_logs", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ItemTags.LOGS).build()))
                 .save(pWriter);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NICKEL_COMPRESER.get())

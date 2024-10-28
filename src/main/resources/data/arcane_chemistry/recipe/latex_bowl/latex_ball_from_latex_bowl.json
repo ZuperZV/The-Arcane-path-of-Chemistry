@@ -1,0 +1,11 @@
+{
+  "type": "arcane_chemistry:latex_bowl",
+
+  "ingredient": {
+    "tag": "minecraft:logs"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:latex_ball"
+  }
+}

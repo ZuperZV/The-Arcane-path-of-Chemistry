@@ -17,6 +17,9 @@ public class ModItemBlockRenderTypes {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.FIRE_POT_CAMPFIRE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CENTRIFUGE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.ELECTOLYZER.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLOTATIONER.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHAMBER.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.LATEX_BOWL.get(), RenderType.cutout());
         });
     }
 }

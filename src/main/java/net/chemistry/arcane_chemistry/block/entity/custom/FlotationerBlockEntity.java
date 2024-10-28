@@ -2,8 +2,12 @@ package net.chemistry.arcane_chemistry.block.entity.custom;
 
 import net.chemistry.arcane_chemistry.block.entity.ItemHandler.CustomItemHandler;
 import net.chemistry.arcane_chemistry.block.entity.ModBlockEntities;
+import net.chemistry.arcane_chemistry.recipes.FlotationerRecipe;
+import net.chemistry.arcane_chemistry.recipes.FluidRecipeInput;
+import net.chemistry.arcane_chemistry.recipes.ModRecipes;
 import net.chemistry.arcane_chemistry.screen.FlotationerMenu;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -20,12 +24,13 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.common.util.Lazy;
 import net.neoforged.neoforge.fluids.FluidStack;
-import net.neoforged.neoforge.fluids.IFluidTank;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.IFluidHandlerItem;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
@@ -35,12 +40,14 @@ import net.neoforged.neoforge.items.wrapper.CombinedInvWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 import static net.chemistry.arcane_chemistry.block.custom.FlotationerBlock.LIT;
 
 public class FlotationerBlockEntity extends BlockEntity implements MenuProvider {
 
     private final ItemStackHandler inputItems = createItemHandler(4);
-    private final ItemStackHandler outputItems = createItemHandler(1);
+    private final ItemStackHandler outputItems = createItemHandler(2);
 
     private final Lazy<IItemHandler> itemHandler = Lazy.of(() -> new CombinedInvWrapper(inputItems, outputItems));
     private final Lazy<IItemHandler> inputItemHandler = Lazy.of(() -> new CustomItemHandler(inputItems));
@@ -96,7 +103,7 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
 
     public void tick(BlockPos pos, BlockState state, FlotationerBlockEntity blockEntity) {
         boolean isLit = state.getValue(LIT);
-        /*if (hasRecipe()) {
+        if (hasRecipe()) {
             increaseCraftingProcess();
 
             if (!isLit) {
@@ -114,10 +121,8 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
                 level.setBlockAndUpdate(pos, state.setValue(LIT, false));
             }
         }
-         */
 
-
-        ItemStack stack = this.inputItems.getStackInSlot(3);
+        ItemStack stack = this.inputItems.getStackInSlot(2);
         if(stack.isEmpty())
             return;
 
@@ -140,7 +145,7 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
                 this.fluidTank.fill(filled, IFluidHandler.FluidAction.EXECUTE);
 
                 if (drainedFluid.getAmount() <= amountToDrain) {
-                    this.inputItems.setStackInSlot(3, fluidHandler.getContainer());
+                    this.inputItems.setStackInSlot(2, fluidHandler.getContainer());
                 }
             }
         }
@@ -166,29 +171,27 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
         this.progress = 0;
     }
 
-    /*private boolean hasRecipe() {
+    private boolean hasRecipe() {
         Level level = this.level;
         if (level == null) return false;
-
 
         SimpleContainer inventory = new SimpleContainer(inputItems.getSlots());
         for (int i = 0; i < inputItems.getSlots(); i++) {
             inventory.setItem(i, inputItems.getStackInSlot(i));
         }
 
+        FluidStack fluidInTank =this.fluidTank.getFluidInTank(0);
+
         Optional<RecipeHolder<FlotationerRecipe>> recipe = level.getRecipeManager()
                 .getRecipeFor(ModRecipes.FLOTATION_RECIPE_TYPE.get(), getRecipeInput(inventory, fluidInTank), level);
-
-
-        System.out.println("Items in inventory: " + inventory.getItem(0) + ", " + inventory.getItem(1));
 
         return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
                 canInsertItemIntoOutputSlot(inventory, recipe.get().value().output.copy().getItem().getDefaultInstance());
     }
 
+
     private FluidRecipeInput getRecipeInput(SimpleContainer inventory, FluidStack fluidStack) {
-        System.out.println("Fluid being passed to recipe: " + fluidStack);
-        return new RecipeInput(fluidStack) {
+        return new FluidRecipeInput(fluidStack) {
             @Override
             public ItemStack getItem(int index) {
                 return inventory.getItem(index).copy();
@@ -200,7 +203,6 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
             }
         };
     }
-     */
 
 
     private boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
@@ -213,7 +215,7 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
         return outputStack.isEmpty() || (outputStack.getItem() == stack.getItem() && outputStack.getCount() < stack.getMaxStackSize());
     }
 
-    /*private void craftItem() {
+    private void craftItem() {
         Level level = this.level;
         if (level == null) return;
 
@@ -222,30 +224,38 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
             inventory.setItem(i, inputItems.getStackInSlot(i));
         }
 
+        FluidStack fluidInTank = this.fluidTank.getFluidInTank(0);
+
         Optional<RecipeHolder<FlotationerRecipe>> alcheRecipeOptionalrecipe = level.getRecipeManager()
                 .getRecipeFor(ModRecipes.FLOTATION_RECIPE_TYPE.get(), getRecipeInput(inventory, fluidInTank), level);
-
 
         FlotationerRecipe recipe;
         if (alcheRecipeOptionalrecipe.isPresent()) {
             recipe = alcheRecipeOptionalrecipe.get().value();
             ItemStack result = recipe.getResultItem(level.registryAccess());
+            ItemStack result2 = recipe.getResultItem2(level.registryAccess());
 
             ItemStack outputStack = outputItems.getStackInSlot(0);
+            ItemStack outputStack2 = outputItems.getStackInSlot(1);
+
             if (outputStack.isEmpty()) {
                 outputItems.setStackInSlot(0, result.copy());
             } else if (outputStack.getItem() == result.getItem()) {
                 outputStack.grow(result.getCount());
             }
+            if (outputStack2.isEmpty()) {
+                outputItems.setStackInSlot(1, result2.copy());
+            } else if (outputStack2.getItem() == result.getItem()) {
+                outputStack2.grow(result2.getCount());
+            }
+
+            int fluidToDrain = recipe.inputFluid.getAmount();
+            this.fluidTank.drain(fluidToDrain, IFluidHandler.FluidAction.EXECUTE);
 
             inputItems.extractItem(0, 1, false);
             inputItems.extractItem(1, 1, false);
-            inputItems.extractItem(2, 1, false);
-            inputItems.extractItem(3, 1, false);
         }
-
     }
-     */
 
 
     @Override
@@ -356,7 +366,31 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
         return this.fluidOptional;
     }
 
-    public FluidTank getFluidTank() {
-        return this.fluidTank;
+    public FluidStack getFluidTank() {
+        return this.fluidTank.getFluid();
+    }
+
+    public int getFluidTankAmount() {
+        return this.fluidTank.getFluidAmount();
+    }
+
+    public int getFluidTankCapacity() {
+        return this.fluidTank.getCapacity();
+    }
+
+    public final int fillFluidTank(FluidStack filled) {
+        return this.fluidTank.fill(filled, IFluidHandler.FluidAction.EXECUTE);
+    }
+
+    public FluidStack extractFluid(Direction direction, int amount, boolean simulate) {
+        return fluidTank.drain(amount, simulate ? IFluidHandler.FluidAction.SIMULATE : IFluidHandler.FluidAction.EXECUTE);
+    }
+
+    public void receiveFluid(Direction direction, FluidStack fluid) {
+        if (fluid.isEmpty()) {
+            return;
+        }
+
+        fluidTank.fill(fluid, IFluidHandler.FluidAction.EXECUTE);
     }
 }

@@ -3,6 +3,8 @@ package net.chemistry.arcane_chemistry.screen.renderer;
 import com.google.common.base.Preconditions;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
+import net.chemistry.arcane_chemistry.fluid.ModFluidTypes;
+import net.chemistry.arcane_chemistry.fluid.ModFluids;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -31,7 +33,7 @@ import java.util.List;
 public class FluidTankRenderer {
     private static final NumberFormat nf = NumberFormat.getIntegerInstance();
     private static final int TEXTURE_SIZE = 16;
-    private static final int MIN_FLUID_HEIGHT = 1;
+    private static final int MIN_FLUID_HEIGHT = 1; // ensure tiny amounts of fluid are still visible
 
     private final long capacity;
     private final TooltipMode tooltipMode;
@@ -95,12 +97,12 @@ public class FluidTankRenderer {
 
     private TextureAtlasSprite getStillFluidSprite(FluidStack fluidStack) {
         Fluid fluid = fluidStack.getFluid();
+
         IClientFluidTypeExtensions renderProperties = IClientFluidTypeExtensions.of(fluid);
         ResourceLocation fluidStill = renderProperties.getStillTexture(fluidStack);
-
-        Minecraft minecraft = Minecraft.getInstance();
-        return minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(fluidStill);
+        return Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(fluidStill);
     }
+
 
     private int getColorTint(FluidStack ingredient) {
         Fluid fluid = ingredient.getFluid();
@@ -108,7 +110,7 @@ public class FluidTankRenderer {
         return renderProperties.getTintColor(ingredient);
     }
 
-    private static void drawTiledSprite(GuiGraphics guiGraphics, final int tiledWidth, final int tiledHeight, int color, long scaledAmount, TextureAtlasSprite sprite) {
+    public static void drawTiledSprite(GuiGraphics guiGraphics, final int tiledWidth, final int tiledHeight, int color, long scaledAmount, TextureAtlasSprite sprite) {
         RenderSystem.setShaderTexture(0, InventoryMenu.BLOCK_ATLAS);
         Matrix4f matrix = guiGraphics.pose().last().pose();
         setGLColorFromInt(color);
@@ -130,7 +132,7 @@ public class FluidTankRenderer {
                     long maskTop = TEXTURE_SIZE - height;
                     int maskRight = TEXTURE_SIZE - width;
 
-                    drawTextureWithMasking(matrix, x, y, sprite, maskTop, maskRight, 100, color);
+                    drawTextureWithMasking(matrix, x, y, sprite, maskTop, maskRight, 100);
                 }
             }
         }
@@ -145,38 +147,20 @@ public class FluidTankRenderer {
         RenderSystem.setShaderColor(red, green, blue, alpha);
     }
 
-    private static void drawTextureWithMasking(Matrix4f matrix, float xCoord, float yCoord, TextureAtlasSprite textureSprite, long maskTop, long maskRight, float zLevel, Integer color) {
+    private static void drawTextureWithMasking(Matrix4f matrix, float xCoord, float yCoord, TextureAtlasSprite textureSprite, long maskTop, long maskRight, float zLevel) {
         float uMin = textureSprite.getU0();
         float uMax = textureSprite.getU1();
         float vMin = textureSprite.getV0();
         float vMax = textureSprite.getV1();
-
-        uMax -= (maskRight / 16F) * (uMax - uMin);
-        vMax -= (maskTop / 16F) * (vMax - vMin);
-
+        uMax = uMax - (maskRight / 16F * (uMax - uMin));
+        vMin = vMin + (maskTop / 16F * (vMax - vMin));
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
-
-        Tesselator tesselator = Tesselator.getInstance();
-        BufferBuilder bufferBuilder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX_COLOR);
-
-        int finalColor = (color != null) ? color : 0xFFFFFFFF;
-
-        bufferBuilder.addVertex(matrix, xCoord, yCoord + 16, zLevel)
-                .setUv(uMin, vMax)
-                .setColor(finalColor);
-
-        bufferBuilder.addVertex(matrix, xCoord, yCoord, zLevel)
-                .setUv(uMin, vMin)
-                .setColor(finalColor);
-
-        bufferBuilder.addVertex(matrix, xCoord + 16 - maskRight, yCoord, zLevel)
-                .setUv(uMax, vMin)
-                .setColor(finalColor);
-
-        bufferBuilder.addVertex(matrix, xCoord + 16 - maskRight, yCoord + 16, zLevel)
-                .setUv(uMax, vMax)
-                .setColor(finalColor);
-
+        Tesselator tessellator = Tesselator.getInstance();
+        BufferBuilder bufferBuilder = tessellator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+        bufferBuilder.addVertex(matrix, xCoord, yCoord + 16, zLevel).setUv(uMin, vMax);
+        bufferBuilder.addVertex(matrix, xCoord + 16 - maskRight, yCoord + 16, zLevel).setUv(uMax, vMax);
+        bufferBuilder.addVertex(matrix, xCoord + 16 - maskRight, yCoord + maskTop, zLevel).setUv(uMax, vMin);
+        bufferBuilder.addVertex(matrix, xCoord, yCoord + maskTop, zLevel).setUv(uMin, vMin);
         BufferUploader.drawWithShader(bufferBuilder.buildOrThrow());
     }
 
@@ -196,14 +180,13 @@ public class FluidTankRenderer {
             long milliBuckets = (amount * 1000) / FluidType.BUCKET_VOLUME;
 
             if (tooltipMode == TooltipMode.SHOW_AMOUNT_AND_CAPACITY) {
-                MutableComponent amountString = Component.translatable("living_tech.tooltip.liquid.amount.with.capacity", nf.format(milliBuckets), nf.format(capacity));
+                MutableComponent amountString = Component.translatable("arcane_chemistry.tooltip.liquid.amount.with.capacity", nf.format(milliBuckets), nf.format(capacity));
                 tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
             } else if (tooltipMode == TooltipMode.SHOW_AMOUNT) {
-                MutableComponent amountString = Component.translatable("living_tech.tooltip.liquid.amount", nf.format(milliBuckets));
+                MutableComponent amountString = Component.translatable("arcane_chemistry.tooltip.liquid.amount", nf.format(milliBuckets));
                 tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
             }
-        } catch (RuntimeException e) {
-        }
+        } catch (RuntimeException e) {}
 
         return tooltip;
     }

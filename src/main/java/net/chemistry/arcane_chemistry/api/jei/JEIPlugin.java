@@ -3,27 +3,29 @@ package net.chemistry.arcane_chemistry.api.jei;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
-import mezz.jei.api.registration.IGuiHandlerRegistration;
-import mezz.jei.api.registration.IRecipeCatalystRegistration;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.ingredients.IIngredientType;
+import mezz.jei.api.registration.*;
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.recipes.*;
 import net.chemistry.arcane_chemistry.screen.AtomicOvenScreen;
+import net.chemistry.arcane_chemistry.screen.FlotationerScreen;
 import net.chemistry.arcane_chemistry.screen.HardOvenScreen;
 import net.chemistry.arcane_chemistry.screen.NickelCompreserScreen;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.neoforged.neoforge.fluids.FluidStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @JeiPlugin
 public class JEIPlugin implements IModPlugin {
@@ -46,6 +48,13 @@ public class JEIPlugin implements IModPlugin {
     public static mezz.jei.api.recipe.RecipeType<FirePotRecipe> FIRE_POT_TYPE =
             new mezz.jei.api.recipe.RecipeType<>(FirePotRecipeCategory.UID, FirePotRecipe.class);
 
+    public static mezz.jei.api.recipe.RecipeType<FlotationerRecipe> FLOTATIONER_TYPE =
+            new mezz.jei.api.recipe.RecipeType<>(FlotationerRecipeCategory.UID, FlotationerRecipe.class);
+
+    public static mezz.jei.api.recipe.RecipeType<LatexBowlRecipe> LATEX_TYPE =
+            new mezz.jei.api.recipe.RecipeType<>(LatexBowlRecipeCategory.UID, LatexBowlRecipe.class);
+
+
 
 
     @Override
@@ -63,6 +72,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new CentrifugeRecipeCategory(jeiHelpers.getGuiHelper()));
         registration.addRecipeCategories(new ElectrolyzerRecipeCategory(jeiHelpers.getGuiHelper()));
         registration.addRecipeCategories(new FirePotRecipeCategory(jeiHelpers.getGuiHelper()));
+        registration.addRecipeCategories(new FlotationerRecipeCategory(jeiHelpers.getGuiHelper()));
+        registration.addRecipeCategories(new LatexBowlRecipeCategory(jeiHelpers.getGuiHelper()));
     }
 
 
@@ -94,6 +105,14 @@ public class JEIPlugin implements IModPlugin {
             var fire_pot = world.getRecipeManager();
             registration.addRecipes(FirePotRecipeCategory.RECIPE_TYPE,
                     getRecipe(fire_pot, ModRecipes.FIRE_POT_RECIPE_TYPE.get()));
+
+            var flotationer = world.getRecipeManager();
+            registration.addRecipes(FlotationerRecipeCategory.RECIPE_TYPE,
+                    getRecipe(flotationer, ModRecipes.FLOTATION_RECIPE_TYPE.get()));
+
+            var latex = world.getRecipeManager();
+            registration.addRecipes(LatexBowlRecipeCategory.RECIPE_TYPE,
+                    getRecipe(latex, ModRecipes.LATEX_BOWL_RECIPE_TYPE.get()));
         }
 
     }
@@ -127,6 +146,12 @@ public class JEIPlugin implements IModPlugin {
         var fire_pot = new ItemStack(ModBlocks.FIRE_POT.get());
         registration.addRecipeCatalyst(fire_pot, FirePotRecipeCategory.RECIPE_TYPE);
 
+        var flotationer = new ItemStack(ModBlocks.FLOTATIONER.get());
+        registration.addRecipeCatalyst(flotationer, FlotationerRecipeCategory.RECIPE_TYPE);
+
+        var latex = new ItemStack(ModBlocks.LATEX_BOWL.get());
+        registration.addRecipeCatalyst(latex, LatexBowlRecipeCategory.RECIPE_TYPE);
+
     }
 
     @Override
@@ -135,5 +160,6 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeClickArea(HardOvenScreen.class, 81, 38, 24, 17, JEIPlugin.HARD_OVEN_TYPE);
         registration.addRecipeClickArea(AtomicOvenScreen.class, 81, 38, 24, 17, JEIPlugin.ATOMIC_OVEN_TYPE);
         registration.addRecipeClickArea(NickelCompreserScreen.class, 81, 45, 24, 17, JEIPlugin.NICEKL_COMPERESER_TYPE);
+        registration.addRecipeClickArea(FlotationerScreen.class, 36, 22, 24, 17, JEIPlugin.FLOTATIONER_TYPE);
     }
 }

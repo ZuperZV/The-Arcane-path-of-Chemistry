@@ -1,0 +1,24 @@
+{
+  "type": "arcane_chemistry:flotation",
+
+  "crushed_ingredient": {
+    "item": "arcane_chemistry:crushed_scheelite_crystal"
+  },
+
+  "reagent_ingredient": {
+    "item": "arcane_chemistry:sulfuric_acid"
+  },
+
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 2000
+  },
+
+  "output": {
+    "item": "arcane_chemistry:tungsten"
+  },
+
+  "output2": {
+    "item": "arcane_chemistry:calcium"
+  }
+}
