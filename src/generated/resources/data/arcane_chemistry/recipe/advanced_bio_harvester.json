@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "arcane_chemistry:vanadium_block"
+    },
+    "C": {
+      "item": "arcane_chemistry:bio_harvester"
+    },
+    "D": {
+      "item": "arcane_chemistry:vanadium_ingot"
+    },
+    "E": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    "D D",
+    "AEA",
+    "ACA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:advanced_bio_harvester"
+  }
+}

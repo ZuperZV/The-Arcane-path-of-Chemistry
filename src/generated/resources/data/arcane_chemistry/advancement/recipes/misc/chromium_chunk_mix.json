@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lime": {
+    "has_limestone": {
       "conditions": {
         "items": [
           {
-            "items": "arcane_chemistry:chromium_chunk_mix"
+            "items": "arcane_chemistry:limestone"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_lime"
+      "has_limestone"
     ]
   ],
   "rewards": {

@@ -4,6 +4,7 @@ import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.block.entity.ModBlockEntities;
 import net.chemistry.arcane_chemistry.block.entity.renderer.CentrifugeBlockEntityRenderer;
 import net.chemistry.arcane_chemistry.block.entity.renderer.ElectrolyzerBlockEntityRenderer;
+import net.chemistry.arcane_chemistry.block.entity.renderer.PedestalSlabBlockEntityRenderer;
 import net.chemistry.arcane_chemistry.fluid.ModFluidTypes;
 import net.chemistry.arcane_chemistry.fluid.ModFluids;
 import net.chemistry.arcane_chemistry.fluid.fluidTypes.BaseFluidType;
@@ -84,6 +85,7 @@ public class Arcane_chemistry {
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.CENTRIFUGE_BLOCK_ENTITY.get(), CentrifugeBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.ELECTOLYZER_BLOCK_ENTITY.get(), ElectrolyzerBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.SLAB_BE.get(), PedestalSlabBlockEntityRenderer::new);
         }
 
         @SubscribeEvent
@@ -116,6 +118,12 @@ public class Arcane_chemistry {
 
             event.register(ModItems.IRON_REAGENT.get(), new NumberDecorator());
             event.register(ModItems.RED_IRON_REAGENT.get(), new NumberDecorator());
+
+            event.register(ModItems.IRON_NUCLEUS.get(), new NumberDecorator());
+            event.register(ModItems.ALUMINIUM_NUCLEUS.get(), new NumberDecorator());
+            event.register(ModItems.LEAD_NUCLEUS.get(), new NumberDecorator());
+            event.register(ModItems.COPPER_NUCLEUS.get(), new NumberDecorator());
+            event.register(ModItems.SILVER_NUCLEUS.get(), new NumberDecorator());
 
             event.register(ModItems.LITHIUM.get(), new NumberDecorator());
             event.register(ModItems.SODIUM.get(), new NumberDecorator());
@@ -201,6 +209,8 @@ public class Arcane_chemistry {
             event.register(ModItems.SEABORGIUM.get(), new NumberDecorator());
             event.register(ModItems.BOHRIUM.get(), new NumberDecorator());
             event.register(ModItems.HASSIUM.get(), new NumberDecorator());
+
+            event.register(ModItems.CRYON.get(), new NumberDecorator());
         }
     }
 }

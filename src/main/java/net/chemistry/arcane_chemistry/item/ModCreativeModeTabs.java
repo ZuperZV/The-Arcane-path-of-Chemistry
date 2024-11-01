@@ -22,6 +22,9 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.arcane_chemistry.arcane_chemistry_tab"))
                     .icon(() -> new ItemStack(ModItems.IRON.get()))
                     .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(ModItems.PROTON.get());
+                        pOutput.accept(ModItems.NEUTRON.get());
+                        pOutput.accept(ModItems.ELECTRON.get());
 
                         pOutput.accept(ModItems.FLINT_SWORD.get());
                         pOutput.accept(ModItems.FLINT_PICKAXE.get());
@@ -30,14 +33,21 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.FLINT_HOE.get());
 
                         pOutput.accept(ModBlocks.HARD_OVEN.get());
-                        pOutput.accept(ModBlocks.FIRE_POT.get());
-
+                        pOutput.accept(ModBlocks.ELECTOLYZER.get());
                         pOutput.accept(ModBlocks.CENTRIFUGE.get());
                         pOutput.accept(ModBlocks.ATOMIC_OVEN.get());
+                        pOutput.accept(ModBlocks.FLOTATIONER.get());
 
                         pOutput.accept(Blocks.GLASS);
                         pOutput.accept(ModBlocks.NICKEL_COMPRESER.get());
                         pOutput.accept(ModBlocks.NICKEL_BLOCK.get());
+
+                        pOutput.accept(ModBlocks.FIRE_POT.get());
+                        pOutput.accept(ModBlocks.PEDESTAL_SLAB.get());
+                        pOutput.accept(ModBlocks.ATOMIC_NUCLEUS_CONSTRUCTOR.get());
+                        pOutput.accept(ModBlocks.ADVANCED_BIO_HARVESTER.get());
+                        pOutput.accept(ModBlocks.BIO_HARVESTER.get());
+
                         pOutput.accept(ModItems.NICKEL_INGOT.get());
                         pOutput.accept(ModItems.RAW_NICKEL.get());
                         pOutput.accept(ModItems.RAW_IMPURE_NICKEL.get());
@@ -71,6 +81,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.CHROMIUM_CHUNK_MIX.get());
                         pOutput.accept(ModItems.SODIUM_CHROMATE.get());
 
+                        pOutput.accept(ModBlocks.SULFUR_SOUL_SAND.get());
                         pOutput.accept(ModItems.SULFUR.get());
                         pOutput.accept(ModItems.SULFURIC_ACID_MIX.get());
                         pOutput.accept(ModItems.SULFURIC_ACID.get());
@@ -87,6 +98,22 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.LATEX_BALL.get());
                         pOutput.accept(ModItems.FLAT_LATEX.get());
                         pOutput.accept(ModItems.SMOKED_LATEX.get());
+
+                        pOutput.accept(ModItems.LATEX_CLAY_BALL.get());
+                        pOutput.accept(ModItems.HARD_LATEX_CLAY_BALL.get());
+                        pOutput.accept(ModItems.CLAY_DUST.get());
+                        pOutput.accept(ModItems.AURORA_DUST.get());
+                        pOutput.accept(ModBlocks.PEDESTAL_SLAB.get());
+
+
+                        pOutput.accept(ModBlocks.GRAVITY.get());
+
+                        pOutput.accept(ModItems.NUCLEUS.get());
+                        pOutput.accept(ModItems.IRON_NUCLEUS.get());
+                        pOutput.accept(ModItems.ALUMINIUM_NUCLEUS.get());
+                        pOutput.accept(ModItems.LEAD_NUCLEUS.get());
+                        pOutput.accept(ModItems.COPPER_NUCLEUS.get());
+                        pOutput.accept(ModItems.SILVER_NUCLEUS.get());
 
                         pOutput.accept(ModItems.LITHIUM.get());
                         pOutput.accept(ModItems.SODIUM.get());
@@ -172,6 +199,9 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.SEABORGIUM.get());
                         pOutput.accept(ModItems.BOHRIUM.get());
                         pOutput.accept(ModItems.HASSIUM.get());
+
+
+                        pOutput.accept(ModItems.CRYON.get());
 
                     }).build());
 

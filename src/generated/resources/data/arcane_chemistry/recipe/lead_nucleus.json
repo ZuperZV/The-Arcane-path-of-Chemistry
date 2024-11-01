@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "arcane_chemistry:smoked_latex"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:gold_nugget"
+    },
+    {
+      "item": "arcane_chemistry:nucleus"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:lead_nucleus"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "arcane_chemistry:fire_pot",
+
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+
+  "ingredient1": {
+    "item": "arcane_chemistry:tungsten"
+  },
+
+  "ingredient2": {
+    "item": "minecraft:lapis_lazuli"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:proton"
+  },
+
+  "output2": {
+    "item": "arcane_chemistry:neutron"
+  }
+}

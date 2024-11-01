@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "arcane_chemistry:block/pedestal_slab",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "arcane_chemistry:block/pedestal_slab"
+    },
+    "facing=south": {
+      "model": "arcane_chemistry:block/pedestal_slab",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "arcane_chemistry:block/pedestal_slab",
+      "y": 270
+    }
+  }
+}

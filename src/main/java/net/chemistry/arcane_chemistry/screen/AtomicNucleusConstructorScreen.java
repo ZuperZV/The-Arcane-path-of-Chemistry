@@ -27,6 +27,10 @@ public class AtomicNucleusConstructorScreen extends AbstractContainerScreen<Atom
         super.renderLabels(guiGraphics, pMouseX, pMouseY);
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
+
+        this.inventoryLabelY = 74;
+        this.titleLabelY = 3;
+        this.titleLabelX = 4;
     }
 
     @Override

@@ -56,7 +56,31 @@
 
   "block.arcane_chemistry.limestone": "Limestone",
 
+  "block.arcane_chemistry.pedestal_slab": "Aurora Pedestal",
+  "item.arcane_chemistry.aurora_dust": "Aurora Dust",
+  "item.arcane_chemistry.clay_dust": "Clay Dust",
+  "item.arcane_chemistry.latex_clay_ball": "Latex Clay Ball",
+  "item.arcane_chemistry.hard_latex_clay_ball": "Hard Latex Clay Ball",
+
+  "block.arcane_chemistry.advanced_bio_harvester": "Advanced Bio Harvester",
+  "block.arcane_chemistry.bio_harvester": "Bio Harvester",
+
   "block.arcane_chemistry.nickel_compreser": "Nickel Compreser",
+  "block.arcane_chemistry.tungsten_compreser": "Nucleus Compreser",
+
+  "item.arcane_chemistry.electron": "Electron",
+  "item.arcane_chemistry.neutron": "Neutron",
+  "item.arcane_chemistry.proton": "Proton",
+
+  "item.arcane_chemistry.nucleus": "Nucleus",
+  "item.arcane_chemistry.iron_nucleus": "Iron Nucleus",
+  "item.arcane_chemistry.aluminium_nucleus": "Aluminium Nucleus",
+  "item.arcane_chemistry.lead_nucleus": "Lead Nucleus",
+  "item.arcane_chemistry.copper_nucleus": "Copper Nucleus",
+  "item.arcane_chemistry.silver_nucleus": "Silver Nucleus",
+
+
+  "block.arcane_chemistry.sulfur_soul_sand": "Sulfur Soul Sand",
 
   "item.arcane_chemistry.iron_reagent": "Iron Reagent",
 
@@ -178,5 +202,6 @@
   "compound.sodium_carbonate": "Sodium Carbonate",
   "block.arcane_chemistry.heater": "Heater",
   "block.arcane_chemistry.chamber": "Chamber",
-  "block.arcane_chemistry.atomic_nucleus_constructor": "Atomic Nucleus Constructor"
+  "block.arcane_chemistry.atomic_nucleus_constructor": "Atomic Nucleus Constructor",
+  "block.arcane_chemistry.gravity": "Gravity"
 }

@@ -1,0 +1,11 @@
+{
+  "type": "arcane_chemistry:nickel_compreser",
+
+  "ingredient": {
+    "item": "arcane_chemistry:hard_latex_clay_ball"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:clay_dust"
+  }
+}

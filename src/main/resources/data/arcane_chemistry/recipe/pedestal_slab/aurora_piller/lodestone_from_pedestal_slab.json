@@ -1,0 +1,9 @@
+{
+  "type": "arcane_chemistry:pedestal_slab_aurora",
+  "ingredient": {
+    "item": "minecraft:cracked_stone_bricks"
+  },
+  "output": {
+    "item": "minecraft:lodestone"
+  }
+}

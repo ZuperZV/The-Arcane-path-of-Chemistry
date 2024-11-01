@@ -1,6 +1,7 @@
 package net.chemistry.arcane_chemistry.item;
 
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
+import net.chemistry.arcane_chemistry.block.ModBlocks;
 import net.chemistry.arcane_chemistry.item.custom.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
@@ -17,6 +18,198 @@ public class ModItems {
 
     public static final DeferredItem<AtomItemEmptyReagent> REAGENT = ITEMS .register("reagent",
             () -> new AtomItemEmptyReagent(new Item.Properties(), "SiO2", 0xffda39));
+
+    public static final DeferredItem<Item> FLINT_SWORD = ITEMS.register("flint_sword",
+            () -> new ElementalSwordItem(
+                    ModToolTiers.FLINT,
+                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, 3, -2.4F)), "SiO2", 0xffda39
+            ));
+
+    public static final DeferredItem<Item> FLINT_PICKAXE = ITEMS.register("flint_pickaxe",
+            () -> new ElementalPickaxeItem(
+                    ModToolTiers.FLINT,
+                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, 1, -2.8F)), "SiO2", 0xffda39
+            ));
+
+    public static final DeferredItem<Item> FLINT_AXE = ITEMS.register("flint_axe",
+            () -> new ElementalAxeItem(
+                    ModToolTiers.FLINT,
+                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, 1.5F, -3.0F)), "SiO2", 0xffda39
+            ));
+
+    public static final DeferredItem<Item> FLINT_SHOVEL = ITEMS.register("flint_shovel",
+            () -> new ElementalShovelItem(
+                    ModToolTiers.FLINT,
+                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, 5.0F, -3.0F)), "SiO2", 0xffda39
+            ));
+
+    public static final DeferredItem<Item> FLINT_HOE = ITEMS.register("flint_hoe",
+            () -> new ElementalHoeItem(
+                    ModToolTiers.FLINT,
+                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, -1.5F, 0.0F)), "SiO2", 0xffda39
+            ));
+
+    public static final DeferredItem<Item> NICKEL_INGOT = ITEMS .register("nickel_ingot",
+            () -> new NormalItem(new Item.Properties(), "Ni", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_NICKEL = ITEMS .register("raw_nickel",
+            () -> new NormalItem(new Item.Properties(), "Ni", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_IMPURE_NICKEL_IRON_MIX = ITEMS .register("raw_impure_nickel_iron_mix",
+            () -> new NormalItem(new Item.Properties(), "NiFe", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_IMPURE_NICKEL = ITEMS .register("raw_impure_nickel",
+            () -> new NormalItem(new Item.Properties(), "Ni", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_IMPURE_IRON = ITEMS .register("raw_impure_iron",
+            () -> new NormalItem(new Item.Properties(), "Fe", 0xffda39));
+
+    public static final DeferredItem<Item> CRUSHED_RAW_IRON = ITEMS .register("crushed_raw_iron",
+            () -> new NormalItem(new Item.Properties(), "Fe", 0xffda39));
+
+    public static final DeferredItem<Item> TUNGSTEN_INGOT = ITEMS .register("tungsten_ingot",
+            () -> new NormalItem(new Item.Properties(), "W", 0xffda39));
+
+    public static final DeferredItem<Item> TUNGSTEN_CARBIDE_INGOT = ITEMS .register("tungsten_carbide_ingot",
+            () -> new NormalItem(new Item.Properties(), "WC", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_CARBIDE = ITEMS .register("raw_carbide",
+            () -> new NormalItem(new Item.Properties(), "C", 0xffda39));
+
+    public static final DeferredItem<Item> CARBIDE_INGOT = ITEMS .register("carbide_ingot",
+            () -> new NormalItem(new Item.Properties(), "C", 0xffda39));
+
+    public static final DeferredItem<Item> CARBON_CHUNK = ITEMS .register("carbon_chunk",
+            () -> new NormalItem(new Item.Properties(), "C", 0xffda39));
+
+    public static final DeferredItem<Item> COBALT_INGOT = ITEMS .register("cobalt_ingot",
+            () -> new NormalItem(new Item.Properties(), "Co", 0xffda39));
+
+    public static final DeferredItem<Item> RAW_COBALT = ITEMS .register("raw_cobalt",
+            () -> new NormalItem(new Item.Properties(), "Co", 0xffda39));
+
+    public static final DeferredItem<Item> SCHEELITE_CRYSTAL = ITEMS .register("scheelite_crystal",
+            () -> new NormalItem(new Item.Properties(), "CaWO₄", 0xffda39));
+
+    public static final DeferredItem<Item> CRUSHED_SCHEELITE_CRYSTAL = ITEMS .register("crushed_scheelite_crystal",
+            () -> new NormalItem(new Item.Properties(), "CaWO₄", 0xffda39));
+
+    public static final DeferredItem<Item> CRUSHED_AMETHYST_SHARD = ITEMS .register("crushed_amethyst_shard",
+            () -> new NormalItem(new Item.Properties(), "WO₄", 0xffda39));
+
+    public static final DeferredItem<Item> VANADIUM_INGOT = ITEMS .register("vanadium_ingot",
+            () -> new NormalItem(new Item.Properties(), "V", 0xffda39));
+
+    public static final DeferredItem<Item> VANADIUM_CATALYST = ITEMS .register("vanadium_catalyst",
+            () -> new NormalItem(new Item.Properties(), "V", 0xffda39));
+
+    public static final DeferredItem<AtomItemReagent> IRON_REAGENT = ITEMS .register("iron_reagent",
+            () -> new AtomItemReagent(new Item.Properties(), "2", "Fe", 0xffda39,
+                    "26", 474747,
+                    "2",0x282834,
+                    "8", 0x282834,
+                    "14", 0x282834,
+                    "2", 0x282834,
+                    "0", 0x282834,
+                    "0", 0x282834,
+                    "0", 0x282834,
+                    0xc6c6c6));
+
+    public static final DeferredItem<AtomItemReagent> RED_IRON_REAGENT = ITEMS .register("red_iron_reagent",
+            () -> new AtomItemReagent(new Item.Properties(), "2", "Fe", 0xffda39,
+                    "26", 474747,
+                    "2",0x282834,
+                    "8", 0x282834,
+                    "14", 0x282834,
+                    "2", 0x282834,
+                    "0", 0x282834,
+                    "0", 0x282834,
+                    "0", 0x282834,
+                    0xc6c6c6));
+
+    public static final DeferredItem<AtomItemFormelReagent> WATER_REAGENT = ITEMS .register("water_reagent",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "H₂O", 0xffda39));
+
+    public static final DeferredItem<Item> CHROMIUM_INGOT = ITEMS .register("chromium_ingot",
+            () -> new NormalItem(new Item.Properties(), "Cr", 0xffda39));
+
+    public static final DeferredItem<Item> CHROMIUM_CHUNK_MIX = ITEMS .register("chromium_chunk_mix",
+            () -> new NormalItem(new Item.Properties(), "Cr", 0xffda39));
+
+    public static final DeferredItem<Item> SALT = ITEMS .register("salt",
+            () -> new NormalItem(new Item.Properties(), "NaCl", 0xffda39));
+
+    public static final DeferredItem<AtomItemFormelReagent> SALT_REAGENT = ITEMS .register("salt_reagent",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "NaCl", 0xffda39));
+
+    public static final DeferredItem<AtomItemFormelReagent> SODIUM_CHLORIDE = ITEMS .register("sodium_chloride",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "NaCl", 0xffda39));
+
+    public static final DeferredItem<AtomItemFormelReagent> CHLORINE_GAS = ITEMS .register("chlorine_gas",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "NaCl", 0xffda39));
+
+    public static final DeferredItem<Item> SODIUM_CHROMATE = ITEMS .register("sodium_chromate",
+            () -> new NormalItem(new Item.Properties(), "Na₂CrO₄", 0xffda39));
+
+    public static final DeferredItem<Item> SULFUR = ITEMS .register("sulfur",
+            () -> new NormalItem(new Item.Properties(), "S", 0xffda39));
+
+    public static final DeferredItem<AtomItemFormelReagent> SULFURIC_ACID_MIX = ITEMS .register("sulfuric_acid_mix",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "SO₂ + H₂O", 0xffda39));
+
+    public static final DeferredItem<AtomItemFormelReagent> SULFURIC_ACID = ITEMS .register("sulfuric_acid",
+            () -> new AtomItemFormelReagent(new Item.Properties(), "H₂SO₄", 0xffda39));
+
+    public static final DeferredItem<Item> SODIUM_DICHROMATE = ITEMS .register("sodium_dichromate",
+            () -> new NormalItem(new Item.Properties(), "Na₂Cr₂O₇", 0xffda39));
+
+    public static final DeferredItem<Item> LATEX_BALL = ITEMS .register("latex_ball",
+            () -> new NormalItem(new Item.Properties(), "C₅H₈n", 0xffda39));
+
+    public static final DeferredItem<Item> FLAT_LATEX = ITEMS .register("flat_latex",
+            () -> new NormalItem(new Item.Properties(), "C₅H₈n", 0xffda39));
+
+    public static final DeferredItem<Item> SMOKED_LATEX = ITEMS .register("smoked_latex",
+            () -> new NormalItem(new Item.Properties(), "C₅H₈n", 0xffda39));
+
+    public static final DeferredItem<Item> PROTON = ITEMS .register("proton",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> NEUTRON = ITEMS .register("neutron",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> ELECTRON = ITEMS .register("electron",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> NUCLEUS = ITEMS .register("nucleus",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> AURORA_DUST = ITEMS.register("aurora_dust",
+            () -> new ItemNameBlockItem(ModBlocks.AURORA_WIRE.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> CLAY_DUST = ITEMS.register("clay_dust",
+            () -> new ItemNameBlockItem(ModBlocks.CLAY_WIRE.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> LATEX_CLAY_BALL = ITEMS .register("latex_clay_ball",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> HARD_LATEX_CLAY_BALL = ITEMS .register("hard_latex_clay_ball",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<NormalItem> IRON_NUCLEUS = ITEMS .register("iron_nucleus",
+            () -> new NormalItem(new Item.Properties(), "Fe", 0xffda39));
+
+    public static final DeferredItem<NormalItem> ALUMINIUM_NUCLEUS = ITEMS .register("aluminium_nucleus",
+            () -> new NormalItem(new Item.Properties(), "Al", 0xffda39));
+
+    public static final DeferredItem<NormalItem> LEAD_NUCLEUS = ITEMS .register("lead_nucleus",
+            () -> new NormalItem(new Item.Properties(), "Pb", 0xffda39));
+
+    public static final DeferredItem<NormalItem> COPPER_NUCLEUS = ITEMS .register("copper_nucleus",
+            () -> new NormalItem(new Item.Properties(), "Cu", 0xffda39));
+
+    public static final DeferredItem<NormalItem> SILVER_NUCLEUS = ITEMS .register("silver_nucleus",
+            () -> new NormalItem(new Item.Properties(), "Ag", 0xffda39));
 
     public static final DeferredItem<AtomItem> LITHIUM = ITEMS .register("lithium",
             () -> new AtomItem(new Item.Properties(), "1", "Li", 0xffda39,
@@ -647,7 +840,7 @@ public class ModItems {
 
     //Mercury/kviksølv
     public static final DeferredItem<AtomItem> MERCURY = ITEMS .register("mercury",
-            () -> new AtomItem(new Item.Properties(), "2", "Au", 0xffda39,
+            () -> new AtomItem(new Item.Properties(), "2", "Hg", 0xffda39,
                     "80", 474747,
                     "2",0x282834,
                     "8", 0x282834,
@@ -943,160 +1136,18 @@ public class ModItems {
                     "14", 0x282834,
                     "2", 0x282834));
 
-    public static final DeferredItem<Item> FLINT_SWORD = ITEMS.register("flint_sword",
-            () -> new ElementalSwordItem(
-                    ModToolTiers.FLINT,
-                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, 3, -2.4F)), "SiO2", 0xffda39
-            ));
 
-    public static final DeferredItem<Item> FLINT_PICKAXE = ITEMS.register("flint_pickaxe",
-            () -> new ElementalPickaxeItem(
-                    ModToolTiers.FLINT,
-                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, 1, -2.8F)), "SiO2", 0xffda39
-            ));
 
-    public static final DeferredItem<Item> FLINT_AXE = ITEMS.register("flint_axe",
-            () -> new ElementalAxeItem(
-                    ModToolTiers.FLINT,
-                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, 1.5F, -3.0F)), "SiO2", 0xffda39
-            ));
-
-    public static final DeferredItem<Item> FLINT_SHOVEL = ITEMS.register("flint_shovel",
-            () -> new ElementalShovelItem(
-                    ModToolTiers.FLINT,
-                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, 5.0F, -3.0F)), "SiO2", 0xffda39
-            ));
-
-    public static final DeferredItem<Item> FLINT_HOE = ITEMS.register("flint_hoe",
-            () -> new ElementalHoeItem(
-                    ModToolTiers.FLINT,
-                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.FLINT, -1.5F, 0.0F)), "SiO2", 0xffda39
-            ));
-
-    public static final DeferredItem<Item> NICKEL_INGOT = ITEMS .register("nickel_ingot",
-            () -> new NormalItem(new Item.Properties(), "Ni", 0xffda39));
-
-    public static final DeferredItem<Item> RAW_NICKEL = ITEMS .register("raw_nickel",
-            () -> new NormalItem(new Item.Properties(), "Ni", 0xffda39));
-
-    public static final DeferredItem<Item> RAW_IMPURE_NICKEL_IRON_MIX = ITEMS .register("raw_impure_nickel_iron_mix",
-            () -> new NormalItem(new Item.Properties(), "NiFe", 0xffda39));
-
-    public static final DeferredItem<Item> RAW_IMPURE_NICKEL = ITEMS .register("raw_impure_nickel",
-            () -> new NormalItem(new Item.Properties(), "Ni", 0xffda39));
-
-    public static final DeferredItem<Item> RAW_IMPURE_IRON = ITEMS .register("raw_impure_iron",
-            () -> new NormalItem(new Item.Properties(), "Fe", 0xffda39));
-
-    public static final DeferredItem<Item> CRUSHED_RAW_IRON = ITEMS .register("crushed_raw_iron",
-            () -> new NormalItem(new Item.Properties(), "Fe", 0xffda39));
-
-    public static final DeferredItem<Item> TUNGSTEN_INGOT = ITEMS .register("tungsten_ingot",
-            () -> new NormalItem(new Item.Properties(), "W", 0xffda39));
-
-    public static final DeferredItem<Item> TUNGSTEN_CARBIDE_INGOT = ITEMS .register("tungsten_carbide_ingot",
-            () -> new NormalItem(new Item.Properties(), "WC", 0xffda39));
-
-    public static final DeferredItem<Item> RAW_CARBIDE = ITEMS .register("raw_carbide",
-            () -> new NormalItem(new Item.Properties(), "C", 0xffda39));
-
-    public static final DeferredItem<Item> CARBIDE_INGOT = ITEMS .register("carbide_ingot",
-            () -> new NormalItem(new Item.Properties(), "C", 0xffda39));
-
-    public static final DeferredItem<Item> CARBON_CHUNK = ITEMS .register("carbon_chunk",
-            () -> new NormalItem(new Item.Properties(), "C", 0xffda39));
-
-    public static final DeferredItem<Item> COBALT_INGOT = ITEMS .register("cobalt_ingot",
-            () -> new NormalItem(new Item.Properties(), "Co", 0xffda39));
-
-    public static final DeferredItem<Item> RAW_COBALT = ITEMS .register("raw_cobalt",
-            () -> new NormalItem(new Item.Properties(), "Co", 0xffda39));
-
-    public static final DeferredItem<Item> SCHEELITE_CRYSTAL = ITEMS .register("scheelite_crystal",
-            () -> new NormalItem(new Item.Properties(), "CaWO₄", 0xffda39));
-
-    public static final DeferredItem<Item> CRUSHED_SCHEELITE_CRYSTAL = ITEMS .register("crushed_scheelite_crystal",
-            () -> new NormalItem(new Item.Properties(), "CaWO₄", 0xffda39));
-
-    public static final DeferredItem<Item> CRUSHED_AMETHYST_SHARD = ITEMS .register("crushed_amethyst_shard",
-            () -> new NormalItem(new Item.Properties(), "WO₄", 0xffda39));
-
-    public static final DeferredItem<Item> VANADIUM_INGOT = ITEMS .register("vanadium_ingot",
-            () -> new NormalItem(new Item.Properties(), "V", 0xffda39));
-
-    public static final DeferredItem<Item> VANADIUM_CATALYST = ITEMS .register("vanadium_catalyst",
-            () -> new NormalItem(new Item.Properties(), "V", 0xffda39));
-
-    public static final DeferredItem<AtomItemReagent> IRON_REAGENT = ITEMS .register("iron_reagent",
-            () -> new AtomItemReagent(new Item.Properties(), "2", "Fe", 0xffda39,
-                    "26", 474747,
-                    "2",0x282834,
-                    "8", 0x282834,
+    public static final DeferredItem<AtomItem> CRYON = ITEMS .register("cryon",
+            () -> new AtomItem(new Item.Properties(), "18", "Cy", 0xffda39,
+                    "150", 474747,
+                    "5",0x282834,
+                    "21", 0x282834,
+                    "19", 0x282834,
+                    "32", 0x282834,
+                    "32", 0x282834,
                     "14", 0x282834,
-                    "2", 0x282834,
-                    "0", 0x282834,
-                    "0", 0x282834,
-                    "0", 0x282834,
-                    0xc6c6c6));
-
-    public static final DeferredItem<AtomItemReagent> RED_IRON_REAGENT = ITEMS .register("red_iron_reagent",
-            () -> new AtomItemReagent(new Item.Properties(), "2", "Fe", 0xffda39,
-                    "26", 474747,
-                    "2",0x282834,
-                    "8", 0x282834,
-                    "14", 0x282834,
-                    "2", 0x282834,
-                    "0", 0x282834,
-                    "0", 0x282834,
-                    "0", 0x282834,
-                    0xc6c6c6));
-
-    public static final DeferredItem<AtomItemFormelReagent> WATER_REAGENT = ITEMS .register("water_reagent",
-            () -> new AtomItemFormelReagent(new Item.Properties(), "H₂O", 0xffda39));
-
-    public static final DeferredItem<Item> CHROMIUM_INGOT = ITEMS .register("chromium_ingot",
-            () -> new NormalItem(new Item.Properties(), "Cr", 0xffda39));
-
-    public static final DeferredItem<Item> CHROMIUM_CHUNK_MIX = ITEMS .register("chromium_chunk_mix",
-            () -> new NormalItem(new Item.Properties(), "Cr", 0xffda39));
-
-    public static final DeferredItem<Item> SALT = ITEMS .register("salt",
-            () -> new NormalItem(new Item.Properties(), "NaCl", 0xffda39));
-
-    public static final DeferredItem<AtomItemFormelReagent> SALT_REAGENT = ITEMS .register("salt_reagent",
-            () -> new AtomItemFormelReagent(new Item.Properties(), "NaCl", 0xffda39));
-
-    public static final DeferredItem<AtomItemFormelReagent> SODIUM_CHLORIDE = ITEMS .register("sodium_chloride",
-            () -> new AtomItemFormelReagent(new Item.Properties(), "NaCl", 0xffda39));
-
-    public static final DeferredItem<AtomItemFormelReagent> CHLORINE_GAS = ITEMS .register("chlorine_gas",
-            () -> new AtomItemFormelReagent(new Item.Properties(), "NaCl", 0xffda39));
-
-    public static final DeferredItem<Item> SODIUM_CHROMATE = ITEMS .register("sodium_chromate",
-            () -> new NormalItem(new Item.Properties(), "Na₂CrO₄", 0xffda39));
-
-    public static final DeferredItem<Item> SULFUR = ITEMS .register("sulfur",
-            () -> new NormalItem(new Item.Properties(), "S", 0xffda39));
-
-    public static final DeferredItem<AtomItemFormelReagent> SULFURIC_ACID_MIX = ITEMS .register("sulfuric_acid_mix",
-            () -> new AtomItemFormelReagent(new Item.Properties(), "SO₂ + H₂O", 0xffda39));
-
-    public static final DeferredItem<AtomItemFormelReagent> SULFURIC_ACID = ITEMS .register("sulfuric_acid",
-            () -> new AtomItemFormelReagent(new Item.Properties(), "H₂SO₄", 0xffda39));
-
-    public static final DeferredItem<Item> SODIUM_DICHROMATE = ITEMS .register("sodium_dichromate",
-            () -> new NormalItem(new Item.Properties(), "Na₂Cr₂O₇", 0xffda39));
-
-    public static final DeferredItem<Item> LATEX_BALL = ITEMS .register("latex_ball",
-            () -> new NormalItem(new Item.Properties(), "C₅H₈n", 0xffda39));
-
-    public static final DeferredItem<Item> FLAT_LATEX = ITEMS .register("flat_latex",
-            () -> new NormalItem(new Item.Properties(), "C₅H₈n", 0xffda39));
-
-    public static final DeferredItem<Item> SMOKED_LATEX = ITEMS .register("smoked_latex",
-            () -> new NormalItem(new Item.Properties(), "C₅H₈n", 0xffda39));
-
-
+                    "18", 0x282834));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

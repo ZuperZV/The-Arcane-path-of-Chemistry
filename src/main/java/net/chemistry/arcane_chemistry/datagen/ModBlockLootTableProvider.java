@@ -13,6 +13,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -35,6 +36,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.HARD_OVEN.get());
 
         dropSelf(ModBlocks.FIRE_POT.get());
+
+        dropSelf(ModBlocks.GRAVITY.get());
+        dropSelf(ModBlocks.GRAVITY_CONTROLLER.get());
 
         dropSelf(ModBlocks.NICKEL_BLOCK.get());
         dropSelf(ModBlocks.TUNGSTEN_BLOCK.get());
@@ -59,11 +63,35 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ATOMIC_NUCLEUS_CONSTRUCTOR.get());
         dropSelf(ModBlocks.LATEX_BOWL.get());
 
+        dropSelf(ModBlocks.ADVANCED_BIO_HARVESTER.get());
+        dropSelf(ModBlocks.BIO_HARVESTER.get());
+
+        dropSelf(ModBlocks.PEDESTAL_SLAB.get());
+
         this.add(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 block -> LootTable.lootTable()
                         .withPool(LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1))
                                 .add(LootItem.lootTableItem(ModBlocks.FIRE_POT.get()))
+                        )
+        );
+
+        this.add(ModBlocks.SULFUR_SOUL_SAND.get(),
+                block -> create2ItemsMultipleOreDrops(ModBlocks.SULFUR_SOUL_SAND.get(), Blocks.SOUL_SAND.asItem(), ModItems.SULFUR.get(), 1, 2));
+
+        this.add(ModBlocks.AURORA_WIRE.get(),
+                block -> LootTable.lootTable()
+                        .withPool(LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(LootItem.lootTableItem(ModItems.AURORA_DUST.get()))
+                        )
+        );
+
+        this.add(ModBlocks.CLAY_WIRE.get(),
+                block -> LootTable.lootTable()
+                        .withPool(LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(LootItem.lootTableItem(ModItems.CLAY_DUST.get()))
                         )
         );
     }
@@ -74,6 +102,19 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 LootItem.lootTableItem(item)
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(minDrops, maxDrops)))
                         .apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))));
+    }
+    protected LootTable.Builder create2ItemsMultipleOreDrops(Block pBlock, Item item, Item block, float minDrops, float maxDrops) {
+        LootPool.Builder itemPool = LootPool.lootPool()
+                .add(LootItem.lootTableItem(block)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(minDrops, maxDrops))));
+
+        LootPool.Builder blockPool = LootPool.lootPool()
+                .add(LootItem.lootTableItem(item)
+                      .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))));
+
+        return LootTable.lootTable()
+                .withPool(itemPool)
+                .withPool(blockPool);
     }
 
     protected LootTable.Builder createMultipleItemLogDrops(Block pBlock, Item log, Item item, float minDrops, float maxDrops) {

@@ -1,0 +1,26 @@
+{
+  "type": "arcane_chemistry:fire_pot",
+
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+
+  "ingredient1": {
+    "item": "minecraft:stone"
+  },
+
+  "ingredient2": {
+    "item": "minecraft:lime_dye"
+  },
+
+  "ingredient3": {
+    "item": "minecraft:sand"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:limestone"
+  },
+
+  "output2": {
+  }
+}

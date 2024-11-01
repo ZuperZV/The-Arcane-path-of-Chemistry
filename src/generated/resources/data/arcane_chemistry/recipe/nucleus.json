@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "arcane_chemistry:smoked_latex"
+    },
+    {
+      "item": "arcane_chemistry:proton"
+    },
+    {
+      "item": "arcane_chemistry:neutron"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:nucleus"
+  }
+}

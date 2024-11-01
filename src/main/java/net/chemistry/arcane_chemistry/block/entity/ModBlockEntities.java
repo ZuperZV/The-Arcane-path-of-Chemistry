@@ -67,6 +67,18 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("latex_bowl_be", () -> BlockEntityType.Builder.of(
                     LatexBowlBlockEntity::new, ModBlocks.LATEX_BOWL.get()).build(null));
 
+    public static final Supplier<BlockEntityType<GravityBlockEntity>> GRAVITY_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("gravity_block_be", () -> BlockEntityType.Builder.of(
+                    GravityBlockEntity::new, ModBlocks.GRAVITY.get()).build(null));
+
+    public static final Supplier<BlockEntityType<GravityControllerBlockEntity>> GRAVITY_CONTROLLER_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("gravity_controller_block_be", () -> BlockEntityType.Builder.of(
+                    GravityControllerBlockEntity::new, ModBlocks.GRAVITY_CONTROLLER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<PedestalSlabBlockEntity>> SLAB_BE =
+            BLOCK_ENTITIES.register("slab_be", () -> BlockEntityType.Builder.of(
+                    PedestalSlabBlockEntity::new, ModBlocks.PEDESTAL_SLAB.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

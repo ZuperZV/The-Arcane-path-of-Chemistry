@@ -7,11 +7,9 @@ import mezz.jei.api.ingredients.IIngredientType;
 import mezz.jei.api.registration.*;
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.block.ModBlocks;
+import net.chemistry.arcane_chemistry.item.ModItems;
 import net.chemistry.arcane_chemistry.recipes.*;
-import net.chemistry.arcane_chemistry.screen.AtomicOvenScreen;
-import net.chemistry.arcane_chemistry.screen.FlotationerScreen;
-import net.chemistry.arcane_chemistry.screen.HardOvenScreen;
-import net.chemistry.arcane_chemistry.screen.NickelCompreserScreen;
+import net.chemistry.arcane_chemistry.screen.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -54,7 +52,17 @@ public class JEIPlugin implements IModPlugin {
     public static mezz.jei.api.recipe.RecipeType<LatexBowlRecipe> LATEX_TYPE =
             new mezz.jei.api.recipe.RecipeType<>(LatexBowlRecipeCategory.UID, LatexBowlRecipe.class);
 
+    public static mezz.jei.api.recipe.RecipeType<AtomicNucleusConstructorRecipe> ATOMIC_NUCLEUS_CONSTRUCTOR_TYPE =
+            new mezz.jei.api.recipe.RecipeType<>(AtomicNucleusConstructorRecipeCategory.UID, AtomicNucleusConstructorRecipe.class);
 
+    public static mezz.jei.api.recipe.RecipeType<PedestalSlabRecipe> PEDESTAL_SLAB_TYPE =
+            new mezz.jei.api.recipe.RecipeType<>(PedestalSlabRecipeCategory.UID, PedestalSlabRecipe.class);
+
+    public static mezz.jei.api.recipe.RecipeType<PedestalSlabClayRecipe> PEDESTAL_SLAB_CLAY_TYPE =
+            new mezz.jei.api.recipe.RecipeType<>(PedestalSlabClayRecipeCategory.UID, PedestalSlabClayRecipe.class);
+
+    public static mezz.jei.api.recipe.RecipeType<PedestalSlabAuroraRecipe> PEDESTAL_SLAB_AURORA_TYPE =
+            new mezz.jei.api.recipe.RecipeType<>(PedestalSlabAuroraRecipeCategory.UID, PedestalSlabAuroraRecipe.class);
 
 
     @Override
@@ -74,6 +82,10 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new FirePotRecipeCategory(jeiHelpers.getGuiHelper()));
         registration.addRecipeCategories(new FlotationerRecipeCategory(jeiHelpers.getGuiHelper()));
         registration.addRecipeCategories(new LatexBowlRecipeCategory(jeiHelpers.getGuiHelper()));
+        registration.addRecipeCategories(new AtomicNucleusConstructorRecipeCategory(jeiHelpers.getGuiHelper()));
+        registration.addRecipeCategories(new PedestalSlabRecipeCategory(jeiHelpers.getGuiHelper()));
+        registration.addRecipeCategories(new PedestalSlabClayRecipeCategory(jeiHelpers.getGuiHelper()));
+        registration.addRecipeCategories(new PedestalSlabAuroraRecipeCategory(jeiHelpers.getGuiHelper()));
     }
 
 
@@ -113,6 +125,22 @@ public class JEIPlugin implements IModPlugin {
             var latex = world.getRecipeManager();
             registration.addRecipes(LatexBowlRecipeCategory.RECIPE_TYPE,
                     getRecipe(latex, ModRecipes.LATEX_BOWL_RECIPE_TYPE.get()));
+
+            var AtomicNucleusConstructor = world.getRecipeManager();
+            registration.addRecipes(AtomicNucleusConstructorRecipeCategory.RECIPE_TYPE,
+                    getRecipe(AtomicNucleusConstructor, ModRecipes.ATOMIC_NUCLEUS_CONSTRUCTOR_RECIPE_TYPE.get()));
+
+            var pedestal_slab = world.getRecipeManager();
+            registration.addRecipes(PedestalSlabRecipeCategory.RECIPE_TYPE,
+                    getRecipe(pedestal_slab, ModRecipes.PEDESTAL_SLAB_RECIPE_TYPE.get()));
+
+            var pedestal_slab_clay = world.getRecipeManager();
+            registration.addRecipes(PedestalSlabClayRecipeCategory.RECIPE_TYPE,
+                    getRecipe(pedestal_slab_clay, ModRecipes.PEDESTAL_SLAB_CLAY_RECIPE_TYPE.get()));
+
+            var pedestal_slab_aurora = world.getRecipeManager();
+            registration.addRecipes(PedestalSlabAuroraRecipeCategory.RECIPE_TYPE,
+                    getRecipe(pedestal_slab_aurora, ModRecipes.PEDESTAL_SLAB_AURORA_RECIPE_TYPE.get()));
         }
 
     }
@@ -152,6 +180,22 @@ public class JEIPlugin implements IModPlugin {
         var latex = new ItemStack(ModBlocks.LATEX_BOWL.get());
         registration.addRecipeCatalyst(latex, LatexBowlRecipeCategory.RECIPE_TYPE);
 
+        var AtomicNucleusConstructor = new ItemStack(ModBlocks.ATOMIC_NUCLEUS_CONSTRUCTOR.get());
+        registration.addRecipeCatalyst(AtomicNucleusConstructor, AtomicNucleusConstructorRecipeCategory.RECIPE_TYPE);
+
+        var pedestal_slab = new ItemStack(ModBlocks.PEDESTAL_SLAB.get());
+        registration.addRecipeCatalyst(pedestal_slab, PedestalSlabRecipeCategory.RECIPE_TYPE);
+
+        var pedestal_slab_clay = new ItemStack(ModBlocks.PEDESTAL_SLAB.get());
+        var pedestal_slab_clay_wire = new ItemStack(ModItems.CLAY_DUST.get());
+        registration.addRecipeCatalyst(pedestal_slab_clay, PedestalSlabClayRecipeCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(pedestal_slab_clay_wire, PedestalSlabClayRecipeCategory.RECIPE_TYPE);
+
+        var pedestal_slab_aurora = new ItemStack(ModBlocks.PEDESTAL_SLAB.get());
+        var pedestal_slab_aurora_wire = new ItemStack(ModItems.AURORA_DUST.get());
+        registration.addRecipeCatalyst(pedestal_slab_aurora, PedestalSlabAuroraRecipeCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(pedestal_slab_aurora_wire, PedestalSlabAuroraRecipeCategory.RECIPE_TYPE);
+
     }
 
     @Override
@@ -160,6 +204,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeClickArea(HardOvenScreen.class, 81, 38, 24, 17, JEIPlugin.HARD_OVEN_TYPE);
         registration.addRecipeClickArea(AtomicOvenScreen.class, 81, 38, 24, 17, JEIPlugin.ATOMIC_OVEN_TYPE);
         registration.addRecipeClickArea(NickelCompreserScreen.class, 81, 45, 24, 17, JEIPlugin.NICEKL_COMPERESER_TYPE);
-        registration.addRecipeClickArea(FlotationerScreen.class, 36, 22, 24, 17, JEIPlugin.FLOTATIONER_TYPE);
+        registration.addRecipeClickArea(FlotationerScreen.class, 23, 16, 24, 17, JEIPlugin.FLOTATIONER_TYPE);
+        registration.addRecipeClickArea(AtomicNucleusConstructorScreen.class, 132, 17, 24, 17, JEIPlugin.ATOMIC_NUCLEUS_CONSTRUCTOR_TYPE);
     }
 }

@@ -1,0 +1,9 @@
+{
+  "type": "arcane_chemistry:pedestal_slab",
+  "ingredient": {
+    "item": "arcane_chemistry:latex_clay_ball"
+  },
+  "output": {
+    "item": "arcane_chemistry:hard_latex_clay_ball"
+  }
+}

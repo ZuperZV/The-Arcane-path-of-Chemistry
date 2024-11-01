@@ -10,6 +10,7 @@
     "arcane_chemistry:centrifuge",
     "arcane_chemistry:flotationer",
     "arcane_chemistry:atomic_oven",
-    "arcane_chemistry:nickel_compreser"
+    "arcane_chemistry:nickel_compreser",
+    "arcane_chemistry:sulfur_soul_sand"
   ]
 }

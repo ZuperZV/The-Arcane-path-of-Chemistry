@@ -103,20 +103,12 @@ public class FirePotCampfireBlockEntity extends BlockEntity implements MenuProvi
         if (hasRecipe()) {
             increaseCraftingProcess();
 
-            if (!isLit) {
-                level.setBlockAndUpdate(pos, state.setValue(LIT, true));
-            }
-
             if (hasProgressFinished()) {
                 craftItem();
                 resetProgress();
             }
         } else {
             blockEntity.progress = Math.max(blockEntity.progress - 2, 0);
-
-            if (isLit) {
-                level.setBlockAndUpdate(pos, state.setValue(LIT, false));
-            }
         }
     }
 

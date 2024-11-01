@@ -29,6 +29,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.LIMESTONE);
 
+        blockWithItem(ModBlocks.SULFUR_SOUL_SAND);
+
         /*horizontalBlock(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/fire_pot_campfire")));
          */

@@ -1,0 +1,41 @@
+{
+  "type": "arcane_chemistry:atomic_nucleus_constructor",
+  "nucleus_cell": {
+    "item": "arcane_chemistry:aluminium_nucleus"
+  },
+  "ingredient1": {
+    "item": "arcane_chemistry:electron"
+  },
+  "ingredient2": {
+    "item": "arcane_chemistry:proton"
+  },
+  "ingredient3": {
+    "item": "arcane_chemistry:electron"
+  },
+  "ingredient4": {
+    "item": "arcane_chemistry:proton"
+  },
+  "ingredient5": {
+    "item": "arcane_chemistry:neutron"
+  },
+  "ingredient6": {
+    "item": "arcane_chemistry:neutron"
+  },
+  "ingredient7": {
+    "item": "arcane_chemistry:neutron"
+  },
+  "ingredient8": {
+    "item": "arcane_chemistry:electron"
+  },
+  "ingredient9": {
+    "item": "arcane_chemistry:electron"
+  },
+  "ingredient10": {
+    "item": "arcane_chemistry:proton"
+  },
+  "output": {
+    "item": "arcane_chemistry:aluminium"
+  },
+  "output2": {},
+  "item": "arcane_chemistry:proton"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "arcane_chemistry:fire_pot",
+
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+
+  "ingredient1": {
+    "item": "arcane_chemistry:iron"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:electron"
+  },
+
+  "output2": {
+    "item": "arcane_chemistry:neutron"
+  }
+}

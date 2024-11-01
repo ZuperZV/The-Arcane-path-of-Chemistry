@@ -206,14 +206,28 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
 
 
     private boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        ItemStack outputStack = outputItems.getStackInSlot(0);
-        return outputStack.getMaxStackSize() > outputStack.getCount();
+        ItemStack outputStack1 = outputItems.getStackInSlot(0);
+        ItemStack outputStack2 = outputItems.getStackInSlot(1);
+
+        boolean hasSpaceInSlot1 = outputStack1.isEmpty() || outputStack1.getCount() < outputStack1.getMaxStackSize();
+        boolean hasSpaceInSlot2 = outputStack2.isEmpty() || outputStack2.getCount() < outputStack2.getMaxStackSize();
+
+        return hasSpaceInSlot1 && hasSpaceInSlot2;
     }
 
+
     private boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {
-        ItemStack outputStack = outputItems.getStackInSlot(0);
-        return outputStack.isEmpty() || (outputStack.getItem() == stack.getItem() && outputStack.getCount() < stack.getMaxStackSize());
+        ItemStack outputStack1 = outputItems.getStackInSlot(0);
+        ItemStack outputStack2 = outputItems.getStackInSlot(1);
+        if (outputStack1.isEmpty()) return true;
+        if (outputStack2.isEmpty()) return true;
+
+        boolean canInsertIntoSlot1 = outputStack1.getItem() == stack.getItem() && outputStack1.getCount() < outputStack1.getMaxStackSize();
+        boolean canInsertIntoSlot2 = outputStack2.getItem() == stack.getItem() && outputStack2.getCount() < outputStack2.getMaxStackSize();
+
+        return canInsertIntoSlot1 && canInsertIntoSlot2;
     }
+
 
     private void craftItem() {
         Level level = this.level;
@@ -245,7 +259,7 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
             }
             if (outputStack2.isEmpty()) {
                 outputItems.setStackInSlot(1, result2.copy());
-            } else if (outputStack2.getItem() == result.getItem()) {
+            } else if (outputStack2.getItem() == result2.getItem()) {
                 outputStack2.grow(result2.getCount());
             }
 

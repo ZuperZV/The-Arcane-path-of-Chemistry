@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "arcane_chemistry:nickel_block"
+    },
+    "B": {
+      "item": "minecraft:dirt"
+    },
+    "C": {
+      "item": "arcane_chemistry:chromium_block"
+    },
+    "D": {
+      "item": "arcane_chemistry:nickel_ingot"
+    },
+    "E": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    "DBD",
+    "AEA",
+    "DCD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:bio_harvester"
+  }
+}

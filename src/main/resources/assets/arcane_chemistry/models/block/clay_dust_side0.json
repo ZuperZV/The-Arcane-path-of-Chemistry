@@ -1,0 +1,6 @@
+{
+    "parent": "arcane_chemistry:block/clay_dust_side",
+    "textures": {
+        "line": "arcane_chemistry:block/clay_dust_line0"
+    }
+}

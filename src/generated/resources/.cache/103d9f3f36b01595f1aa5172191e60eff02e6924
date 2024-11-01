@@ -1,1 +1,4 @@
-// 1.21	2024-10-11T14:29:10.4341391	Registries
+// 1.21	2024-10-31T22:24:17.231188	Registries
+0a8c515b5025ae2c251a1de084568e8635f19a16 data/arcane_chemistry/neoforge/biome_modifier/add_soul_sand_ore.json
+429e38669ffb1c2c8c17cf4623a71c917a9903ad data/arcane_chemistry/worldgen/configured_feature/soul_sand_ore.json
+d88cf6255dfffab9aa6ffc76d8bc70ad0b588744 data/arcane_chemistry/worldgen/placed_feature/soul_sand_ore_placed.json

@@ -33,7 +33,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.NICKEL_COMPRESER.get());
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(ModBlocks.FLOTATIONER.get());
+                .add(ModBlocks.LATEX_BOWL.get());
+
+        this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(ModBlocks.SULFUR_SOUL_SAND.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.CHROMIUM_BLOCK.get())
@@ -46,9 +49,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.CENTRIFUGE.get())
                 .add(ModBlocks.FLOTATIONER.get())
                 .add(ModBlocks.ATOMIC_OVEN.get())
-                .add(ModBlocks.NICKEL_COMPRESER.get());
+                .add(ModBlocks.NICKEL_COMPRESER.get())
+                .add(ModBlocks.SULFUR_SOUL_SAND.get());
 
-        this.tag(BlockTags.MINEABLE_WITH_AXE)
         ;
     }
 }

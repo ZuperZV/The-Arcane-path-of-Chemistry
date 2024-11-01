@@ -1,0 +1,31 @@
+{
+  "type": "arcane_chemistry:fire_pot",
+
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+
+  "ingredient1": {
+    "item": "minecraft:iron_ingot"
+  },
+
+  "ingredient2": {
+    "item": "arcane_chemistry:sodium_chromate"
+  },
+
+  "ingredient3": {
+    "item": "arcane_chemistry:iron_reagent"
+  },
+
+  "ingredient4": {
+    "item": "minecraft:nether_wart"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:iron"
+  },
+
+  "output2": {
+    "item": "minecraft:beetroot_seeds"
+  }
+}

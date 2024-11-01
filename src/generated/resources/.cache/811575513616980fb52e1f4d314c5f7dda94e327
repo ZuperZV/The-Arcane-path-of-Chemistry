@@ -1,4 +1,5 @@
-// 1.21	2024-10-21T15:01:12.7431509	Tags for minecraft:block mod id arcane_chemistry
-ca4a1db4e46310bada4cd6b46c227c786107c831 data/minecraft/tags/block/mineable/axe.json
+// 1.21	2024-10-31T22:07:00.7697964	Tags for minecraft:block mod id arcane_chemistry
+3c1b36a72a9e2cacd43d8a7b285ed10c2223e2da data/minecraft/tags/block/mineable/axe.json
 df36ef0aa3ab77e2a4fa25ba554ce9bf4ed9be04 data/minecraft/tags/block/mineable/pickaxe.json
-df36ef0aa3ab77e2a4fa25ba554ce9bf4ed9be04 data/minecraft/tags/block/needs_iron_tool.json
+d84fe44550f4098798d86da842b6fd4a80bb74f6 data/minecraft/tags/block/mineable/shovel.json
+2a9f4e29b29438c80d50aafbcef93e4c72c93ca3 data/minecraft/tags/block/needs_iron_tool.json

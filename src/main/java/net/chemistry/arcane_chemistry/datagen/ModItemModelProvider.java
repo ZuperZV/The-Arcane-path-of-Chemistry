@@ -3,10 +3,7 @@ package net.chemistry.arcane_chemistry.datagen;
 import net.chemistry.arcane_chemistry.Arcane_chemistry;
 import net.chemistry.arcane_chemistry.fluid.ModFluids;
 import net.chemistry.arcane_chemistry.item.ModItems;
-import net.chemistry.arcane_chemistry.item.custom.AtomItem;
-import net.chemistry.arcane_chemistry.item.custom.AtomItemFormelReagent;
-import net.chemistry.arcane_chemistry.item.custom.AtomItemReagent;
-import net.chemistry.arcane_chemistry.item.custom.ElementItem;
+import net.chemistry.arcane_chemistry.item.custom.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -24,6 +21,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        basicItem(ModItems.PROTON.get());
+        basicItem(ModItems.NEUTRON.get());
+        basicItem(ModItems.ELECTRON.get());
 
         handheldItem(ModItems.FLINT_SWORD);
         handheldItem(ModItems.FLINT_PICKAXE);
@@ -78,6 +78,18 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         reagentItem(ModItems.IRON_REAGENT);
         reagentItem(ModItems.RED_IRON_REAGENT);
+
+        basicItem(ModItems.NUCLEUS.get());
+        nucleusItem(ModItems.IRON_NUCLEUS);
+        nucleusItem(ModItems.ALUMINIUM_NUCLEUS);
+        nucleusItem(ModItems.LEAD_NUCLEUS);
+        nucleusItem(ModItems.COPPER_NUCLEUS);
+        nucleusItem(ModItems.SILVER_NUCLEUS);
+
+        basicItem(ModItems.AURORA_DUST.get());
+        basicItem(ModItems.CLAY_DUST.get());
+        basicItem(ModItems.LATEX_CLAY_BALL.get());
+        basicItem(ModItems.HARD_LATEX_CLAY_BALL.get());
 
         atomItem(ModItems.LITHIUM);
         atomItem(ModItems.SODIUM);
@@ -164,6 +176,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         atomItem(ModItems.BOHRIUM);
         atomItem(ModItems.HASSIUM);
 
+
+        atomItem(ModItems.CRYON);
+
     }
 
     private ItemModelBuilder atomItem(DeferredItem<AtomItem> item) {
@@ -196,6 +211,12 @@ public class ModItemModelProvider extends ItemModelProvider {
                 ResourceLocation.parse("item/generated"))
                 .texture("layer0", ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/reagent"))
                 .texture("layer1", ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder nucleusItem(DeferredItem<NormalItem> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated"))
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/nucleus"));
     }
 
     private ItemModelBuilder reagentFormelItem(DeferredItem<AtomItemFormelReagent> item) {

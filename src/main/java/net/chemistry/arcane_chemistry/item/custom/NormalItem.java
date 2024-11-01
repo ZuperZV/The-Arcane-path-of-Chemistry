@@ -23,4 +23,8 @@ public class NormalItem extends Item {
 
         pTooltipComponents.add(Component.literal (elementName).setStyle(Style.EMPTY.withColor(color)));
     }
+
+    public String getElementName() {
+        return this.elementName;
+    }
 }

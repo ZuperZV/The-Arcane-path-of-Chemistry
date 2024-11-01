@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "arcane_chemistry:block/advanced_bio_harvester"
+    }
+  }
+}

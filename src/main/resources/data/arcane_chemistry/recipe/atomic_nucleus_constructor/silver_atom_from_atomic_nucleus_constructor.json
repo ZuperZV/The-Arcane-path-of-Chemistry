@@ -1,0 +1,40 @@
+{
+  "type": "arcane_chemistry:atomic_nucleus_constructor",
+  "nucleus_cell": {
+    "item": "arcane_chemistry:silver_nucleus"
+  },
+  "ingredient1": {
+    "item": "arcane_chemistry:electron"
+  },
+  "ingredient2": {
+    "item": "arcane_chemistry:electron"
+  },
+  "ingredient3": {
+    "item": "arcane_chemistry:proton"
+  },
+  "ingredient4": {
+    "item": "arcane_chemistry:proton"
+  },
+  "ingredient5": {
+    "item": "arcane_chemistry:neutron"
+  },
+  "ingredient6": {
+    "item": "arcane_chemistry:neutron"
+  },
+  "ingredient7": {
+    "item": "arcane_chemistry:electron"
+  },
+  "ingredient8": {
+    "item": "arcane_chemistry:neutron"
+  },
+  "ingredient9": {
+    "item": "arcane_chemistry:proton"
+  },
+  "ingredient10": {
+    "item": "arcane_chemistry:electron"
+  },
+  "output": {
+    "item": "arcane_chemistry:silver"
+  },
+  "output2": {}
+}

@@ -53,6 +53,16 @@ public class ModRecipes {
     public static final Supplier<RecipeType<LatexBowlRecipe>> LATEX_BOWL_RECIPE_TYPE =
             RECIPE_TYPES.register("latex_bowl", () -> LatexBowlRecipe.Type.INSTANCE);
 
+    public static final Supplier<RecipeType<PedestalSlabRecipe>> PEDESTAL_SLAB_RECIPE_TYPE =
+            RECIPE_TYPES.register("pedestal_slab", () -> PedestalSlabRecipe.Type.INSTANCE);
+
+    public static final Supplier<RecipeType<PedestalSlabClayRecipe>> PEDESTAL_SLAB_CLAY_RECIPE_TYPE =
+            RECIPE_TYPES.register("pedestal_slab_clay", () -> PedestalSlabClayRecipe.Type.INSTANCE);
+
+    public static final Supplier<RecipeType<PedestalSlabAuroraRecipe>> PEDESTAL_SLAB_AURORA_RECIPE_TYPE =
+            RECIPE_TYPES.register("pedestal_slab_aurora", () -> PedestalSlabAuroraRecipe.Type.INSTANCE);
+
+
 
 
     public static final Supplier<RecipeSerializer<HardOvenRecipe>> HARD_OVEN_SERIALIZER =
@@ -87,4 +97,15 @@ public class ModRecipes {
 
     public static final Supplier<RecipeSerializer<LatexBowlRecipe>> LATEX_BOWL_SERIALIZER =
             SERIALIZERS.register("latex_bowl", () -> LatexBowlRecipe.Serializer.INSTANCE);
+
+    public static final Supplier<RecipeSerializer<PedestalSlabRecipe>> PEDESTAL_SLAB_SERIALIZER =
+            SERIALIZERS.register("pedestal_slab", () -> PedestalSlabRecipe.Serializer.INSTANCE);
+
+    public static final Supplier<RecipeSerializer<PedestalSlabClayRecipe>> PEDESTAL_SLAB_CLAY_SERIALIZER =
+            SERIALIZERS.register("pedestal_slab_clay", () -> PedestalSlabClayRecipe.Serializer.INSTANCE);
+
+    public static final Supplier<RecipeSerializer<PedestalSlabAuroraRecipe>> PEDESTAL_SLAB_AURORA_SERIALIZER =
+            SERIALIZERS.register("pedestal_slab_aurora", () -> PedestalSlabAuroraRecipe.Serializer.INSTANCE);
+
+
 }

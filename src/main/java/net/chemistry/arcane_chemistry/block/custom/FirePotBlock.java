@@ -83,9 +83,17 @@ public class FirePotBlock extends Block {
 
         BlockPos belowPos = targetPos.below();
         BlockState belowBlockState = level.getBlockState(belowPos);
+        boolean isLit = false;
 
         if (belowBlockState.getBlock() instanceof CampfireBlock) {
-            level.setBlockAndUpdate(belowPos, ModBlocks.FIRE_POT_CAMPFIRE.get().defaultBlockState().setValue(ENABLED, false).setValue(WATER_COLOR, FirePotCampfireBlock.ColorType.DEFAULT));
+            isLit = belowBlockState.getValue(CampfireBlock.LIT);
+
+            if (isLit) {
+                level.setBlockAndUpdate(belowPos, ModBlocks.FIRE_POT_CAMPFIRE.get().defaultBlockState().setValue(ENABLED, false).setValue(WATER_COLOR, FirePotCampfireBlock.ColorType.DEFAULT).setValue(FirePotCampfireBlock.LIT, true));
+            } else {
+                level.setBlockAndUpdate(belowPos, ModBlocks.FIRE_POT_CAMPFIRE.get().defaultBlockState().setValue(ENABLED, false).setValue(WATER_COLOR, FirePotCampfireBlock.ColorType.DEFAULT).setValue(FirePotCampfireBlock.LIT, false));
+            }
+
             return null;
         }
 

@@ -165,6 +165,67 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "reagent_from_crafting"));
 
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FIRE_POT.get())
+                .pattern("A A")
+                .pattern("A A")
+                .pattern("BAB")
+                .define('A', Items.IRON_INGOT)
+                .define('B', Blocks.IRON_BLOCK)
+                .unlockedBy("has_iron_ingot", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(Items.IRON_INGOT).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "fire_pot_from_crafting"));
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ATOMIC_NUCLEUS_CONSTRUCTOR.get())
+                .pattern("DED")
+                .pattern("FBF")
+                .pattern("ACA")
+                .define('A', ModItems.NICKEL_INGOT)
+                .define('B', ModBlocks.NICKEL_BLOCK)
+                .define('C', ModBlocks.CHROMIUM_BLOCK)
+                .define('D', ModBlocks.VANADIUM_BLOCK)
+                .define('E', Blocks.CRAFTER)
+                .define('F', ModItems.COBALT_INGOT)
+                .unlockedBy("has_cobalt_ingot", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.COBALT_INGOT).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "atomic_nucleus_constructor_from_crafting"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.LODESTONE)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .define('A', Blocks.CHISELED_STONE_BRICKS)
+                .define('B', ModItems.VANADIUM_INGOT)
+                .unlockedBy("has_vanadium_ingot", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.VANADIUM_INGOT).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "lodestone_from_crafting"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BIO_HARVESTER.get())
+                .pattern("DBD")
+                .pattern("AEA")
+                .pattern("DCD")
+                .define('A', ModBlocks.NICKEL_BLOCK)
+                .define('B', Blocks.DIRT)
+                .define('C', ModBlocks.CHROMIUM_BLOCK)
+                .define('D', ModItems.NICKEL_INGOT)
+                .define('E', Items.WATER_BUCKET)
+                .unlockedBy("has_nickel_ingot", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.NICKEL_INGOT).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ADVANCED_BIO_HARVESTER.get())
+                .pattern("D D")
+                .pattern("AEA")
+                .pattern("ACA")
+                .define('A', ModBlocks.VANADIUM_BLOCK)
+                .define('C', ModBlocks.BIO_HARVESTER)
+                .define('D', ModItems.VANADIUM_INGOT)
+                .define('E', Items.WATER_BUCKET)
+                .unlockedBy("has_nickel_ingot", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.NICKEL_INGOT).build()))
+                .save(pWriter);
+
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.RED_IRON_REAGENT.get())
                 .requires(ModItems.IRON_REAGENT.get())
                 .requires(Items.REDSTONE)
@@ -183,10 +244,79 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.SODIUM)
                 .requires(ModItems.CARBON_CHUNK.get())
                 .requires(ModBlocks.LIMESTONE.get())
-                .unlockedBy("has_lime", inventoryTrigger(ItemPredicate.Builder.item().
-                        of(ModItems.CHROMIUM_CHUNK_MIX.get()).build()))
+                .unlockedBy("has_limestone", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModBlocks.LIMESTONE.get()).build()))
                 .save(pWriter);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.NUCLEUS.get())
+                .requires(ModItems.SMOKED_LATEX)
+                .requires(ModItems.PROTON)
+                .requires(ModItems.NEUTRON)
+                .unlockedBy("has_proton", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.PROTON.get()).build()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.IRON_NUCLEUS.get())
+                .requires(ModItems.SMOKED_LATEX)
+                .requires(Items.IRON_NUGGET)
+                .requires(ModItems.NUCLEUS)
+                .unlockedBy("has_nucleus", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.NUCLEUS.get()).build()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ALUMINIUM_NUCLEUS.get())
+                .requires(ModItems.SMOKED_LATEX)
+                .requires(Items.IRON_INGOT)
+                .requires(Items.GOLD_NUGGET)
+                .requires(ModItems.NUCLEUS)
+                .unlockedBy("has_nucleus", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.NUCLEUS.get()).build()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.LEAD_NUCLEUS.get())
+                .requires(ModItems.SMOKED_LATEX)
+                .requires(Items.IRON_INGOT)
+                .requires(Items.IRON_INGOT)
+                .requires(Items.GOLD_NUGGET)
+                .requires(ModItems.NUCLEUS)
+                .unlockedBy("has_nucleus", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.NUCLEUS.get()).build()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.COPPER_NUCLEUS.get())
+                .requires(ModItems.SMOKED_LATEX)
+                .requires(Items.COPPER_INGOT)
+                .requires(Items.GOLD_NUGGET)
+                .requires(ModItems.NUCLEUS)
+                .unlockedBy("has_nucleus", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.NUCLEUS.get()).build()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SILVER_NUCLEUS.get())
+                .requires(ModItems.SMOKED_LATEX)
+                .requires(Items.IRON_BLOCK)
+                .requires(ModItems.NUCLEUS)
+                .unlockedBy("has_nucleus", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.NUCLEUS.get()).build()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.RAW_IMPURE_NICKEL.get())
+                .requires(ModItems.RAW_IMPURE_IRON)
+                .requires(Blocks.ANDESITE)
+                .requires(Blocks.ANDESITE)
+                .requires(Blocks.ANDESITE)
+                .requires(Blocks.GRAVEL)
+                .requires(Blocks.GRAVEL)
+                .unlockedBy("has_raw_impure_iron", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.RAW_IMPURE_IRON.get()).build()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.LATEX_CLAY_BALL.get())
+                .requires(Items.CLAY)
+                .requires(ModItems.SMOKED_LATEX)
+                .unlockedBy("has_smoked_latex", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.SMOKED_LATEX.get()).build()))
+                .save(pWriter);
     }
 
 

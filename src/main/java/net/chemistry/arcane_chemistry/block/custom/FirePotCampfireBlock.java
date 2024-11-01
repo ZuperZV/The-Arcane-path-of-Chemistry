@@ -19,6 +19,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.Containers;
@@ -122,7 +123,7 @@ public class FirePotCampfireBlock extends Block implements EntityBlock {
         super(properties);
         this.elementName = elementName;
         this.color = color;
-        this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(LIT, true));
         this.registerDefaultState(this.stateDefinition.any().setValue(ENABLED, false));
         this.registerDefaultState(this.stateDefinition.any().setValue(WATER_COLOR, ColorType.DEFAULT));
     }
@@ -131,7 +132,7 @@ public class FirePotCampfireBlock extends Block implements EntityBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState()
-                .setValue(LIT, false)
+                .setValue(LIT, true)
                 .setValue(ENABLED, false)
                 .setValue(WATER_COLOR, ColorType.DEFAULT);
     }
@@ -171,44 +172,51 @@ public class FirePotCampfireBlock extends Block implements EntityBlock {
 
             ItemStack singleStack = pStack.copy();
             singleStack.setCount(1);
+            BlockState belowBlockState = pLevel.getBlockState(pPos);
+            boolean isLit = false;
+            isLit = belowBlockState.getValue(CampfireBlock.LIT);
 
-            if (!pStack.isEmpty()) {
-                if (pStack.getItem() == Items.BUCKET) {
-                    if (!blockEntity.isInputEmpty(0)) {
-                        ItemStack stackOnPedestal = blockEntity.getItem(0);
-                        pLevel.setBlock(pPos, pState.setValue(WATER_COLOR, ColorType.DEFAULT), 3);
-                        pPlayer.setItemInHand(pHand, stackOnPedestal);
-                        blockEntity.clearInput(0);
-                        pLevel.playSound(pPlayer, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
-                        return ItemInteractionResult.SUCCESS;
-                    }
-                }
-
-                for (int i = 0; i < 5; i++) {
-                    if (blockEntity.isInputEmpty(i)) {
-                        if (singleStack.getItem() != Items.WATER_BUCKET) {
-                            ColorType randomColor = getRandomColor();
-                            pLevel.setBlock(pPos, pState.setValue(WATER_COLOR, randomColor), 3);
-                        } else {
-                            pPlayer.setItemInHand(pHand, Items.BUCKET.getDefaultInstance());
+            if (isLit) {
+                if (!pStack.isEmpty()) {
+                    if (pStack.getItem() == Items.BUCKET) {
+                        if (!blockEntity.isInputEmpty(0)) {
+                            ItemStack stackOnPedestal = blockEntity.getItem(0);
+                            pLevel.setBlock(pPos, pState.setValue(WATER_COLOR, ColorType.DEFAULT), 3);
+                            pPlayer.setItemInHand(pHand, stackOnPedestal);
+                            blockEntity.clearInput(0);
+                            pLevel.playSound(pPlayer, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
+                            return ItemInteractionResult.SUCCESS;
                         }
+                    }
 
-                        blockEntity.setItem(i, singleStack);
-                        pStack.shrink(1);
-                        pLevel.playSound(pPlayer, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 5f);
-                        return ItemInteractionResult.SUCCESS;
+                    for (int i = 0; i < 5; i++) {
+                        if (blockEntity.isInputEmpty(i)) {
+                            if (singleStack.getItem() != Items.WATER_BUCKET) {
+                                ColorType randomColor = getRandomColor();
+                                pLevel.setBlock(pPos, pState.setValue(WATER_COLOR, randomColor), 3);
+                            } else {
+                                pPlayer.setItemInHand(pHand, Items.BUCKET.getDefaultInstance());
+                            }
+
+                            blockEntity.setItem(i, singleStack);
+                            pStack.shrink(1);
+                            pLevel.playSound(pPlayer, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 5f);
+                            return ItemInteractionResult.SUCCESS;
+                        }
+                    }
+                } else {
+                    for (int i = 1; i < 5; i++) {
+                        if (!blockEntity.isInputEmpty(i)) {
+                            ItemStack stackOnPedestal = blockEntity.getItem(i);
+                            pPlayer.setItemInHand(pHand, stackOnPedestal);
+                            blockEntity.clearInput(i);
+                            pLevel.playSound(pPlayer, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
+                            return ItemInteractionResult.SUCCESS;
+                        }
                     }
                 }
-            } else {
-                for (int i = 1; i < 5; i++) {
-                    if (!blockEntity.isInputEmpty(i)) {
-                        ItemStack stackOnPedestal = blockEntity.getItem(i);
-                        pPlayer.setItemInHand(pHand, stackOnPedestal);
-                        blockEntity.clearInput(i);
-                        pLevel.playSound(pPlayer, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
-                        return ItemInteractionResult.SUCCESS;
-                    }
-                }
+            } else if (singleStack.getItem() == Items.FLINT_AND_STEEL) {
+                pLevel.setBlock(pPos, pState.setValue(LIT, true), 3);
             }
         }
         return ItemInteractionResult.SUCCESS;

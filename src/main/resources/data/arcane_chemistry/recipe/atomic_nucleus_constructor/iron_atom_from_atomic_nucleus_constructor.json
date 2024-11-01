@@ -1,36 +1,40 @@
 {
   "type": "arcane_chemistry:atomic_nucleus_constructor",
-
   "nucleus_cell": {
-    "item": "minecraft:iron_ingot"
+    "item": "arcane_chemistry:iron_nucleus"
   },
-
   "ingredient1": {
-    "item": "minecraft:coal"
+    "item": "arcane_chemistry:electron"
   },
-
   "ingredient2": {
-    "item": "minecraft:coal"
+    "item": "arcane_chemistry:electron"
   },
-
   "ingredient3": {
-    "item": "minecraft:coal"
+    "item": "arcane_chemistry:electron"
   },
   "ingredient4": {
-    "item": "minecraft:coal"
+    "item": "arcane_chemistry:electron"
   },
   "ingredient5": {
-    "item": "minecraft:coal"
+    "item": "arcane_chemistry:proton"
   },
   "ingredient6": {
-    "item": "minecraft:coal"
+    "item": "arcane_chemistry:proton"
   },
-
+  "ingredient7": {
+    "item": "arcane_chemistry:proton"
+  },
+  "ingredient8": {
+    "item": "arcane_chemistry:neutron"
+  },
+  "ingredient9": {
+    "item": "arcane_chemistry:neutron"
+  },
+  "ingredient10": {
+    "item": "arcane_chemistry:neutron"
+  },
   "output": {
     "item": "arcane_chemistry:iron"
   },
-
-  "output2": {
-    "item": "minecraft:dirt"
-  }
+  "output2": {}
 }

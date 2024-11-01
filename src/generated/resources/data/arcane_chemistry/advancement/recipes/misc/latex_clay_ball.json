@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_smoked_latex": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arcane_chemistry:smoked_latex"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arcane_chemistry:latex_clay_ball"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_smoked_latex"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arcane_chemistry:latex_clay_ball"
+    ]
+  }
+}
