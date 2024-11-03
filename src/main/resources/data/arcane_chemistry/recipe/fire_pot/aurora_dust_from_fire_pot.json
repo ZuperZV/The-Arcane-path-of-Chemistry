@@ -1,0 +1,31 @@
+{
+  "type": "arcane_chemistry:fire_pot",
+
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+
+  "ingredient1": {
+    "item": "arcane_chemistry:carvium_ingot"
+  },
+
+  "ingredient2": {
+    "item": "arcane_chemistry:electron"
+  },
+
+  "ingredient3": {
+    "item": "arcane_chemistry:amethyst_shards"
+  },
+
+  "ingredient4": {
+    "item": "arcane_chemistry:calcium"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:aurora_dust"
+  },
+
+  "output2": {
+    "item": "arcane_chemistry:aluminium"
+  }
+}

@@ -1,9 +1,12 @@
-// 1.21	2024-11-01T20:05:30.6545621	Item Models: arcane_chemistry
+// 1.21	2024-11-03T21:26:33.1561098	Item Models: arcane_chemistry
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/actinium.json
 05fcff1852a72996b10691eac17e29e698d727b0 assets/arcane_chemistry/models/item/aluminium.json
 495782124863bea49312f55f4f4595734b666239 assets/arcane_chemistry/models/item/aluminium_nucleus.json
+d8143f39116a7d21aa4104b3ee21783603934bc3 assets/arcane_chemistry/models/item/amafist_sword.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/americium.json
+a8ba759feaca32d34c3be19b19e3a8a8ca4b4fd2 assets/arcane_chemistry/models/item/amethyst_shards.json
 4f732406a3c018eea19cadc8793c95b2c280816c assets/arcane_chemistry/models/item/aurora_dust.json
+9b5e7daa2a648382ab6cf01c3ad509b3279e0687 assets/arcane_chemistry/models/item/aurora_ingot.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/barium.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/berkelium.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/beryllium.json
@@ -15,6 +18,7 @@ aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/cal
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/californium.json
 44de65ab65db852694d36f42e893e727b6b3de08 assets/arcane_chemistry/models/item/carbide_ingot.json
 c802c16f9999b7159b7dfc99cbbf7c8b2dc3eef8 assets/arcane_chemistry/models/item/carbon_chunk.json
+8ee42838afabfde1918295fe11d1a64d0c33c5b2 assets/arcane_chemistry/models/item/carvium_ingot.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/cerium.json
 37048fd555cb5da4020f49c316757710db9398ea assets/arcane_chemistry/models/item/chlorine_gas.json
 4424b7c8d430eecb8e78436469c8972dec8f3d9c assets/arcane_chemistry/models/item/chromium.json
@@ -91,6 +95,7 @@ aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/pro
 643b2d29bde0a111e17563c13332b908adca95fc assets/arcane_chemistry/models/item/proton.json
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/radium.json
 890f739e9514c061b7674ceb8352a0a5b9f5a985 assets/arcane_chemistry/models/item/raw_carbide.json
+0ddfc93ba34d21f34dca132df94dff2e16e59df9 assets/arcane_chemistry/models/item/raw_carvium.json
 498b8e0ff00e7a367c2fecbc00c29df1e9c77008 assets/arcane_chemistry/models/item/raw_cobalt.json
 8ea1d51741b954d409bbb03151d892c7b6087e46 assets/arcane_chemistry/models/item/raw_impure_iron.json
 7a6b30ab79cf70ece8fe1163128846aec076bec4 assets/arcane_chemistry/models/item/raw_impure_nickel.json
@@ -111,6 +116,7 @@ feeea8a2ad2602305d9581ed0dabd4418771a9b7 assets/arcane_chemistry/models/item/sch
 aaf2a740c305ec1b32ce84348a8a7781a5ee1bbf assets/arcane_chemistry/models/item/seaborgium.json
 4424b7c8d430eecb8e78436469c8972dec8f3d9c assets/arcane_chemistry/models/item/silver.json
 495782124863bea49312f55f4f4595734b666239 assets/arcane_chemistry/models/item/silver_nucleus.json
+c0dea973b99a0a308dfa3de800bfd505502bd8e3 assets/arcane_chemistry/models/item/skrap_aurora.json
 183f6b4b03727cc1223d43331000295d807adbb6 assets/arcane_chemistry/models/item/smoked_latex.json
 4424b7c8d430eecb8e78436469c8972dec8f3d9c assets/arcane_chemistry/models/item/sodium.json
 d2eee8e76f1c9550ed85b92507269353dd967921 assets/arcane_chemistry/models/item/sodium_chloride.json

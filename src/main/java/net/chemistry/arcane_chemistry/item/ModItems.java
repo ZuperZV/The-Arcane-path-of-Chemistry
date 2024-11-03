@@ -13,6 +13,24 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS =
             DeferredRegister.createItems(Arcane_chemistry.MOD_ID);
 
+    public static final DeferredItem<Item> AMAFIST_SWORD = ITEMS.register("amafist_sword",
+            () -> new ElementalSwordItem(
+                    ModToolTiers.AMAFIST,
+                    new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModToolTiers.AMAFIST, 3, -2.4F)), "aurora", 0xffda39
+            ));
+
+    public static final DeferredItem<Item> RAW_CARVIUM = ITEMS .register("raw_carvium",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> CARVIUM_INGOT = ITEMS .register("carvium_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> SKRAP_AURORA = ITEMS .register("skrap_aurora",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> AURORA_INGOT = ITEMS .register("aurora_ingot",
+            () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> PEBBLE = ITEMS .register("pebble",
             () -> new Item(new Item.Properties()));
 
@@ -95,6 +113,9 @@ public class ModItems {
             () -> new NormalItem(new Item.Properties(), "CaWO₄", 0xffda39));
 
     public static final DeferredItem<Item> CRUSHED_AMETHYST_SHARD = ITEMS .register("crushed_amethyst_shard",
+            () -> new NormalItem(new Item.Properties(), "WO₄", 0xffda39));
+
+    public static final DeferredItem<Item> AMETHYST_SHARDS = ITEMS .register("amethyst_shards",
             () -> new NormalItem(new Item.Properties(), "WO₄", 0xffda39));
 
     public static final DeferredItem<Item> VANADIUM_INGOT = ITEMS .register("vanadium_ingot",

@@ -11,4 +11,8 @@ public class ModToolTiers {
     public static final Tier FLINT = new SimpleTier(ModTags.Blocks.INCORRECT_FOR_FLINT_TOOL,
             105, 3f, 1.5f, 3,
             () -> Ingredient.of(Items.FLINT));
+
+    public static final Tier AMAFIST = new SimpleTier(ModTags.Blocks.INCORRECT_FOR_AMAFIST_TOOL,
+            105, 3f, 1.5f, 3,
+            () -> Ingredient.of(Items.FLINT));
 }

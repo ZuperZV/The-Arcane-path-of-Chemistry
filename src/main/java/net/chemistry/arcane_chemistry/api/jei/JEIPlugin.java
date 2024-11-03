@@ -204,7 +204,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeClickArea(HardOvenScreen.class, 81, 38, 24, 17, JEIPlugin.HARD_OVEN_TYPE);
         registration.addRecipeClickArea(AtomicOvenScreen.class, 81, 38, 24, 17, JEIPlugin.ATOMIC_OVEN_TYPE);
         registration.addRecipeClickArea(NickelCompreserScreen.class, 81, 45, 24, 17, JEIPlugin.NICEKL_COMPERESER_TYPE);
-        registration.addRecipeClickArea(FlotationerScreen.class, 23, 16, 24, 17, JEIPlugin.FLOTATIONER_TYPE);
+        registration.addRecipeClickArea(FlotationerScreen.class, 64, 41, 24, 17, JEIPlugin.FLOTATIONER_TYPE);
         registration.addRecipeClickArea(AtomicNucleusConstructorScreen.class, 132, 17, 24, 17, JEIPlugin.ATOMIC_NUCLEUS_CONSTRUCTOR_TYPE);
     }
 }

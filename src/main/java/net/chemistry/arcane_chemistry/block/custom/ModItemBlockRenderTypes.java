@@ -23,6 +23,7 @@ public class ModItemBlockRenderTypes {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CLAY_WIRE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.AURORA_WIRE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.PEDESTAL_SLAB.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.AURORA_CRAFTER.get(), RenderType.cutout());
         });
     }
 }

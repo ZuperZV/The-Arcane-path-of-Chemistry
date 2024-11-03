@@ -1,0 +1,23 @@
+{
+  "type": "arcane_chemistry:flotation",
+
+  "crushed_ingredient": {
+    "item": "arcane_chemistry:crushed_amethyst_shard"
+  },
+
+  "reagent_ingredient": {
+    "item": "arcane_chemistry:salt"
+  },
+
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  },
+
+  "output": {
+    "item": "arcane_chemistry:amethyst_shards"
+  },
+
+  "output2": {
+  }
+}

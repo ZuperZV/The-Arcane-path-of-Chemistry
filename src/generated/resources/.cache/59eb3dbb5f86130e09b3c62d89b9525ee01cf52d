@@ -1,7 +1,8 @@
-// 1.21	2024-11-01T21:10:19.8944113	Loot Tables
+// 1.21	2024-11-03T20:23:20.7070036	Loot Tables
 ade67f890d237ed1f2108e3570a6d7f3f75a723e data/arcane_chemistry/loot_table/blocks/advanced_bio_harvester.json
 592acde261dcff600276ca8d7969d83e752633d2 data/arcane_chemistry/loot_table/blocks/atomic_nucleus_constructor.json
 f0fefc8bc85d7d57359c3f2d19565dd289640df1 data/arcane_chemistry/loot_table/blocks/atomic_oven.json
+78b310a395536583d6d3e651ab7c5d530980201b data/arcane_chemistry/loot_table/blocks/aurora_crafter.json
 aef0e57ec0b53bf076f34e9a2cb5dd793020a4da data/arcane_chemistry/loot_table/blocks/aurora_wire.json
 a66ee6d7e373246c0d94064fe99d901fff528c34 data/arcane_chemistry/loot_table/blocks/bio_harvester.json
 0843a2344295207063e89bce6ee58a3524c4c89b data/arcane_chemistry/loot_table/blocks/centrifuge.json

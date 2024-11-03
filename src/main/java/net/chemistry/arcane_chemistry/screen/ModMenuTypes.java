@@ -22,6 +22,9 @@ public class ModMenuTypes {
     public static final Supplier<MenuType<NickelCompreserMenu>> NICKEL_COMPRESER_MENU = MENUS.register("nickel_compreser_menu",
             () -> IMenuTypeExtension.create((windowId, inv, data) -> new NickelCompreserMenu(windowId, inv.player, data.readBlockPos())));
 
+    public static final Supplier<MenuType<AuroraCrafterMenu>> AURORA_CRAFTER_MENU = MENUS.register("aurora_crafter_menu",
+            () -> IMenuTypeExtension.create((windowId, inv, data) -> new AuroraCrafterMenu(windowId, inv.player, data.readBlockPos())));
+
     public static final Supplier<MenuType<TungstenCompreserMenu>> TUNGSTEN_COMPRESER_MENU = MENUS.register("tungsten_compreser_menu",
             () -> IMenuTypeExtension.create((windowId, inv, data) -> new TungstenCompreserMenu(windowId, inv.player, data.readBlockPos())));
 

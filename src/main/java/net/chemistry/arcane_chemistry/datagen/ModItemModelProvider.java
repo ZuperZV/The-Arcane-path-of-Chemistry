@@ -39,9 +39,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.RAW_IMPURE_IRON.get());
         basicItem(ModItems.CRUSHED_RAW_IRON.get());
 
+        basicItem(ModItems.AMAFIST_SWORD.get());
+        basicItem(ModItems.CARVIUM_INGOT.get());
+        basicItem(ModItems.RAW_CARVIUM.get());
+        basicItem(ModItems.SKRAP_AURORA.get());
+        basicItem(ModItems.AURORA_INGOT.get());
+
         basicItem(ModItems.SCHEELITE_CRYSTAL.get());
         basicItem(ModItems.CRUSHED_SCHEELITE_CRYSTAL.get());
         basicItem(ModItems.CRUSHED_AMETHYST_SHARD.get());
+        basicItem(ModItems.AMETHYST_SHARDS.get());
         basicItem(ModItems.RAW_COBALT.get());
         basicItem(ModItems.COBALT_INGOT.get());
         basicItem(ModItems.CARBON_CHUNK.get());

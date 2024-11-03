@@ -76,6 +76,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_flat_latex",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.FLAT_LATEX.get()).build()))
                 .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "smoked_latex_from_smoking"));
 
+        SimpleCookingRecipeBuilder.blasting (Ingredient.of(ModItems.RAW_CARVIUM.get()), RecipeCategory.MISC , ModItems.CARVIUM_INGOT.get(), 0.3f , 200)
+                .unlockedBy("has_raw_carvium",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_CARVIUM.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "carvium_ingot_from_blasting"));
+
+        SimpleCookingRecipeBuilder.smelting (Ingredient.of(ModItems.RAW_CARVIUM.get()), RecipeCategory.MISC , ModItems.CARVIUM_INGOT.get(), 0.15f , 300)
+                .unlockedBy("has_raw_carvium",inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.RAW_CARVIUM.get()).build()))
+                .save(pWriter, ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "carvium_ingot_from_smelting"));
+
 
         fourBlockStorageRecipes(pWriter, RecipeCategory.BUILDING_BLOCKS, ModItems.NICKEL_INGOT.get(), RecipeCategory.MISC,
                 ModBlocks.NICKEL_BLOCK.get());
@@ -154,6 +162,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         of(ModItems.VANADIUM_INGOT).build()))
                 .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FLOTATIONER.get())
+                .pattern("A A")
+                .pattern("ACA")
+                .pattern("BDB")
+                .define('A', ModItems.VANADIUM_INGOT)
+                .define('B', ModBlocks.VANADIUM_BLOCK)
+                .define('C', ModBlocks.CHROMIUM_BLOCK)
+                .define('D', ModItems.CRUSHED_AMETHYST_SHARD)
+                .unlockedBy("has_vanadium_ingot", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.VANADIUM_INGOT).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PEDESTAL_SLAB.get())
+                .pattern(" B ")
+                .pattern("CAC")
+                .pattern("BDB")
+                .define('A', Blocks.LODESTONE)
+                .define('B', Blocks.STONE_BRICKS)
+                .define('C', ModItems.LATEX_BALL)
+                .define('D', ModItems.AMETHYST_SHARDS)
+                .unlockedBy("has_lodestone", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(Blocks.LODESTONE).build()))
+                .save(pWriter);
+
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REAGENT.get())
                 .pattern("A A")
@@ -223,6 +255,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('E', Items.WATER_BUCKET)
                 .unlockedBy("has_nickel_ingot", inventoryTrigger(ItemPredicate.Builder.item().
                         of(ModItems.NICKEL_INGOT).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AMAFIST_SWORD.get())
+                .pattern("A")
+                .pattern("B")
+                .pattern("C")
+                .define('A', Items.AMETHYST_SHARD)
+                .define('B', ModItems.AURORA_INGOT)
+                .define('C', ModItems.AMETHYST_SHARDS)
+                .unlockedBy("has_aurora_ingot", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.AURORA_INGOT).build()))
                 .save(pWriter);
 
 
@@ -316,6 +359,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.SMOKED_LATEX)
                 .unlockedBy("has_smoked_latex", inventoryTrigger(ItemPredicate.Builder.item().
                         of(ModItems.SMOKED_LATEX.get()).build()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SKRAP_AURORA.get())
+                .requires(ModItems.AURORA_DUST)
+                .requires(Items.NETHERITE_SCRAP)
+                .unlockedBy("has_aurora_dust", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModItems.AURORA_DUST.get()).build()))
                 .save(pWriter);
     }
 

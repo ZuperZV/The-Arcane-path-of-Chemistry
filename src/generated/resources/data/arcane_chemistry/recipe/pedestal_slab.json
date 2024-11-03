@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:lodestone"
+    },
+    "B": {
+      "item": "minecraft:stone_bricks"
+    },
+    "C": {
+      "item": "arcane_chemistry:latex_ball"
+    },
+    "D": {
+      "item": "arcane_chemistry:amethyst_shards"
+    }
+  },
+  "pattern": [
+    " B ",
+    "CAC",
+    "BDB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:pedestal_slab"
+  }
+}

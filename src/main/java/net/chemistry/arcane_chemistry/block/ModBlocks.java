@@ -47,6 +47,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PEDESTAL_SLAB = registerBlock("pedestal_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(10.0F, 6.0F).isValidSpawn(Blocks::never).noOcclusion().lightLevel(pos -> 4)));
 
+    public static final DeferredBlock<Block> AURORA_CRAFTER = registerBlock("aurora_crafter",
+            () -> new AuroraCrafterBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(10.0F, 6.0F).isValidSpawn(Blocks::never).noOcclusion().lightLevel(pos -> 4)));
+
     public static final DeferredBlock<Block> AURORA_WIRE = registerBlock("aurora_wire",
             () ->  new AuroraWireBlock(BlockBehaviour.Properties.of().noCollission().noOcclusion().instabreak().pushReaction(PushReaction.DESTROY)));
 

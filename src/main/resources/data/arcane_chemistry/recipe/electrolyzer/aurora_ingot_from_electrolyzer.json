@@ -1,0 +1,19 @@
+{
+  "type": "arcane_chemistry:electrolyzer",
+
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+
+  "ingredient1": {
+    "item": "arcane_chemistry:skrap_aurora"
+  },
+
+  "output": {
+    "item": "arcane_chemistry:aurora_ingot"
+  },
+
+  "output2": {
+    "item": "minecraft:netherite_scrap"
+  }
+}

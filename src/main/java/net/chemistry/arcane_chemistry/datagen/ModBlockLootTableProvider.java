@@ -67,6 +67,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BIO_HARVESTER.get());
 
         dropSelf(ModBlocks.PEDESTAL_SLAB.get());
+        dropSelf(ModBlocks.AURORA_CRAFTER.get());
 
         this.add(ModBlocks.FIRE_POT_CAMPFIRE.get(),
                 block -> LootTable.lootTable()

@@ -1,0 +1,35 @@
+{
+  "type": "arcane_chemistry:aurora_crafter",
+
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+
+  "ingredient1": {
+    "item": "arcane_chemistry:iron"
+  },
+
+  "ingredient2": {
+    "item": "arcane_chemistry:iron"
+  },
+
+  "ingredient4": {
+    "item": "arcane_chemistry:iron"
+  },
+
+  "ingredient5": {
+    "item": "arcane_chemistry:iron"
+  },
+
+  "ingredient6": {
+    "item": "arcane_chemistry:iron"
+  },
+
+  "ingredient8": {
+    "item": "arcane_chemistry:iron"
+  },
+
+  "output": {
+    "item": "minecraft:diamond"
+  }
+}

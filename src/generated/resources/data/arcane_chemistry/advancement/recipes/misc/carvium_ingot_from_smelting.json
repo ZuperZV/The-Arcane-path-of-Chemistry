@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_carvium": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arcane_chemistry:raw_carvium"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arcane_chemistry:carvium_ingot_from_smelting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_carvium"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arcane_chemistry:carvium_ingot_from_smelting"
+    ]
+  }
+}

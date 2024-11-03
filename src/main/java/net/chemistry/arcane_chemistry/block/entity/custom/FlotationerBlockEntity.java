@@ -204,7 +204,6 @@ public class FlotationerBlockEntity extends BlockEntity implements MenuProvider 
         };
     }
 
-
     private boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
         ItemStack outputStack1 = outputItems.getStackInSlot(0);
         ItemStack outputStack2 = outputItems.getStackInSlot(1);

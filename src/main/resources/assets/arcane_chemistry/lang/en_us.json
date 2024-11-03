@@ -50,6 +50,7 @@
   "block.arcane_chemistry.flotationer": "Flotationer",
   "block.arcane_chemistry.atomic_oven": "Atomic Oven",
   "block.arcane_chemistry.centrifuge": "Centrifuge",
+  "block.arcane_chemistry.aurora_crafter": "Aurora Crafter",
 
   "block.arcane_chemistry.chromium_block": "Chromium Block",
   "item.arcane_chemistry.chromium_ingot": "Chromium Ingot",
@@ -71,6 +72,16 @@
   "item.arcane_chemistry.electron": "Electron",
   "item.arcane_chemistry.neutron": "Neutron",
   "item.arcane_chemistry.proton": "Proton",
+
+  "item.arcane_chemistry.amafist_sword": "Amafist Sword",
+  "item.arcane_chemistry.carvium_ingot": "Carvium Ingot",
+  "item.arcane_chemistry.raw_carvium": "Raw Carvium",
+
+  "item.arcane_chemistry.skrap_aurora": "Scrap Aurora",
+  "item.arcane_chemistry.aurora_ingot": "Aurora Ingot",
+
+  "item.arcane_chemistry.crushed_amethyst_shard": "Crushed Amethyst Shard",
+  "item.arcane_chemistry.amethyst_shards": "Amethyst Shards",
 
   "item.arcane_chemistry.nucleus": "Nucleus",
   "item.arcane_chemistry.iron_nucleus": "Iron Nucleus",

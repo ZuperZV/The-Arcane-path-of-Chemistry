@@ -1,9 +1,9 @@
 {
   "type": "arcane_chemistry:pedestal_slab_clay",
   "ingredient": {
-    "item": "minecraft:cracked_stone_bricks"
+    "item": "arcane_chemistry:raw_carbide"
   },
   "output": {
-    "item": "minecraft:lodestone"
+    "item": "arcane_chemistry:raw_carvium"
   }
 }

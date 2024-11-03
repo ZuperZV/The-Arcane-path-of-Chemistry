@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "arcane_chemistry:raw_carvium"
+  },
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:carvium_ingot"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "B": {
+      "item": "arcane_chemistry:aurora_ingot"
+    },
+    "C": {
+      "item": "arcane_chemistry:amethyst_shards"
+    }
+  },
+  "pattern": [
+    "A",
+    "B",
+    "C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:amafist_sword"
+  }
+}

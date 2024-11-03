@@ -62,6 +62,9 @@ public class ModRecipes {
     public static final Supplier<RecipeType<PedestalSlabAuroraRecipe>> PEDESTAL_SLAB_AURORA_RECIPE_TYPE =
             RECIPE_TYPES.register("pedestal_slab_aurora", () -> PedestalSlabAuroraRecipe.Type.INSTANCE);
 
+    public static final Supplier<RecipeType<AuroraCrafterRecipe>> AURORA_CRAFTER_RECIPE_TYPE =
+            RECIPE_TYPES.register("aurora_crafter", () -> AuroraCrafterRecipe.Type.INSTANCE);
+
 
 
 
@@ -106,6 +109,9 @@ public class ModRecipes {
 
     public static final Supplier<RecipeSerializer<PedestalSlabAuroraRecipe>> PEDESTAL_SLAB_AURORA_SERIALIZER =
             SERIALIZERS.register("pedestal_slab_aurora", () -> PedestalSlabAuroraRecipe.Serializer.INSTANCE);
+
+    public static final Supplier<RecipeSerializer<AuroraCrafterRecipe>> AURORA_CRAFTER_SERIALIZER =
+            SERIALIZERS.register("aurora_crafter", () -> AuroraCrafterRecipe.Serializer.INSTANCE);
 
 
 }

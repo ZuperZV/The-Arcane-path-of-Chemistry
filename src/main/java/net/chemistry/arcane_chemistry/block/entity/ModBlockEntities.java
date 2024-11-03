@@ -79,6 +79,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("slab_be", () -> BlockEntityType.Builder.of(
                     PedestalSlabBlockEntity::new, ModBlocks.PEDESTAL_SLAB.get()).build(null));
 
+    public static final Supplier<BlockEntityType<AuroraCrafterBlockEntity>> AURORA_CRAFTER_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("aurora_crafter_be", () -> BlockEntityType.Builder.of(
+                    AuroraCrafterBlockEntity::new, ModBlocks.AURORA_CRAFTER.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

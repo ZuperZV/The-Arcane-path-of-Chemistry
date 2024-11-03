@@ -98,6 +98,7 @@ public class Arcane_chemistry {
             event.register(ModMenuTypes.HEATER_MENU.get(), HeaterScreen::new);
             event.register(ModMenuTypes.CHAMBER_MENU.get(), ChamberScreen::new);
             event.register(ModMenuTypes.ATOMIC_NUCLEUS_CONSTRUCTOR_MENU.get(), AtomicNucleusConstructorScreen::new);
+            event.register(ModMenuTypes.AURORA_CRAFTER_MENU.get(), AuroraCrafterScreen::new);
         }
 
         @SubscribeEvent

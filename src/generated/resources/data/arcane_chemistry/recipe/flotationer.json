@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "arcane_chemistry:vanadium_ingot"
+    },
+    "B": {
+      "item": "arcane_chemistry:vanadium_block"
+    },
+    "C": {
+      "item": "arcane_chemistry:chromium_block"
+    },
+    "D": {
+      "item": "arcane_chemistry:crushed_amethyst_shard"
+    }
+  },
+  "pattern": [
+    "A A",
+    "ACA",
+    "BDB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcane_chemistry:flotationer"
+  }
+}

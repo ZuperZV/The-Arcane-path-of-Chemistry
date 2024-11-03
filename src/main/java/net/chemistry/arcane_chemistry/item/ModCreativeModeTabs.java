@@ -22,6 +22,12 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.arcane_chemistry.arcane_chemistry_tab"))
                     .icon(() -> new ItemStack(ModItems.IRON.get()))
                     .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(ModItems.AMAFIST_SWORD.get());
+                        pOutput.accept(ModItems.CARVIUM_INGOT.get());
+                        pOutput.accept(ModItems.RAW_CARVIUM.get());
+                        pOutput.accept(ModItems.SKRAP_AURORA.get());
+                        pOutput.accept(ModItems.AURORA_INGOT.get());
+
                         pOutput.accept(ModItems.PROTON.get());
                         pOutput.accept(ModItems.NEUTRON.get());
                         pOutput.accept(ModItems.ELECTRON.get());
@@ -58,6 +64,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.SCHEELITE_CRYSTAL.get());
                         pOutput.accept(ModItems.CRUSHED_SCHEELITE_CRYSTAL.get());
                         pOutput.accept(ModItems.CRUSHED_AMETHYST_SHARD.get());
+                        pOutput.accept(ModItems.AMETHYST_SHARDS.get());
                         pOutput.accept(ModItems.RAW_COBALT.get());
                         pOutput.accept(ModItems.COBALT_INGOT.get());
                         pOutput.accept(ModItems.CARBON_CHUNK.get());

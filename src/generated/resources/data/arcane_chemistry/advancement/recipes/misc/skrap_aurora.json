@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aurora_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arcane_chemistry:aurora_dust"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arcane_chemistry:skrap_aurora"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_aurora_dust"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arcane_chemistry:skrap_aurora"
+    ]
+  }
+}
