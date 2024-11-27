@@ -1,0 +1,19 @@
+{
+  "name": "Hard Oven",
+  "icon": "arcane_chemistry:hard_oven",
+  "category": "arcane_chemistry:basic_resources",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": {
+        "item": "arcane_chemistry:hard_oven"
+      },
+      "text": "You can use a Hard furnace to melt or mix two items together. $(br2)dada"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "arcane_chemistry:hard_oven",
+      "text": "This recipe takes two items as input and gives one item as output."
+    }
+  ]
+}

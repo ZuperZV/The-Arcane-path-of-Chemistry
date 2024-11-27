@@ -8,6 +8,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -84,6 +85,37 @@ public class BioHarvester extends FarmBlock {
 
     @Override
     protected void tick(BlockState blockState, ServerLevel world, BlockPos pos, RandomSource randomSource) {
+        if (!blockState.canSurvive(world, pos)) {
+        }
+
+        int moisture = blockState.getValue(MOISTURE);
+
+        if (!isNearWater(world, pos) && !world.isRainingAt(pos.above())) {
+            if (moisture > 0) {
+                world.setBlock(pos, blockState.setValue(MOISTURE, moisture - 1), 2);
+            }
+        } else if (moisture < MAX_MOISTURE) {
+            world.setBlock(pos, blockState.setValue(MOISTURE, MAX_MOISTURE), 2);
+        }
+
+        BlockPos abovePos = pos.above();
+        BlockState aboveState = world.getBlockState(abovePos);
+
+        if (isCropReadyToHarvest(aboveState)) {
+            List<ItemStack> drops = Block.getDrops(aboveState, world, abovePos, null);
+            world.setBlock(abovePos, Blocks.AIR.defaultBlockState(), 3);
+
+            for (ItemStack drop : drops) {
+                Block.popResource(world, pos.above(), drop);}
+        }
+    }
+
+    @Override
+    public void fallOn(Level p_153227_, BlockState p_153228_, BlockPos p_153229_, Entity p_153230_, float p_153231_) {
+        if (!p_153227_.isClientSide
+                && net.neoforged.neoforge.common.CommonHooks.onFarmlandTrample(p_153227_, p_153229_, Blocks.DIRT.defaultBlockState(), p_153231_, p_153230_)) { // Forge: Move logic to Entity#canTrample
+        }
+        super.fallOn(p_153227_, p_153228_, p_153229_, p_153230_, p_153231_);
     }
 
     @Override
@@ -106,9 +138,7 @@ public class BioHarvester extends FarmBlock {
             world.setBlock(abovePos, Blocks.AIR.defaultBlockState(), 3);
 
             for (ItemStack drop : drops) {
-                if (!insertIntoChestBelow(world, pos, drop)) {
                     Block.popResource(world, pos.above(), drop);
-                }
             }
         }
     }

@@ -201,19 +201,4 @@ public class SlabBlock extends BaseEntityBlock {
         }
         return true;
     }
-
-    public static boolean arePedestalPositionsAuroraWireOrPiller(Level pLevel, BlockPos pos) {
-        BlockPos[] wirePositions = getWirePositions(pos);
-        boolean hasAuroraPiller = false;
-
-        for (BlockPos pedestalPos : wirePositions) {
-            BlockState blockState = pLevel.getBlockState(pedestalPos);
-
-            if (!blockState.is(ModBlocks.AURORA_WIRE.get())) {
-                return false;
-            }
-        }
-
-        return hasAuroraPiller;
-    }
 }

@@ -28,6 +28,14 @@ repositories {
         }
     }
     maven { url 'https://maven.blamejared.com' }
+
+    maven {
+        url "https://maven.terraformersmc.com"
+        content {
+            includeGroup "com.terraformersmc"
+            includeGroup "dev.emi"
+        }
+    }
 }
 
 base {
@@ -116,6 +124,10 @@ dependencies {
     compileOnly "vazkii.patchouli:Patchouli:${project.patchouli_version}:api"
     localRuntime "vazkii.patchouli:Patchouli:${project.patchouli_version}"
     jarJar "vazkii.patchouli:Patchouli:${project.patchouli_version}"
+
+
+    compileOnly "dev.emi:emi-neoforge:${emi_version}:api"
+    runtimeOnly "dev.emi:emi-neoforge:${emi_version}"
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar

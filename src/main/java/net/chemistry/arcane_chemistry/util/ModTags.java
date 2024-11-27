@@ -24,6 +24,7 @@ public class ModTags {
     public static class Items {
 
         public static final TagKey<Item> CRUSHED_RAW_IRON = createTag("crushed_raw_iron");
+        public static final TagKey<Item> SULFUR = createTag("sulfur");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, name));

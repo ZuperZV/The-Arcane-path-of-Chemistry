@@ -3,6 +3,7 @@ package net.chemistry.arcane_chemistry.screen.renderer;
 import com.google.common.base.Preconditions;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
+import dev.emi.emi.api.widget.WidgetHolder;
 import net.chemistry.arcane_chemistry.fluid.ModFluidTypes;
 import net.chemistry.arcane_chemistry.fluid.ModFluids;
 import net.minecraft.ChatFormatting;

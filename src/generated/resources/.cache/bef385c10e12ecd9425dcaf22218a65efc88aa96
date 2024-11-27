@@ -1,2 +1,6 @@
-// 1.21	2024-10-17T18:35:21.1644816	Tags for minecraft:item mod id arcane_chemistry
+// 1.21	2024-11-06T20:36:40.6349845	Tags for minecraft:item mod id arcane_chemistry
 ec569965c42c31140619930c25f44a158fe5512c data/arcane_chemistry/tags/item/crushed_raw_iron.json
+4c7fe46062b326b288093cef549f1699e19571dc data/arcane_chemistry/tags/item/sulfur.json
+5a93aa38cf3fce64ba7bcd0b5189d79c8e6350bc data/c/tags/item/ingots.json
+4f2d6424305c904830661b910c5ddc3f1653e18f data/c/tags/item/raw_materials.json
+d6d2464b6ee1f44f1217aff8d685a47c25619b14 data/c/tags/item/tools.json

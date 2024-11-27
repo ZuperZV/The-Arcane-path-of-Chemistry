@@ -2,11 +2,11 @@
   "type": "arcane_chemistry:nickel_compreser",
 
   "ingredient": {
-    "item": "arcane_chemistry:sulfur"
+    "tag": "arcane_chemistry:sulfur"
   },
 
   "ingredient1": {
-    "item": "minecraft:water_bucket"
+    "item": "arcane_chemistry:water_reagent"
   },
 
   "output": {

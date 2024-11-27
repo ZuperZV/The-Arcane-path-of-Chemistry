@@ -51,6 +51,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.FIRE_POT.get());
                         pOutput.accept(ModBlocks.PEDESTAL_SLAB.get());
                         pOutput.accept(ModBlocks.ATOMIC_NUCLEUS_CONSTRUCTOR.get());
+                        pOutput.accept(ModBlocks.LATEX_BOWL.get());
                         pOutput.accept(ModBlocks.ADVANCED_BIO_HARVESTER.get());
                         pOutput.accept(ModBlocks.BIO_HARVESTER.get());
 

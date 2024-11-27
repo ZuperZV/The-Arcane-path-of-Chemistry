@@ -7,6 +7,7 @@ import net.chemistry.arcane_chemistry.recipes.FirePotRecipe;
 import net.chemistry.arcane_chemistry.recipes.ModRecipes;
 import net.chemistry.arcane_chemistry.screen.NickelCompreserMenu;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -17,6 +18,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -41,14 +43,17 @@ import java.util.Optional;
 import static net.chemistry.arcane_chemistry.block.custom.FirePotCampfireBlock.ENABLED;
 import static net.chemistry.arcane_chemistry.block.custom.FirePotCampfireBlock.LIT;
 
-public class FirePotCampfireBlockEntity extends BlockEntity implements MenuProvider {
-
+public class FirePotCampfireBlockEntity extends BlockEntity implements MenuProvider, WorldlyContainer {
     private final ItemStackHandler inputItems = createItemHandler(5);
     private final ItemStackHandler outputItems = createItemHandler(2);
 
     private final Lazy<IItemHandler> itemHandler = Lazy.of(() -> new CombinedInvWrapper(inputItems, outputItems));
     private final Lazy<IItemHandler> inputItemHandler = Lazy.of(() -> new CustomItemHandler(inputItems));
     private final Lazy<IItemHandler> outputItemHandler = Lazy.of(() -> new CustomItemHandler(outputItems));
+
+    private static final int[] SLOTS_FOR_UP = new int[]{0};
+    private static final int[] SLOTS_FOR_DOWN = new int[]{5, 6};
+    private static final int[] SLOTS_FOR_SIDES = new int[]{1, 2, 3, 4};
 
     private int progress = 0;
     private int maxProgress = 50;
@@ -80,6 +85,27 @@ public class FirePotCampfireBlockEntity extends BlockEntity implements MenuProvi
                 return 2;
             }
         };
+    }
+
+    public ItemStack getItemBlock(int pSlot) {
+        if (pSlot < 5) {
+            return inputItems.getStackInSlot(pSlot);
+        } else {
+            return outputItems.getStackInSlot(pSlot - 5);
+        }
+    }
+
+
+    public void setItemBlock(int slot, ItemStack stack) {
+        if (slot < 5) {
+            inputItems.setStackInSlot(slot, stack);
+        } else {
+            outputItems.setStackInSlot(slot - 5, stack);
+        }
+        setChanged();
+        if (!level.isClientSide) {
+            markForUpdate();
+        }
     }
 
     @Override
@@ -342,29 +368,130 @@ public class FirePotCampfireBlockEntity extends BlockEntity implements MenuProvi
         return itemHandler;
     }
 
-    public ItemStack getItem(int pSlot) {
-        if (pSlot < 5) {
-            return inputItems.getStackInSlot(pSlot);
-        } else {
-            return outputItems.getStackInSlot(pSlot - 5);
-        }
-    }
-
-    public void setItem(int slot, ItemStack stack) {
-        if (slot < 5) {
-            inputItems.setStackInSlot(slot, stack);
-        } else {
-            outputItems.setStackInSlot(slot - 2, stack);
-        }
-        setChanged();
-        if (!level.isClientSide) {
-            markForUpdate();
-        }
-    }
-
     private void markForUpdate() {
         if (level instanceof ServerLevel serverLevel) {
             serverLevel.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
+        }
+    }
+
+
+    @Override
+    public int[] getSlotsForFace(Direction p_58363_) {
+        if (p_58363_ == Direction.DOWN) {
+            return SLOTS_FOR_DOWN;
+        } else {
+            return p_58363_ == Direction.UP ? SLOTS_FOR_UP : SLOTS_FOR_SIDES;
+        }
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int p_58336_, ItemStack p_58337_, @javax.annotation.Nullable Direction p_58338_) {
+        return this.canPlaceItem(p_58336_, p_58337_);
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int p_58392_, ItemStack p_58393_, Direction p_58394_) {
+        return p_58394_ == Direction.DOWN && p_58392_ == 1 ? p_58393_.is(Items.WATER_BUCKET) || p_58393_.is(Items.BUCKET) : true;
+    }
+
+    @Override
+    public int getContainerSize() {
+        return itemHandler.get().getSlots();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        for (int i = 0; i < inputItems.getSlots(); i++) {
+            if (!inputItems.getStackInSlot(i).isEmpty()) {
+                return false;
+            }
+        }
+        for (int i = 0; i < outputItems.getSlots(); i++) {
+            if (!outputItems.getStackInSlot(i).isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public ItemStack getItem(int slotIndex) {
+        if (slotIndex < inputItems.getSlots()) {
+            return inputItems.getStackInSlot(slotIndex);
+        }
+
+        int adjustedIndex = slotIndex - inputItems.getSlots();
+
+        if (adjustedIndex < outputItems.getSlots()) {
+            return outputItems.getStackInSlot(adjustedIndex);
+        }
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeItem(int slotIndex, int count) {
+        int adjustedIndex = slotIndex - inputItems.getSlots();
+
+        if (adjustedIndex < outputItems.getSlots()) {
+            ItemStack stackInSlot = outputItems.getStackInSlot(adjustedIndex);
+            if (!stackInSlot.isEmpty()) {
+                return outputItems.extractItem(adjustedIndex, count, false);
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int slotIndex) {
+        if (slotIndex < inputItems.getSlots()) {
+            ItemStack stackInSlot = inputItems.getStackInSlot(slotIndex);
+
+            if (!stackInSlot.isEmpty()) {
+                inputItems.setStackInSlot(slotIndex, ItemStack.EMPTY);
+                return stackInSlot;
+            }
+        }
+        int adjustedIndex = slotIndex - inputItems.getSlots();
+        if (adjustedIndex < outputItems.getSlots()) {
+            ItemStack stackInSlot = outputItems.getStackInSlot(adjustedIndex);
+
+            if (!stackInSlot.isEmpty()) {
+                outputItems.setStackInSlot(adjustedIndex, ItemStack.EMPTY);
+                return stackInSlot;
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public void setItem(int slotIndex, ItemStack stack) {
+        if (slotIndex < inputItems.getSlots()) {
+            inputItems.setStackInSlot(slotIndex, stack);
+            return;
+        }
+        int adjustedIndex = slotIndex - inputItems.getSlots();
+        if (adjustedIndex < outputItems.getSlots()) {
+            outputItems.setStackInSlot(adjustedIndex, stack);
+        }
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        final double MAX_DISTANCE = 64.0;
+        double distanceSquared = player.distanceToSqr(this.worldPosition.getX() + 0.5,
+                this.worldPosition.getY() + 0.5,
+                this.worldPosition.getZ() + 0.5);
+        return distanceSquared <= MAX_DISTANCE;
+    }
+
+    @Override
+    public void clearContent() {
+        for (int i = 0; i < inputItems.getSlots(); i++) {
+            inputItems.setStackInSlot(i, ItemStack.EMPTY);
+        }
+
+        for (int i = 0; i < outputItems.getSlots(); i++) {
+            outputItems.setStackInSlot(i, ItemStack.EMPTY);
         }
     }
 }

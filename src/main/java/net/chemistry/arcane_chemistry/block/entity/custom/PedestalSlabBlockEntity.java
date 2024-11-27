@@ -8,6 +8,7 @@ import net.chemistry.arcane_chemistry.recipes.PedestalSlabAuroraRecipe;
 import net.chemistry.arcane_chemistry.recipes.PedestalSlabClayRecipe;
 import net.chemistry.arcane_chemistry.recipes.PedestalSlabRecipe;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -17,8 +18,10 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
@@ -29,7 +32,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class PedestalSlabBlockEntity extends BlockEntity implements Container {
+public class PedestalSlabBlockEntity extends BlockEntity implements Container, WorldlyContainer {
     private final NonNullList<ItemStack> inventory = NonNullList.withSize(1, ItemStack.EMPTY);
     private float rotation;
     private int progessTickCounter = 0;
@@ -37,6 +40,10 @@ public class PedestalSlabBlockEntity extends BlockEntity implements Container {
     public PedestalSlabBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.SLAB_BE.get(), pPos, pBlockState);
     }
+
+    private static final int[] SLOTS_FOR_UP = new int[]{0};
+    private static final int[] SLOTS_FOR_DOWN = new int[]{0};
+    private static final int[] SLOTS_FOR_SIDES = new int[]{0};
 
     @Override
     public int getContainerSize() {
@@ -68,36 +75,20 @@ public class PedestalSlabBlockEntity extends BlockEntity implements Container {
         if (inputStack.isEmpty()) {
             return;
         }
-
-        boolean hasAuroraPiller = SlabBlock.arePedestalPositionsAuroraWireOrPiller(level, pos);
-
         boolean hasAuroraWire = SlabBlock.arePedestalPositionsAuroraWire(level, pos);
-
         boolean hasClayWire = SlabBlock.arePedestalPositionsClayWire(level, pos);
 
         SimpleContainer container = new SimpleContainer(1);
         container.setItem(0, inputStack);
-
         RecipeInput recipeInput = new ContainerRecipeInput(container);
 
         Optional<RecipeHolder<PedestalSlabAuroraRecipe>> pedestalSlabAuroraRecipeOptional = Optional.empty();
-
-        Optional<RecipeHolder<PedestalSlabRecipe>> pedestalSlabRecipeOptional = Optional.empty();
-
+        Optional<RecipeHolder<PedestalSlabRecipe>> pedestalSlabRecipeOptional;
         Optional<RecipeHolder<PedestalSlabClayRecipe>> pedestalSlabClayRecipeOptional = Optional.empty();
 
-        if (hasAuroraPiller) {
+        if (hasAuroraWire) {
             pedestalSlabAuroraRecipeOptional = level.getRecipeManager()
                     .getRecipeFor(ModRecipes.PEDESTAL_SLAB_AURORA_RECIPE_TYPE.get(), recipeInput, level);
-            pedestalSlabRecipeOptional = level.getRecipeManager()
-                    .getRecipeFor(ModRecipes.PEDESTAL_SLAB_RECIPE_TYPE.get(), recipeInput, level);
-            pedestalSlabClayRecipeOptional = level.getRecipeManager()
-                    .getRecipeFor(ModRecipes.PEDESTAL_SLAB_CLAY_RECIPE_TYPE.get(), recipeInput, level);
-
-        }
-        if (hasAuroraWire) {
-            pedestalSlabRecipeOptional = level.getRecipeManager()
-                    .getRecipeFor(ModRecipes.PEDESTAL_SLAB_RECIPE_TYPE.get(), recipeInput, level);
             pedestalSlabClayRecipeOptional = level.getRecipeManager()
                     .getRecipeFor(ModRecipes.PEDESTAL_SLAB_CLAY_RECIPE_TYPE.get(), recipeInput, level);
         }
@@ -222,5 +213,25 @@ public class PedestalSlabBlockEntity extends BlockEntity implements Container {
 
     public NonNullList<ItemStack> getOutputItems() {
         return inventory;
+    }
+
+
+    @Override
+    public int[] getSlotsForFace(Direction p_58363_) {
+        if (p_58363_ == Direction.DOWN) {
+            return SLOTS_FOR_DOWN;
+        } else {
+            return p_58363_ == Direction.UP ? SLOTS_FOR_UP : SLOTS_FOR_SIDES;
+        }
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int p_58336_, ItemStack p_58337_, @javax.annotation.Nullable Direction p_58338_) {
+        return this.canPlaceItem(p_58336_, p_58337_);
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int p_58392_, ItemStack p_58393_, Direction p_58394_) {
+        return p_58394_ == Direction.DOWN && p_58392_ == 1 ? p_58393_.is(Items.WATER_BUCKET) || p_58393_.is(Items.BUCKET) : true;
     }
 }

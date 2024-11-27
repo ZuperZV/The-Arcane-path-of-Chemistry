@@ -97,7 +97,6 @@
 
   "item.arcane_chemistry.crude_oil_bucket": "Crude Oil Bucket",
   "block.arcane_chemistry.crude_oil_block": "Crude Oil Block",
-
   "fluid_type.arcane_chemistry.crude_oil_fluid": "Crude Oil",
 
   "item.arcane_chemistry.reagent": "Reagent",
@@ -211,8 +210,25 @@
   "compound.sodium_hydroxide": "Sodium Hydroxide",
   "compound.sodium_chloride": "Sodium Chloride",
   "compound.sodium_carbonate": "Sodium Carbonate",
+
   "block.arcane_chemistry.heater": "Heater",
   "block.arcane_chemistry.chamber": "Chamber",
   "block.arcane_chemistry.atomic_nucleus_constructor": "Atomic Nucleus Constructor",
-  "block.arcane_chemistry.gravity": "Gravity"
+  "block.arcane_chemistry.gravity": "Gravity",
+
+  "emi.category.arcane_chemistry.hard_oven": "Hard Oven",
+  "emi.category.arcane_chemistry.nickel_compreser": "Nickel Compresser",
+  "emi.category.arcane_chemistry.atomic_oven": "Atomic Oven",
+  "emi.category.arcane_chemistry.centrifuge": "Centrifuge",
+  "emi.category.arcane_chemistry.electrolyzer": "Electrolyzer",
+  "emi.category.arcane_chemistry.fire_pot": "Fire Pot",
+  "emi.category.arcane_chemistry.flotationer": "Flotationer",
+  "emi.category.arcane_chemistry.latex_bowl": "Latex Bowl",
+  "emi.category.arcane_chemistry.atomic_nucleus_constructor": "Atomic Nucleus Constructor",
+  "emi.category.arcane_chemistry.pedestal_slab": "Aurora Pedestal",
+  "emi.category.arcane_chemistry.pedestal_slab_clay": "Aurora Clay 5x5",
+  "emi.category.arcane_chemistry.pedestal_slab_aurora": "Aurora Aurora 5x5",
+
+  "tag.arcane_chemistry.crushed_raw_iron": "Crushed Raw Iron",
+  "tag.arcane_chemistry.sulfur": "Sulfur"
 }

@@ -6,13 +6,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -25,12 +20,9 @@ import net.minecraft.world.level.block.piston.MovingPistonBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -71,12 +63,13 @@ public class AdvancedBioHarvester extends FarmBlock {
     }
 
     @Override
-    protected BlockState updateShape(BlockState p_53276_, Direction p_53277_, BlockState p_53278_, LevelAccessor p_53279_, BlockPos p_53280_, BlockPos p_53281_) {
-        if (p_53277_ == Direction.UP && !p_53276_.canSurvive(p_53279_, p_53280_)) {
-            p_53279_.scheduleTick(p_53280_, this, 1);
+    public void fallOn(Level p_153227_, BlockState p_153228_, BlockPos p_153229_, Entity p_153230_, float p_153231_) {
+        if (!p_153227_.isClientSide
+                && net.neoforged.neoforge.common.CommonHooks.onFarmlandTrample(p_153227_, p_153229_, Blocks.DIRT.defaultBlockState(), p_153231_, p_153230_)) { // Forge: Move logic to Entity#canTrample
+            turnToDirt(p_153230_, p_153228_, p_153227_, p_153229_);
         }
 
-        return super.updateShape(p_53276_, p_53277_, p_53278_, p_53279_, p_53280_, p_53281_);
+        super.fallOn(p_153227_, p_153228_, p_153229_, p_153230_, p_153231_);
     }
 
     @Override
@@ -86,6 +79,38 @@ public class AdvancedBioHarvester extends FarmBlock {
 
     @Override
     protected void tick(BlockState blockState, ServerLevel world, BlockPos pos, RandomSource randomSource) {
+        if (!blockState.canSurvive(world, pos)) {
+        }
+
+        int moisture = blockState.getValue(MOISTURE);
+
+        if (!isNearWater(world, pos) && !world.isRainingAt(pos.above())) {
+            if (moisture > 0) {
+                world.setBlock(pos, blockState.setValue(MOISTURE, moisture - 1), 2);
+            }
+        } else if (moisture < MAX_MOISTURE) {
+            world.setBlock(pos, blockState.setValue(MOISTURE, MAX_MOISTURE), 2);
+        }
+
+        BlockPos abovePos = pos.above();
+        BlockState aboveState = world.getBlockState(abovePos);
+
+        if (isCropReadyToHarvest(aboveState)) {
+            List<ItemStack> drops = Block.getDrops(aboveState, world, abovePos, null);
+            world.setBlock(abovePos, Blocks.AIR.defaultBlockState(), 3);
+
+            boolean replanted = false;
+            for (ItemStack drop : drops) {
+                if (!replanted && replantCrop(world, abovePos, drop)) {
+                    replanted = true;
+                } else if (!insertIntoChestBelow(world, pos, drop)) {
+                    Block.popResource(world, pos.above(), drop);
+                }
+            }
+        }
+    }
+
+    public static void turnToDirt(@Nullable Entity p_270981_, BlockState p_270402_, Level p_270568_, BlockPos p_270551_) {
     }
 
     @Override

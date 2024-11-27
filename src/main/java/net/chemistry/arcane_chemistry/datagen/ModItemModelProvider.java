@@ -209,8 +209,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         return withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/generated"))
-                .texture("layer0",
-                        ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/" + textureLayer));
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/atom"))
+                .texture("layer1", ResourceLocation.fromNamespaceAndPath(Arcane_chemistry.MOD_ID, "item/" + textureLayer));
     }
 
     private ItemModelBuilder reagentItem(DeferredItem<AtomItemReagent> item) {
